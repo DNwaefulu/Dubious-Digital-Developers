@@ -6,6 +6,7 @@ var velocity := Vector2.ZERO
 
 export var controller_index2 = 1
 
+
 export var jump_height : float
 export var jump_time_to_peak : float
 export var jump_time_to_descent : float
