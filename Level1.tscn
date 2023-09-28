@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://BlueGem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GameManager.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Ladder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/trampoline.tscn" type="PackedScene" id=8]
 
 [node name="Level1" type="Node2D"]
 
@@ -36,6 +38,14 @@ position = Vector2( 142, 520 )
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource( 5 )
+
+[node name="GameObjects" type="Node2D" parent="."]
+
+[node name="tramopline" parent="GameObjects" instance=ExtResource( 8 )]
+position = Vector2( 5, -49 )
+
+[node name="Ladder" parent="GameObjects" instance=ExtResource( 7 )]
+position = Vector2( -432, -47 )
 
 [connection signal="body_entered" from="Platforms/Goal" to="GameManager" method="_on_Goal_body_entered"]
 [connection signal="body_entered" from="Platforms/platform" to="GameManager" method="_on_Area2D_body_entered"]

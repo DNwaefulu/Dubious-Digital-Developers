@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=["Climber"]]
 position = Vector2( 0, 1 )
 script = ExtResource( 1 )
 jump_height = 100.0
