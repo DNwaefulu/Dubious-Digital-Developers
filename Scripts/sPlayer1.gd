@@ -1,25 +1,38 @@
 extends KinematicBody2D
 
+#movement speed
 export var move_speed = 200.0
 export var climb_speed = 200.0
 
+#start position for when they die
+var player1_start_position = Vector2(44,480)
+
+#setting initial values for the velocity
 var velocity := Vector2.ZERO
 
+#setting the controller index for the player which for player 1 is zero
 export var controller_index = 0
 
+#all of this code has to do with jumping
 export var jump_height : float
 export var jump_time_to_peak : float
 export var jump_time_to_descent : float
-
 onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
+#exporting variables for movement
 export var move_right := "move_right"
 export var move_left := "move_left"
 export var jump := "jump"
 export var climbing = false
+
+#this variable will be used to see if the player can move
+#mainly used for when the player decides to help the other player get up a ledge 
 var canMove = true
+
+#this will be used to tell the player sprite and the raycast to flip when the character moves
+onready var playerRaycast = $RayCast2D
 
 func _physics_process(delta):
 	if climbing == false:
@@ -39,25 +52,43 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	if not $RayCast2D.is_colliding():
-		print("it isn't")
-	if $RayCast2D.is_colliding():
-		print("it is")
-	
-	if not $RayCast2D.is_colliding() and Input.is_action_pressed("player_lending1"):
+	#if the player is on the ledge and they are holding down right trigger and they are on the floor 
+	#then they can't move and we will call another function later which 
+	#will allow the player jumping to them to grab on and launch themselves
+	if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending1") and is_on_floor():
 		canMove = false
-		print("GRABBING")
+		velocity.x = 0
 	else:
 		canMove = true
+		
+		#OKAY SO WE ARE HARD CODING VALUES HERE
+		#I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
+		#WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
+		#AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
+		#SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
+		#WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
+	if velocity.x > 0:
+		playerRaycast.position.x =40
+	elif velocity.x < 0:
+		playerRaycast.position.x =0
+	
+	#this is a VERY VERY VERY simple way of dealing with player "death" 
+	#right now there are no repurcussions to dying
+	#we can figure it out later 
+	#we can talk about that in our next meeting
+	if position.y > 1000:
+		position = player1_start_position
 
+#honestly i stole most of this code, this just works
 func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
+#jump function, pretty self explanatory i think
 func jump():
 	velocity.y = jump_velocity
 	print(Input.get_connected_joypads())
 
-
+#movement stuff, again, borrowed this code so it just works for the movement 
 func get_input_velocity() -> float:
 	var horizontal := 0.0
 	

@@ -1,10 +1,10 @@
 extends Node2D
 
+#this is where the players will spawn back after they die
+var player1_start_position = Vector2(44,480)
+var player2_start_position = Vector2(262,462)
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
-
+#this keeps track of the total amount of gems that are collected throughout the game
 var globalGemCount = 0 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,3 +41,4 @@ func _on_Goal_body_entered(body: Node) -> void:
 		print("You don't have enough gems")
 	elif(globalGemCount == 3 && body.is_class("KinematicBody2D")):
 		print("MOVE ONTO THE NEXT LEVEL")
+
