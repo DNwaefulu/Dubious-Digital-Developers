@@ -7,7 +7,6 @@ var velocity := Vector2.ZERO
 
 export var controller_index = 0
 
-
 export var jump_height : float
 export var jump_time_to_peak : float
 export var jump_time_to_descent : float
@@ -20,6 +19,7 @@ export var move_right := "move_right"
 export var move_left := "move_left"
 export var jump := "jump"
 export var climbing = false
+var canMove = true
 
 func _physics_process(delta):
 	if climbing == false:
@@ -31,12 +31,24 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("player_down1"):
 			velocity.y = climb_speed
 	
-	velocity.x = get_input_velocity() * move_speed
+	if canMove == true:
+		velocity.x = get_input_velocity() * move_speed
 	
-	if Input.is_action_just_pressed(jump) and is_on_floor() and climbing == false:
+	if Input.is_action_just_pressed(jump) and is_on_floor() and climbing == false and canMove == true:
 		jump()
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	if not $RayCast2D.is_colliding():
+		print("it isn't")
+	if $RayCast2D.is_colliding():
+		print("it is")
+	
+	if not $RayCast2D.is_colliding() and Input.is_action_pressed("player_lending1"):
+		canMove = false
+		print("GRABBING")
+	else:
+		canMove = true
 
 func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
@@ -56,3 +68,6 @@ func get_input_velocity() -> float:
 		horizontal += 1.0
 
 	return horizontal
+
+#func reach_for_player():
+	
