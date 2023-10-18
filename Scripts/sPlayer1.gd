@@ -75,8 +75,8 @@ func _physics_process(delta):
 		playerRaycast.position.x =0
 		
 	
-	#if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false:
-	#	print ("holy shit this is working")
+	if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false:
+		print ("holy shit this is working")
 
 #honestly i stole most of this code, this just works
 func get_gravity() -> float:
@@ -104,5 +104,4 @@ func get_input_velocity() -> float:
 
 func _on_Death_zone_body_entered(body: Node) -> void:
 	position = player1_start_position
-	print("working")
 

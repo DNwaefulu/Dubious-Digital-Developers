@@ -74,6 +74,7 @@ func get_input_velocity() -> float:
 	
 	return horizontal
 
-func _on_Death_zone_body_entered(body: Node) -> void:
+
+
+func _on_Death_zone_body_entered(body):
 	position = player2_start_position
-	print("working")
