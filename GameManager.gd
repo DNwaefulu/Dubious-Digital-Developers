@@ -2,8 +2,9 @@ extends Node2D
 
 #this is where the players will spawn back after they die
 var player1_start_position = Vector2(44,480)
-var player2_start_position = Vector2(262,462)
 
+
+var playerLives = 3
 #this keeps track of the total amount of gems that are collected throughout the game
 var globalGemCount = 0 
 # Called when the node enters the scene tree for the first time.
@@ -42,3 +43,9 @@ func _on_Goal_body_entered(body: Node) -> void:
 	elif(globalGemCount == 3 && body.is_class("KinematicBody2D")):
 		print("MOVE ONTO THE NEXT LEVEL")
 
+
+
+func _on_Death_zone_body_entered(body: Node) -> void:
+	if playerLives <= 0:
+		get_tree().quit()
+	playerLives-=1
