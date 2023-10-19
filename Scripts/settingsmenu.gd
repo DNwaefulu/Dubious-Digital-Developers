@@ -9,32 +9,31 @@ onready var music_slider = $SettingTab/Audio/MarginContainer/Audiosettings/VBoxC
 onready var master_slider = $SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer/HBoxContainer/Masterslider
 
 func _ready():
-	
-	#display_options.select(1 if Save.game_data.fullscreen_on else 0)
-	#GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen_on)
-	#vsync_btn.pressed = Save.game_data.vsync_on
-	#brightness_slider.value = Save.game_data.brightness
-	#master_slider.value = Save.game_data.master_vol
-	pass
+  
+  display_options.select(1 if Save.game_data.fullscreen_on else 0)
+  GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen_on)
+  vsync_btn.pressed = Save.game_data.vsync_on
+  brightness_slider.value = Save.game_data.brightness
+  master_slider.value = Save.game_data.master_vol
 
 
 func _on_Brightnesslevel_value_changed(value):
-	#GlobalSettings.update_brightness(value)
-	pass
+  #GlobalSettings.update_brightness(value)
+  pass
 
 
 func _on_Vsyncbtn_toggled(button_pressed):
-	#GlobalSettings.toggle_vsync(button_pressed)
-	pass
+  #GlobalSettings.toggle_vsync(button_pressed)
+  pass
 
 
 func _on_Option_item_selected(index):
-	#GlobalSettings.toggle_fullscreen(true if index == 1 else false)
-	pass
+  #GlobalSettings.toggle_fullscreen(true if index == 1 else false)
+  pass
 
 
 func _on_Masterslider_value_changed(value):
-	#GlobalSettings.update_master_vol(value)
-	pass
+  #GlobalSettings.update_master_vol(value)
+  pass
 
 

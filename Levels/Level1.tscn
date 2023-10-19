@@ -16,7 +16,7 @@
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 44, 480 )
 
-[node name="Player2" parent="." instance=ExtResource( 2 )]
+[node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 2 )]
 position = Vector2( 262, 462 )
 
 [node name="LiveCount" type="Label" parent="."]
