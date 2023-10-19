@@ -16,13 +16,15 @@
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 44, 480 )
 
-[node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 2 )]
+[node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 262, 462 )
 
 [node name="LiveCount" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Lives: 3"
+margin_left = 12.0
+margin_top = 413.0
+margin_right = 61.0
+margin_bottom = 427.0
+text = "Lives Left: 3"
 align = 2
 
 [node name="Platforms" type="Node2D" parent="."]
@@ -50,10 +52,10 @@ position = Vector2( 142, 520 )
 [node name="GameObjects" type="Node2D" parent="."]
 
 [node name="tramopline" parent="GameObjects" instance=ExtResource( 8 )]
-position = Vector2( 5, -49 )
+position = Vector2( 13, -58 )
 
 [node name="Ladder" parent="GameObjects" instance=ExtResource( 7 )]
-position = Vector2( -432, -47 )
+position = Vector2( -431, -46 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 305 )
@@ -61,17 +63,14 @@ current = true
 smoothing_enabled = true
 script = ExtResource( 9 )
 
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
 [node name="Death zone" parent="." instance=ExtResource( 10 )]
 position = Vector2( -700, 936 )
 scale = Vector2( 3.65, 1 )
 
-[connection signal="body_entered" from="Platforms/Goal" to="GameManager" method="_on_Goal_body_entered"]
-[connection signal="body_entered" from="Platforms/platform" to="GameManager" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
-[connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
-[connection signal="body_entered" from="Gems/BlueGem" to="GameManager" method="_on_BlueGem_body_entered"]
 [connection signal="area_entered" from="Death zone" to="Player1" method="_on_Death_zone_area_entered"]
-[connection signal="area_entered" from="Death zone" to="GameManager" method="_on_Death_zone_area_entered"]
 [connection signal="body_entered" from="Death zone" to="Player1" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="Player2" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="GameManager" method="_on_Death_zone_body_entered"]

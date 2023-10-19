@@ -5,6 +5,10 @@ var player1_start_position = Vector2(44,480)
 
 #this variable just keeps track of player lives 
 var playerLives = 3
+
+# actual text for lives
+onready var LiveCount = get_node("/root/Level1/LiveCount")
+
 #this keeps track of the total amount of gems that are collected throughout the game
 var globalGemCount = 0 
 # Called when the node enters the scene tree for the first time.
@@ -47,3 +51,4 @@ func _on_Death_zone_body_entered(body: Node) -> void:
 	if playerLives <= 0:
 		get_tree().quit()
 	playerLives-=1
+	LiveCount.text = "Lives Left: " + str(playerLives)

@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const play_scene = preload("res://Level1.tscn")
+const play_scene = preload("res://Levels/Level1.tscn")
 const controls_scene = preload("res://Scripts/Controls.tscn")
 const settings_scene = preload("res://Scenes/settingsmenu.tscn")
 const credits_scene = preload("res://Names.tscn")
