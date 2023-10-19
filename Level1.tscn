@@ -17,6 +17,12 @@ position = Vector2( 44, 480 )
 [node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 262, 462 )
 
+[node name="LiveCount" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Lives: 3"
+align = 2
+
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="Goal" parent="Platforms" instance=ExtResource( 1 )]

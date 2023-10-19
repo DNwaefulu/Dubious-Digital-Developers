@@ -22,37 +22,44 @@ export var jump := "jump"
 export var climbing = false
 
 func _physics_process(delta):
-	if climbing == false:
-		velocity.y += get_gravity() * delta
-	elif climbing == true:
-		velocity.y = 0
-		if Input.is_action_pressed("player_climb1"):
-			velocity.y = -climb_speed
-		elif Input.is_action_pressed("player_down1"):
-			velocity.y = climb_speed
-	
-	velocity.x = get_input_velocity() * move_speed
-	
-	if Input.is_action_just_pressed(jump) and is_on_floor() and climbing == false:
-		jump()
-	
-	velocity = move_and_slide(velocity, Vector2.UP)
+  if climbing == false:
+    velocity.y += get_gravity() * delta
+  elif climbing == true:
+    velocity.y = 0
+    if Input.is_action_pressed("player_climb1"):
+      velocity.y = -climb_speed
+    elif Input.is_action_pressed("player_down1"):
+      velocity.y = climb_speed
+  
+  velocity.x = get_input_velocity() * move_speed
+  
+  if Input.is_action_just_pressed(jump) and is_on_floor() and climbing == false:
+    jump()
+  
+  velocity = move_and_slide(velocity, Vector2.UP)
+
 
 func get_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
+  return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func jump():
-	velocity.y = jump_velocity
-	print(Input.get_connected_joypads())
+  velocity.y = jump_velocity
+  print(Input.get_connected_joypads())
 
-
+func _ready():
+  print(self.get_path())
+  var vec = Vector2()
+  vec = get_node("/root/Level1/Player1").position
+  print(vec.y)
+  
+  
 func get_input_velocity() -> float:
-	var horizontal := 0.0
-	
-	if Input.get_action_strength(move_left):
-		horizontal -= 1.0
+  var horizontal := 0.0
+  
+  if Input.get_action_strength(move_left):
+    horizontal -= 1.0
 
-	if Input.get_action_strength(move_right):
-		horizontal += 1.0
+  if Input.get_action_strength(move_right):
+    horizontal += 1.0
 
-	return horizontal
+  return horizontal
