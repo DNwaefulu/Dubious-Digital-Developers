@@ -8,10 +8,6 @@ func _on_Ladder_body_entered(body):
 			print("the body has entered the ladder")
 
 
-
-
-
-
 func _on_Ladder_body_exited(body):
 	if body.is_in_group("Climber"):
 		if body.climbing == true:
