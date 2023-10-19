@@ -18,6 +18,7 @@ position = Vector2( 44, 480 )
 
 [node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 2 )]
 position = Vector2( 262, 462 )
+jump = "jump"
 
 [node name="LiveCount" type="Label" parent="."]
 margin_left = 12.0

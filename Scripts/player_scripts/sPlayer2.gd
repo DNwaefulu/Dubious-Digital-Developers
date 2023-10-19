@@ -30,53 +30,53 @@ export var canMove = true
 onready var playerRaycast = $RayCast2D
 
 func _physics_process(delta):
-	velocity.y += get_gravity() * delta
-	velocity.x = get_input_velocity() * move_speed
-	
-	if Input.is_action_just_pressed(jump) and is_on_floor():
-		jump()
-	
-	if canMove == true:
-		velocity = move_and_slide(velocity, Vector2.UP)
-	
-	#if the player is on the ledge and they are holding down right trigger and they are on the floor 
-	#then they can't move and we will call another function later which 
-	#will allow the player jumping to them to grab on and launch themselves
-	if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
-		canMove = false
-		velocity.x = 0
-	else:
-		canMove = true
-		
-		#OKAY SO WE ARE HARD CODING VALUES HERE
-		#I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
-		#WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
-		#AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
-		#SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
-		#WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
-	if velocity.x > 0:
-		playerRaycast.position.x =40
-	elif velocity.x < 0:
-		playerRaycast.position.x =0
+  velocity.y += get_gravity() * delta
+  velocity.x = get_input_velocity() * move_speed
+  
+  if Input.is_action_just_pressed(jump) and is_on_floor():
+    jump()
+  
+  if canMove == true:
+    velocity = move_and_slide(velocity, Vector2.UP)
+  
+  #if the player is on the ledge and they are holding down right trigger and they are on the floor 
+  #then they can't move and we will call another function later which 
+  #will allow the player jumping to them to grab on and launch themselves
+  if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
+    canMove = false
+    velocity.x = 0
+  else:
+    canMove = true
+    
+    #OKAY SO WE ARE HARD CODING VALUES HERE
+    #I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
+    #WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
+    #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
+    #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
+    #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
+  if velocity.x > 0:
+    playerRaycast.position.x =40
+  elif velocity.x < 0:
+    playerRaycast.position.x =0
 
 func get_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
+  return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func jump():
-	velocity.y = jump_velocity
-	print(Input.get_joy_name(2))
+  velocity.y = jump_velocity
+  print(Input.get_joy_name(2))
 
 func get_input_velocity() -> float:
-	var horizontal := 0.0
-	
-	if Input.get_action_strength(move_left):
-		horizontal -= 1.0
-	if Input.get_action_strength(move_right):
-		horizontal += 1.0
-	
-	return horizontal
+  var horizontal := 0.0
+  
+  if Input.get_action_strength(move_left):
+    horizontal -= 1.0
+  if Input.get_action_strength(move_right):
+    horizontal += 1.0
+  
+  return horizontal
 
 
 
 func _on_Death_zone_body_entered(body):
-	position = player2_start_position
+  position = player2_start_position

@@ -51,4 +51,5 @@ func _on_Death_zone_body_entered(body: Node) -> void:
   if playerLives <= 0:
     get_tree().quit()
   playerLives-=1
+  # Update live counter
   LiveCount.text = "Lives Left: " + str(playerLives)
