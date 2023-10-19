@@ -74,9 +74,17 @@ func _physics_process(delta):
 	elif velocity.x < 0:
 		playerRaycast.position.x =0
 		
-	
+	#THIS WORKS OH MY GOD
+	#okay so what this does basically is
+	#if the player is holding down R2 and they are jumping in the air
+	#and Player 2 is also next to a ledge and holding down R2 then the player jumping will basically get another jump
+	#because the other player is launching them
+	#IT WORKS!!!
 	if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false:
-		print ("holy shit this is working")
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			if collision.collider.name == "Player2":
+				velocity.y = jump_velocity
 
 #honestly i stole most of this code, this just works
 func get_gravity() -> float:
@@ -85,7 +93,6 @@ func get_gravity() -> float:
 #jump function, pretty self explanatory i think
 func jump():
 	velocity.y = jump_velocity
-	print(Input.get_connected_joypads())
 
 #movement stuff, again, borrowed this code so it just works for the movement 
 func get_input_velocity() -> float:
@@ -101,7 +108,8 @@ func get_input_velocity() -> float:
 
 #func reach_for_player():
 	
-
+#whenever the player reaches the death zone then it will just reset them to the position 
+#that's set earlier in this script
 func _on_Death_zone_body_entered(body: Node) -> void:
 	position = player1_start_position
 
