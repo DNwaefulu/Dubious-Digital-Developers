@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 #this is where the players will spawn back after they die
 var player1_start_position = Vector2(44,480)
@@ -7,7 +7,7 @@ var player1_start_position = Vector2(44,480)
 var playerLives = 3
 
 # actual text for lives
-onready var LiveCount = get_node("/root/Level1/LiveCount")
+#onready var LiveCount = get_node("/root/Level1/LiveCount")
 
 #this keeps track of the total amount of gems that are collected throughout the game
 var globalGemCount = 0 
@@ -20,24 +20,14 @@ func _ready() -> void:
 #Each of these are called when a certain gem is collided with
 #so this one gets called when the gem called gem1 gets collected, and it increases the gemCount by 1
 func _on_Gem1_body_entered(_body: Node) -> void:
-
-
   globalGemCount += 1
-  print(globalGemCount)
 
 #same situation here, when gem2 gets colllected then we increase gemcount by 1 again 
 func _on_Gem2_body_entered(_body: Node) -> void:
-
   globalGemCount += 1
-  print(globalGemCount)
 
-
-
-func _on_BlueGem_body_entered(_body: Node) -> void:
-
-
+func _on_Gem_body_entered(body: Node) -> void:
   globalGemCount += 1
-  print(globalGemCount)
 
 
 #Whenever the goalsbody is intersected with a KinematicBody2D (a player) then it will check if enough gems have been collected, 
@@ -59,4 +49,7 @@ func _on_Death_zone_body_entered(_body: Node) -> void:
     get_tree().quit()
   playerLives-=1
   # Update live counter
-  LiveCount.text = "Lives Left: " + str(playerLives)
+  #LiveCount.text = "Lives Left: " + str(playerLives)
+
+
+

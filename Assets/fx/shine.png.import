@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_forest.png-a332c9136cee4f3df8d0ba5c055c5cd5.stex"
+path="res://.import/shine.png-e830f5674e90f4ef446d6e2fa3f3f6f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Level1Assets/tileset_forest.png"
-dest_files=[ "res://.import/tileset_forest.png-a332c9136cee4f3df8d0ba5c055c5cd5.stex" ]
+source_file="res://Assets/fx/shine.png"
+dest_files=[ "res://.import/shine.png-e830f5674e90f4ef446d6e2fa3f3f6f0.stex" ]
 
 [params]
 
