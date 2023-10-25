@@ -24,7 +24,10 @@ onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent
 #exporting variables for movement
 export var move_right := "move_right"
 export var move_left := "move_left"
+
 export var player_jump := "player_jump1"
+
+
 export var climbing = false
 
 #this variable will be used to see if the player can move
@@ -53,7 +56,9 @@ func _physics_process(delta):
   if canMove == true:
     velocity.x = get_input_velocity() * move_speed
   
+
   if Input.is_action_just_pressed("player_jump1") and is_on_floor() and climbing == false and canMove == true:
+
     jump()
   
   velocity = move_and_slide(velocity, Vector2.UP)

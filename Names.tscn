@@ -1,0 +1,21 @@
+[gd_scene format=2]
+
+[node name="Names" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 155.0
+margin_bottom = 124.0
+color = Color( 0.027451, 0.0235294, 0.0235294, 1 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -728.0
+margin_bottom = -449.0
+text = "End Credits
+
+Gavin George
+Siddharth Bhagvagar
+Alejandro Ojeda-Celis
+Deion Nwaefulu"
+align = 1
