@@ -41,7 +41,7 @@ onready var playerRaycast = $RayCast2D
 onready var anim = $AnimatedSprite
 
 func _physics_process(delta):
-    if velocity.x > -1 and is_on_floor() and velocity.x < 1:
+    if velocity.x == 0 and is_on_floor():
         anim.play("a_idle")
     if climbing == false:
         velocity.y += get_gravity() * delta
@@ -57,7 +57,6 @@ func _physics_process(delta):
     
 
     if Input.is_action_just_pressed("player_jump1") and is_on_floor() and climbing == false and canMove == true:
-
         jump()
     
     velocity = move_and_slide(velocity, Vector2.UP)
@@ -108,21 +107,18 @@ func jump():
 #movement stuff, again, borrowed this code so it just works for the movement 
 func get_input_velocity() -> float:
     var horizontal := 0.0
+    
     if Input.get_action_strength(move_left):
         horizontal -= 1.0
         anim.flip_h = true
-    if is_on_floor():
-        anim.play("a_walking")
-    else:
-        anim.play("a_jumping")
-
+        if is_on_floor():
+            anim.play("a_walking")
     if Input.get_action_strength(move_right):
         horizontal += 1.0
         anim.flip_h = false
-    if is_on_floor():
-        anim.play("a_walking")
-    else:
-        anim.play("a_jumping")
+        if is_on_floor():
+            anim.play("a_walking")
+    
     return horizontal
 #whenever the player reaches the death zone then it will just reset them to the position 
 #that's set earlier in this script

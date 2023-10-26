@@ -29,7 +29,11 @@ export var canMove = true
 #this will be used to tell the player sprite and the raycast to flip when the character moves
 onready var playerRaycast = $RayCast2D
 
+onready var anim = $AnimatedSprite
+
 func _physics_process(delta):
+    if velocity.x == 0 and is_on_floor():
+        anim.play("a_p2_idle")
     velocity.y += get_gravity() * delta
     velocity.x = get_input_velocity() * move_speed
     
@@ -45,6 +49,7 @@ func _physics_process(delta):
     if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
         canMove = false
         velocity.x = 0
+        anim.play("a_p2_lending")
     else:
         canMove = true
         
@@ -55,24 +60,36 @@ func _physics_process(delta):
         #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
         #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
     if velocity.x > 0:
-        playerRaycast.position.x =40
+        playerRaycast.position.x =18
     elif velocity.x < 0:
-        playerRaycast.position.x =0
+        playerRaycast.position.x =-16
+        
+    if Input.is_action_pressed("player_lending2") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player1").get("canMove") == false:
+        for i in get_slide_count():
+            var collision = get_slide_collision(i)
+            if collision.collider.name == "Player1":
+                velocity.y = jump_velocity
 
 func get_gravity() -> float:
     return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func jump():
     velocity.y = jump_velocity
-    print(Input.get_joy_name(2))
+    anim.play("a_p2_jumping")
 
 func get_input_velocity() -> float:
     var horizontal := 0.0
     
     if Input.get_action_strength(move_left):
         horizontal -= 1.0
+        anim.flip_h = true
+        if is_on_floor():
+            anim.play("a_p2_walking")
     if Input.get_action_strength(move_right):
         horizontal += 1.0
+        anim.flip_h = false
+        if is_on_floor():
+            anim.play("a_p2_walking")
     
     return horizontal
 
