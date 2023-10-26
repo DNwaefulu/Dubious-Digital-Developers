@@ -39,26 +39,26 @@ func _physics_process(delta):
         velocity.y += get_gravity() * delta
     elif climbing == true:
         velocity.y = 0
-        if Input.is_action_pressed("player_climb1"):
-            velocity.y = -climb_speed
-        elif Input.is_action_pressed("player_down1"):
-            velocity.y = climb_speed
+    if Input.is_action_pressed("player_climb2"):
+        velocity.y = -climb_speed
+    elif Input.is_action_pressed("player_down2"):
+        velocity.y = climb_speed
     velocity.x = get_input_velocity() * move_speed
   
     if Input.is_action_just_pressed(jump2) and is_on_floor():
-        jump()
+      jump()
   
     if canMove == true:
-        velocity = move_and_slide(velocity, Vector2.UP)
+      velocity = move_and_slide(velocity, Vector2.UP)
   
   #if the player is on the ledge and they are holding down right trigger and they are on the floor 
   #then they can't move and we will call another function later which 
   #will allow the player jumping to them to grab on and launch themselves
-  if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
-    canMove = false
-    velocity.x = 0
-  else:
-    canMove = true
+    if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
+        canMove = false
+        velocity.x = 0
+    else:
+        canMove = true
     
     #OKAY SO WE ARE HARD CODING VALUES HERE
     #I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
@@ -66,13 +66,13 @@ func _physics_process(delta):
     #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
     #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
     #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
-  if velocity.x > 0:
-    playerRaycast.position.x =40
-  elif velocity.x < 0:
-    playerRaycast.position.x =0
+    if velocity.x > 0:
+        playerRaycast.position.x =40
+    elif velocity.x < 0:
+        playerRaycast.position.x =0
 
 func get_gravity() -> float:
-  return jump_gravity if velocity.y < 0.0 else fall_gravity
+    return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func jump():
   velocity.y = jump_velocity
