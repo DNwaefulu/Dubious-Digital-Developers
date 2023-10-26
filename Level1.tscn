@@ -1,21 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Players/Player1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://BlueGem.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Ladder.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/trampoline.tscn" type="PackedScene" id=8]
+[ext_resource path="res://DP.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 893.89, 34 )
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 44, 480 )
 
-[node name="Player2" parent="." instance=ExtResource( 2 )]
+[node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 2 )]
 position = Vector2( 262, 462 )
+
+[node name="LiveCount" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Lives: 3"
+align = 2
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -36,9 +45,6 @@ position = Vector2( 222, 518 )
 [node name="BlueGem" parent="Gems" instance=ExtResource( 4 )]
 position = Vector2( 142, 520 )
 
-[node name="GameManager" type="Node2D" parent="."]
-script = ExtResource( 5 )
-
 [node name="GameObjects" type="Node2D" parent="."]
 
 [node name="tramopline" parent="GameObjects" instance=ExtResource( 8 )]
@@ -47,8 +53,13 @@ position = Vector2( 5, -49 )
 [node name="Ladder" parent="GameObjects" instance=ExtResource( 7 )]
 position = Vector2( -432, -47 )
 
-[connection signal="body_entered" from="Platforms/Goal" to="GameManager" method="_on_Goal_body_entered"]
-[connection signal="body_entered" from="Platforms/platform" to="GameManager" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
-[connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
-[connection signal="body_entered" from="Gems/BlueGem" to="GameManager" method="_on_BlueGem_body_entered"]
+[node name="DP" type="Area2D" parent="GameObjects"]
+position = Vector2( 2, 602 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/DP"]
+position = Vector2( 476, 24 )
+scale = Vector2( 0.915415, 0.769862 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="GameObjects/DP" to="GameObjects/DP" method="_on_DP_body_entered"]

@@ -1,8 +1,174 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/MainMenuFonts.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Rocky Roads/Deco/clouds.png" type="Texture" id=4]
+[ext_resource path="res://Assets/IMG_2087.PNG" type="Texture" id=5]
+[ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_forest.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Rocky Roads/Deco/tree.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Rocky Roads/Deco/water_a_8frames.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Rocky Roads/Objects/sign_arrow.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Rocky Roads/Objects/ladder.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Rocky Roads/Objects/bounce pad.png" type="Texture" id=11]
+[ext_resource path="res://Assets/background.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Mainmenu"
+length = 1.25
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/AnimationPlayer/Cloud:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/AnimationPlayer/Water:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/AnimationPlayer/BouncePad:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/AnimationPlayer/Cloud:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/AnimationPlayer/Water:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/AnimationPlayer/Water:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/AnimationPlayer/BouncePad:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="TileSet" id=4]
+5/name = "tileset_forest.png 5"
+5/texture = ExtResource( 6 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 16, 16, 96, 64 )
+5/tile_mode = 2
+5/autotile/icon_coordinate = Vector2( 0, 0 )
+5/autotile/tile_size = Vector2( 16, 16 )
+5/autotile/spacing = 0
+5/autotile/occluder_map = [  ]
+5/autotile/navpoly_map = [  ]
+5/autotile/priority_map = [  ]
+5/autotile/z_index_map = [  ]
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "tileset_forest.png 6"
+6/texture = ExtResource( 6 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 128, 16, 16, 16 )
+6/tile_mode = 2
+6/autotile/icon_coordinate = Vector2( 0, 0 )
+6/autotile/tile_size = Vector2( 16, 16 )
+6/autotile/spacing = 0
+6/autotile/occluder_map = [  ]
+6/autotile/navpoly_map = [  ]
+6/autotile/priority_map = [  ]
+6/autotile/z_index_map = [  ]
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "tileset_forest.png 7"
+7/texture = ExtResource( 6 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 128, 48, 48, 16 )
+7/tile_mode = 2
+7/autotile/icon_coordinate = Vector2( 0, 0 )
+7/autotile/tile_size = Vector2( 16, 16 )
+7/autotile/spacing = 0
+7/autotile/occluder_map = [  ]
+7/autotile/navpoly_map = [  ]
+7/autotile/priority_map = [  ]
+7/autotile/z_index_map = [  ]
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -18,9 +184,67 @@ margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.0117647, 0.0117647, 0.0117647, 1 )
 
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512.5, 299.5 )
+scale = Vector2( 4.01953, 4.20139 )
+texture = ExtResource( 12 )
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
+root_node = NodePath("../..")
+anims/Mainmenu = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="SignArrow" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 58, 513 )
+texture = ExtResource( 9 )
+
+[node name="BouncePad" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 246, 497 )
+scale = Vector2( 1.72117, 1.875 )
+texture = ExtResource( 11 )
+hframes = 4
+
+[node name="Water" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 27.4612, 570 )
+scale = Vector2( 1.72117, 1.875 )
+texture = ExtResource( 8 )
+hframes = 8
+
+[node name="Tree" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 87, 469 )
+scale = Vector2( 2.625, 2.54167 )
+texture = ExtResource( 7 )
+
+[node name="TileMap" type="TileMap" parent="CenterContainer/AnimationPlayer"]
+tile_set = SubResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1835020, 5, 65536, 1835021, 5, 65541, 1900555, 5, 65536, 1900556, 5, 131075, 1966090, 5, 65536, 1966091, 5, 65538, 1966092, 5, 131075, 2031625, 5, 1, 2031626, 5, 131075, 2031627, 5, 131075, 2031628, 5, 65539, 2097160, 5, 65536, 2097161, 5, 131073, 2097162, 5, 131076, 2097163, 5, 131074, 2097164, 5, 65539, 2162691, 5, 65536, 2162692, 5, 2, 2162693, 5, 2, 2162694, 5, 2, 2162695, 5, 2, 2162696, 5, 65538, 2162697, 5, 131075, 2162698, 5, 131075, 2162699, 5, 131076, 2162700, 5, 131073, 2162701, 5, 2, 2162702, 5, 3, 2162703, 5, 65541, 2228227, 5, 131072, 2228228, 5, 131074, 2228229, 5, 131076, 2228230, 5, 131073, 2228231, 5, 131075, 2228232, 5, 131073, 2228233, 5, 65539, 2228234, 5, 131075, 2228235, 5, 131073, 2228236, 5, 131076, 2228237, 5, 65539, 2228238, 5, 131075, 2228239, 5, 131077, 2293763, 5, 131072, 2293764, 5, 131074, 2293765, 5, 131073, 2293766, 5, 65539, 2293767, 5, 131073, 2293768, 5, 131076, 2293769, 5, 65539, 2293770, 5, 131075, 2293771, 5, 131073, 2293772, 5, 65539, 2293773, 5, 131075, 2293774, 5, 65539, 2293775, 5, 131077, 2359299, 5, 131072, 2359300, 5, 131076, 2359301, 5, 131075, 2359302, 5, 131075, 2359303, 5, 131076, 2359304, 5, 131075, 2359305, 5, 65539, 2359306, 5, 131076, 2359307, 5, 131076, 2359308, 5, 131076, 2359309, 5, 131075, 2359310, 5, 65539, 2359311, 5, 131077, 2424835, 5, 196608, 2424836, 5, 131074, 2424837, 5, 131074, 2424838, 5, 131074, 2424839, 5, 131074, 2424840, 5, 131074, 2424841, 5, 131074, 2424842, 5, 131074, 2424843, 5, 131074, 2424844, 5, 131074, 2424845, 5, 131074, 2424846, 5, 131074, 2424847, 5, 196613 )
+
+[node name="Ladder" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 215, 479.875 )
+scale = Vector2( 1, 1.5039 )
+texture = ExtResource( 10 )
+
+[node name="Divider-1" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 304, 301 )
+scale = Vector2( 2.59185, 4.00667 )
+texture = ExtResource( 5 )
+
+[node name="Divider-2" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 712, 301 )
+scale = Vector2( 2.59185, 4.00667 )
+texture = ExtResource( 5 )
+
+[node name="Cloud" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 98, 76 )
+scale = Vector2( 2.82813, 3.625 )
+texture = ExtResource( 4 )
+vframes = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 426.0

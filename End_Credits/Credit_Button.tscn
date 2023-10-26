@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Credits_Button.gd" type="Script" id=1]
+
+[node name="CreditButton" type="Node2D"]
+
+[node name="Credits_Button" type="Button" parent="."]
+margin_left = 422.0
+margin_top = 275.0
+margin_right = 638.0
+margin_bottom = 383.0
+text = "Credits"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="Credits_Button" to="Credits_Button" method="_on_Credits_Button_pressed"]

@@ -1,204 +1,181 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/settingsmenu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="DynamicFont" id=2]
-size = 13
-font_data = ExtResource( 2 )
+[ext_resource path="res://Assets/Enjl-Starry Space Background/background_4.png" type="Texture" id=1]
+[ext_resource path="res://Assets/back-button-white.png" type="Texture" id=2]
+[ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/SettingsMenu.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 17
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
-[node name="Settings" type="Popup"]
-margin_left = 363.0
-margin_top = 136.0
-margin_right = 628.0
-margin_bottom = 451.0
-script = ExtResource( 1 )
+[sub_resource type="DynamicFont" id=3]
+size = 17
+font_data = ExtResource( 3 )
 
-[node name="SettingTab" type="TabContainer" parent="."]
-anchor_right = 0.962
-anchor_bottom = 0.792
-margin_left = 1.0
-margin_top = 3.0
-margin_right = 8.99998
-margin_bottom = 63.0
-custom_constants/side_margin = 0
-custom_fonts/font = SubResource( 2 )
-tab_align = 0
+[sub_resource type="DynamicFont" id=4]
+size = 17
+font_data = ExtResource( 3 )
 
-[node name="Audio" type="Tabs" parent="SettingTab"]
+[node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+script = ExtResource( 4 )
 
-[node name="MarginContainer" type="MarginContainer" parent="SettingTab/Audio"]
-margin_left = 6.0
-margin_top = 11.0
-margin_right = 244.0
-margin_bottom = 265.0
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
 
-[node name="Audiosettings" type="GridContainer" parent="SettingTab/Audio/MarginContainer"]
-margin_right = 239.0
-margin_bottom = 254.0
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture_normal = ExtResource( 2 )
+
+[node name="Background4" type="Sprite" parent="."]
+position = Vector2( 512, 300.5 )
+scale = Vector2( 3.99219, 2.68304 )
+texture = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Audiosettings" type="GridContainer" parent="CenterContainer"]
+margin_left = 376.0
+margin_top = 102.0
+margin_right = 648.0
+margin_bottom = 497.0
 columns = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingTab/Audio/MarginContainer/Audiosettings"]
-margin_right = 239.0
-margin_bottom = 146.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Audiosettings"]
+margin_right = 272.0
+margin_bottom = 395.0
 custom_constants/separation = 46
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer"]
-margin_right = 239.0
-margin_bottom = 18.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
+margin_right = 272.0
+margin_bottom = 29.0
 rect_min_size = Vector2( 222, 0 )
-custom_constants/separation = 40
+custom_constants/separation = 21
 
-[node name="Master" type="Label" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer/HBoxContainer"]
-margin_right = 79.0
-margin_bottom = 18.0
+[node name="Master" type="Label" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer"]
+margin_right = 129.0
+margin_bottom = 29.0
 custom_constants/shadow_as_outline = 0
 custom_fonts/font = SubResource( 1 )
 text = "Master"
 
-[node name="Masterslider" type="HSlider" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer/HBoxContainer"]
-margin_left = 119.0
-margin_right = 239.0
+[node name="Masterslider" type="HSlider" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer"]
+margin_left = 150.0
+margin_right = 270.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer"]
-margin_top = 64.0
-margin_right = 239.0
-margin_bottom = 82.0
-custom_constants/separation = 82
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
+margin_top = 75.0
+margin_right = 272.0
+margin_bottom = 104.0
+custom_constants/separation = 92
 
-[node name="SFX" type="Label" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer/HBoxContainer2"]
-margin_right = 36.0
-margin_bottom = 18.0
+[node name="SFX" type="Label" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer2"]
+margin_right = 59.0
+margin_bottom = 29.0
 custom_constants/shadow_as_outline = 0
 custom_fonts/font = SubResource( 1 )
 text = "SFX"
 
-[node name="SFXslider" type="HSlider" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer/HBoxContainer2"]
-margin_left = 118.0
-margin_right = 238.0
+[node name="SFXslider" type="HSlider" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer2"]
+margin_left = 151.0
+margin_right = 271.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer"]
-margin_top = 128.0
-margin_right = 239.0
-margin_bottom = 146.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
+margin_top = 150.0
+margin_right = 272.0
+margin_bottom = 179.0
 custom_constants/separation = 61
 
-[node name="Music" type="Label" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer/HBoxContainer3"]
-margin_right = 56.0
-margin_bottom = 18.0
+[node name="Music" type="Label" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer3"]
+margin_right = 91.0
+margin_bottom = 29.0
 custom_constants/shadow_as_outline = 0
 custom_fonts/font = SubResource( 1 )
 text = "Music"
 
-[node name="Musicslider" type="HSlider" parent="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer/HBoxContainer3"]
-margin_left = 117.0
-margin_right = 237.0
+[node name="Musicslider" type="HSlider" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer3"]
+margin_left = 152.0
+margin_right = 272.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
 
-[node name="Display" type="Tabs" parent="SettingTab"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
+margin_top = 225.0
+margin_right = 272.0
+margin_bottom = 245.0
+custom_constants/separation = 46
 
-[node name="MarginContainer2" type="MarginContainer" parent="SettingTab/Display"]
-anchor_left = 0.49
-anchor_top = 0.408
-anchor_right = 0.49
-anchor_bottom = 0.408
-margin_left = -118.916
-margin_top = -100.58
-margin_right = 119.084
-margin_bottom = 153.42
-
-[node name="Displaysetting" type="GridContainer" parent="SettingTab/Display/MarginContainer2"]
-margin_right = 248.0
-margin_bottom = 254.0
-columns = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingTab/Display/MarginContainer2/Displaysetting"]
-margin_right = 248.0
-margin_bottom = 162.0
-custom_constants/separation = 42
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer"]
-margin_right = 248.0
-margin_bottom = 20.0
-custom_constants/separation = 23
-
-[node name="ScreenMode" type="Label" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer"]
+[node name="ScreenMode" type="Label" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer4"]
 margin_top = 1.0
 margin_right = 129.0
 margin_bottom = 19.0
 custom_constants/shadow_as_outline = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Screen Mode"
 
-[node name="Option" type="OptionButton" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer"]
-margin_left = 152.0
-margin_right = 248.0
+[node name="Option" type="OptionButton" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer4"]
+margin_left = 175.0
+margin_right = 271.0
 margin_bottom = 20.0
 text = "Windowed"
 items = [ "Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
 selected = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer"]
-margin_top = 62.0
-margin_right = 248.0
-margin_bottom = 102.0
-custom_constants/separation = 96
+[node name="HBoxContainer5" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
+margin_top = 291.0
+margin_right = 272.0
+margin_bottom = 331.0
+custom_constants/separation = 115
 
-[node name="Vsync" type="Label" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer2"]
+[node name="Vsync" type="Label" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer5"]
 margin_top = 11.0
 margin_right = 61.0
 margin_bottom = 29.0
 custom_constants/shadow_as_outline = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Vsync"
 
-[node name="Vsyncbtn" type="CheckButton" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer2"]
-margin_left = 157.0
-margin_right = 233.0
+[node name="Vsyncbtn" type="CheckButton" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer5"]
+margin_left = 176.0
+margin_right = 252.0
 margin_bottom = 40.0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer"]
-margin_top = 144.0
-margin_right = 248.0
-margin_bottom = 162.0
-custom_constants/separation = 29
+[node name="HBoxContainer6" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
+margin_top = 377.0
+margin_right = 272.0
+margin_bottom = 395.0
+custom_constants/separation = 51
 
-[node name="Brightness" type="Label" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer3"]
+[node name="Brightness" type="Label" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer6"]
 margin_right = 116.0
 margin_bottom = 18.0
 custom_constants/shadow_as_outline = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Brightness"
 
-[node name="Brightnesslevel" type="HSlider" parent="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer3"]
-margin_left = 145.0
-margin_right = 245.0
+[node name="Brightnesslevel" type="HSlider" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer6"]
+margin_left = 167.0
+margin_right = 267.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 100, 0 )
 
-[connection signal="value_changed" from="SettingTab/Audio/MarginContainer/Audiosettings/VBoxContainer/HBoxContainer/Masterslider" to="." method="_on_Masterslider_value_changed"]
-[connection signal="item_selected" from="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer/Option" to="." method="_on_Option_item_selected"]
-[connection signal="toggled" from="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer2/Vsyncbtn" to="." method="_on_Vsyncbtn_toggled"]
-[connection signal="value_changed" from="SettingTab/Display/MarginContainer2/Displaysetting/VBoxContainer/HBoxContainer3/Brightnesslevel" to="." method="_on_Brightnesslevel_value_changed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="value_changed" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer/Masterslider" to="." method="_on_Masterslider_value_changed"]
+[connection signal="item_selected" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer4/Option" to="." method="_on_Option_item_selected"]
+[connection signal="toggled" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer5/Vsyncbtn" to="." method="_on_Vsyncbtn_toggled"]
+[connection signal="value_changed" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer6/Brightnesslevel" to="." method="_on_Brightnesslevel_value_changed"]
