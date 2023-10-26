@@ -1,8 +1,5 @@
 extends Node2D
 
-# Declare livecount
-var liveCount = 3
-
 # Get the Hearts
 onready var h1 = get_node("/root/Level1/Camera2D/HeartUI/Heart1")
 onready var h2 = get_node("/root/Level1/Camera2D/HeartUI/Heart2")
@@ -19,15 +16,14 @@ func _ready():
 
 
 # Once a player loses a life
-func _on_GameManager_LiveCount():
-  liveCount -= 1
+func _on_GameManager_LiveCount(playerLives):
   
   # Remove the third heart
-  if (liveCount == 2):
+  if (playerLives == 2):
     h3.texture = load("res://Assets/empty_heart.png")
   # Remove the second heart
-  if (liveCount == 1):
+  if (playerLives == 1):
     h2.texture = load("res://Assets/empty_heart.png")
   # Remove the first heart
-  if (liveCount == 0):
+  if (playerLives == 0):
     h1.texture = load("res://Assets/empty_heart.png")
