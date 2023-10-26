@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bounce pad.png-a9f0e6c4a03b7b78be9276865747b828.stex"
+path="res://.import/background_plains-Sheet2.png-44b4e2e8bf33cf9f270e6afeea8cc92a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bounce pad.png"
-dest_files=[ "res://.import/bounce pad.png-a9f0e6c4a03b7b78be9276865747b828.stex" ]
+source_file="res://Assets/Backgrounds/background_plains-Sheet2.png"
+dest_files=[ "res://.import/background_plains-Sheet2.png-44b4e2e8bf33cf9f270e6afeea8cc92a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

@@ -13,8 +13,10 @@ onready var exit_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBox
 
 var current_selector = 0
 
+
 func _ready():
   set_current_selection(0)
+
 
 func _process(_delta):
   if Input.is_action_just_pressed("ui_down") and current_selector < 4:
@@ -59,3 +61,4 @@ func set_current_selection(_current_selection):
     credits_selector.text = ">"
   elif _current_selection == 4:
     exit_selector.text = ">"
+

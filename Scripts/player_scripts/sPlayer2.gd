@@ -17,8 +17,7 @@ export var jump_time_to_descent : float
 
 export var move_right := "move_right"
 export var move_left := "move_left"
-export var jump2 := "player_jump2"
-export var climbing = false
+export var player_jump := "player_jump2"
 
 onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -31,62 +30,83 @@ export var canMove = true
 #this will be used to tell the player sprite and the raycast to flip when the character moves
 onready var playerRaycast = $RayCast2D
 
+onready var anim = $AnimatedSprite
+
+onready var collisionShape = $CollisionShape2D
+
 func _physics_process(delta):
-# Here is the implimantation for ladder which returns true if the body entered in 
-# the ladder changing the gravity to 0 and false if the body exited the ladder and 
-# changing the gravity back to normal.
-    if climbing == false:
-        velocity.y += get_gravity() * delta
-    elif climbing == true:
-        velocity.y = 0
-        if Input.is_action_pressed("player_climb2"):
-            velocity.y = -climb_speed
-        elif Input.is_action_pressed("player_down2"):
-            velocity.y = climb_speed
+    if velocity.x < 1 and is_on_floor() and velocity.x > -1:
+        anim.play("a_p2_idle")
+    velocity.y += get_gravity() * delta
     velocity.x = get_input_velocity() * move_speed
-  
-    if Input.is_action_just_pressed(jump2) and is_on_floor():
-      jump()
-  
+    
+    if Input.is_action_just_pressed(player_jump) and is_on_floor():
+        jump()
+    
     if canMove == true:
-      velocity = move_and_slide(velocity, Vector2.UP)
-  
-  #if the player is on the ledge and they are holding down right trigger and they are on the floor 
-  #then they can't move and we will call another function later which 
-  #will allow the player jumping to them to grab on and launch themselves
+        velocity = move_and_slide(velocity, Vector2.UP)
+    
+    #if the player is on the ledge and they are holding down right trigger and they are on the floor 
+    #then they can't move and we will call another function later which 
+    #will allow the player jumping to them to grab on and launch themselves
     if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
         canMove = false
         velocity.x = 0
+        anim.play("a_p2_lending")
     else:
         canMove = true
-    
-    #OKAY SO WE ARE HARD CODING VALUES HERE
-    #I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
-    #WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
-    #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
-    #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
-    #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
+        
+        #OKAY SO WE ARE HARD CODING VALUES HERE
+        #I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
+        #WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
+        #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
+        #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
+        #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
     if velocity.x > 0:
-        playerRaycast.position.x =40
+        playerRaycast.position.x =18
     elif velocity.x < 0:
-        playerRaycast.position.x =0
+        playerRaycast.position.x =-16
+        
+    if Input.is_action_pressed("player_lending2") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player1").get("canMove") == false:
+        for i in get_slide_count():
+            var collision = get_slide_collision(i)
+            if collision.collider.name == "Player1":
+                velocity.y = jump_velocity
+    
+    if playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
+        canMove = false
+        velocity.x = 0
+        anim.play("a_p2_prepareThrow")
+        for i in get_slide_count():
+            var collision = get_slide_collision(i)
+            print(collision.collider.name)
+            if collision.collider.name == "Player1":
+                anim.play("a_p2_throw")
+        
+        
 
 func get_gravity() -> float:
     return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func jump():
-  velocity.y = jump_velocity
-  print(Input.get_joy_name(2))
+    velocity.y = jump_velocity
+    anim.play("a_p2_jumping")
 
 func get_input_velocity() -> float:
-  var horizontal := 0.0
-  
-  if Input.get_action_strength(move_left):
-    horizontal -= 1.0
-  if Input.get_action_strength(move_right):
-    horizontal += 1.0
-  
-  return horizontal
+    var horizontal := 0.0
+    
+    if Input.get_action_strength(move_left):
+        horizontal -= 1.0
+        anim.flip_h = true
+        if is_on_floor():
+            anim.play("a_p2_walking")
+    if Input.get_action_strength(move_right):
+        horizontal += 1.0
+        anim.flip_h = false
+        if is_on_floor():
+            anim.play("a_p2_walking")
+    
+    return horizontal
 
 
 
