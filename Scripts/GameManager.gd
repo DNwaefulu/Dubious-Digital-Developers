@@ -1,6 +1,6 @@
 extends Node
 
-signal LiveCount
+signal LiveCount(playerLives)
 
 #this is where the players will spawn back after they die
 var player1_start_position = Vector2(44,480)
@@ -50,7 +50,7 @@ func _on_Death_zone_body_entered(_body: Node) -> void:
     get_tree().quit()
   playerLives-=1
   # Send a signal to the heart manager to update heart UI
-  emit_signal("LiveCount")
+  emit_signal("LiveCount", playerLives)
   # Update live counter
   #LiveCount.text = "Lives Left: " + str(playerLives)
 

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 # Declare livecount
 var liveCount = 3
@@ -19,15 +19,14 @@ func _ready():
 
 
 # Once a player loses a life
-func _on_GameManager_LiveCount():
-  liveCount -= 1
+func _on_GameManager_LiveCount(playerLives):
   
   # Remove the third heart
-  if (liveCount == 2):
-    h3.texture = load("res://Assets/empty_heart.png")
+  if (playerLives == 2):
+    h3.texture = load("res://Assets/objects/empty_heart.png")
   # Remove the second heart
-  if (liveCount == 1):
-    h2.texture = load("res://Assets/empty_heart.png")
+  if (playerLives == 1):
+    h2.texture = load("res://Assets/objects/empty_heart.png")
   # Remove the first heart
-  if (liveCount == 0):
-    h1.texture = load("res://Assets/empty_heart.png")
+  if (playerLives == 0):
+    h1.texture = load("res://Assets//objects/empty_heart.png")
