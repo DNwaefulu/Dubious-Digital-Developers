@@ -186,9 +186,8 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=19]
-radius = 17.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 17.5, 29 )
 
 [node name="Player1" type="KinematicBody2D" groups=["Climber"]]
 script = ExtResource( 1 )
@@ -200,15 +199,15 @@ move_left = "player_left1"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
-animation = "a_p1_throw"
-frame = 5
+animation = "a_idle"
 playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 2 )
-shape = SubResource( 19 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 18, 0 )
 enabled = true
+collision_mask = 2
 collide_with_areas = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 3 )
+shape = SubResource( 37 )

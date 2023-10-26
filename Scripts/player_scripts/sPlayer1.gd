@@ -41,7 +41,8 @@ onready var playerRaycast = $RayCast2D
 onready var anim = $AnimatedSprite
 
 func _physics_process(delta):
-    if velocity.x == 0 and is_on_floor():
+    print(velocity.x)
+    if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_idle")
     if climbing == false:
         velocity.y += get_gravity() * delta
@@ -93,6 +94,16 @@ func _physics_process(delta):
             var collision = get_slide_collision(i)
             if collision.collider.name == "Player2":
                 velocity.y = jump_velocity
+                
+    if playerRaycast.is_colliding() and Input.is_action_pressed("player_lending1") and is_on_floor():
+        canMove = false
+        velocity.x = 0
+        anim.play("a_p1_prepareThrow")
+        for i in get_slide_count():
+            var collision = get_slide_collision(i)
+            print(collision.collider.name)
+            if collision.collider.name == "Player2":
+                anim.play("a_p1_throw")
 
 #honestly i stole most of this code, this just works
 func get_gravity() -> float:

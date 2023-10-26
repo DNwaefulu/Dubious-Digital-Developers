@@ -34,7 +34,7 @@ onready var anim = $AnimatedSprite
 onready var collisionShape = $CollisionShape2D
 
 func _physics_process(delta):
-    if velocity.x == 0 and is_on_floor():
+    if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_p2_idle")
     velocity.y += get_gravity() * delta
     velocity.x = get_input_velocity() * move_speed
