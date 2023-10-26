@@ -37,6 +37,9 @@ onready var playerRaycast = $RayCast2D
 onready var playerArea2D = $ColorRect/Area2D
 
 func _physics_process(delta):
+# Here is the implimantation for ladder which returns true if the body entered in 
+# the ladder changing the gravity to 0 and false if the body exited the ladder and 
+# changing the gravity back to normal.
   if climbing == false:
     velocity.y += get_gravity() * delta
   elif climbing == true:

@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Death_zone.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/full_heart.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/HeartManager.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=11]
 
 [node name="Level1" type="Node2D"]
 
@@ -87,6 +88,14 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 11 )
 
 [node name="TestNode" type="Node2D" parent="Camera2D/HeartUI"]
+[node name="pause" parent="Camera2D" instance=ExtResource( 11 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -83.0
+margin_top = -67.0
+margin_right = -83.0
+margin_bottom = -67.0
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource( 5 )

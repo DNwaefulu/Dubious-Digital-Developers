@@ -2,8 +2,8 @@ extends MarginContainer
 
 const play_scene = preload("res://Levels/Level1.tscn")
 const controls_scene = preload("res://Scripts/Controls.tscn")
-const settings_scene = preload("res://Scenes/settingsmenu.tscn")
-const credits_scene = preload("res://Names.tscn")
+const settings_scene = preload("res://Scenes/SettingsMenu.tscn")
+const credits_scene = preload("res://Scenes/End_Credits.tscn")
 
 onready var play_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
 onready var controls_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
@@ -34,9 +34,8 @@ func handle_selection(_current_selector):
     get_parent().add_child(controls_scene.instance())
     queue_free()
   elif _current_selector == 2:
-    var popup_instance = load("res://Scenes/settingsmenu.tscn").instance()
-    add_child(popup_instance)
-    popup_instance.popup_centered()
+    get_parent().add_child(settings_scene.instance())
+    queue_free()
   elif _current_selector == 3:
     get_parent().add_child(credits_scene.instance())
     queue_free()
