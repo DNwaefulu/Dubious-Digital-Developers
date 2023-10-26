@@ -247,31 +247,31 @@ texture = ExtResource( 4 )
 vframes = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 426.0
+margin_left = 329.0
 margin_top = 126.0
-margin_right = 598.0
+margin_right = 694.0
 margin_bottom = 474.0
 custom_constants/separation = 98
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_right = 172.0
+margin_right = 365.0
 margin_bottom = 37.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
-margin_left = 71.0
-margin_right = 100.0
+margin_right = 365.0
 margin_bottom = 37.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
-text = "?"
+text = "3, 2, 1 Chronicles"
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 135.0
-margin_right = 172.0
+margin_right = 365.0
 margin_bottom = 348.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
-margin_right = 172.0
+margin_left = 96.0
+margin_right = 268.0
 margin_bottom = 213.0
 custom_constants/separation = 22
 
