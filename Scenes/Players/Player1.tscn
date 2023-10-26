@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/player_scripts/sPlayer1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerSprites/Player1.png" type="Texture" id=2]
@@ -73,6 +73,41 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 320, 80, 80, 80 )
 
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 240, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 80, 240, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 160, 240, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 240, 240, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 240, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 400, 240, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 480, 240, 80, 80 )
+
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 2 )
@@ -135,6 +170,16 @@ animations = [ {
 "name": "a_lending",
 "speed": 10.0
 }, {
+"frames": [ SubResource( 30 ) ],
+"loop": true,
+"name": "a_p1_prepareThrow",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"loop": false,
+"name": "a_p1_throw",
+"speed": 10.0
+}, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "a_walking",
@@ -155,7 +200,8 @@ move_left = "player_left1"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
-animation = "a_idle"
+animation = "a_p1_throw"
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

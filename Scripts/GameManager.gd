@@ -26,7 +26,7 @@ func _on_Gem1_body_entered(_body: Node) -> void:
 func _on_Gem2_body_entered(_body: Node) -> void:
   globalGemCount += 1
 
-func _on_Gem_body_entered(body: Node) -> void:
+func _on_Gem_body_entered(_body: Node) -> void:
   globalGemCount += 1
 
 

@@ -466,6 +466,7 @@ points = PoolVector2Array( 0, 0.141983, 10.8233, 0, 10.8233, 16, 0, 15.9695 )
 scale = Vector2( 3, 3 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
+collision_layer = 2
 format = 1
 tile_data = PoolIntArray( 65558, 1, 0, 131074, 6, 0, 131077, 8, 0, 131080, 7, 0, 196608, 2, 0, 196609, 3, 0, 196611, 3, 0, 196612, 3, 0, 196614, 3, 0, 196616, 3, 0, 196618, 14, 0, 196623, 2, 0, 196624, 3, 0, 196626, 3, 0, 196628, 4, 0, 262154, 9, 0, 262155, 19, 0, 262156, 18, 0, 262157, 15, 0, 262158, 18, 0, 262159, 10, 0, 327690, 13, 0, 327691, 11, 0, 327695, 12, 0 )
 
@@ -474,6 +475,7 @@ position = Vector2( 101, 46 )
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 38, 46 )
+collision_mask = 3
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1361, 87 )
