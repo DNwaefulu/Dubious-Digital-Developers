@@ -110,6 +110,6 @@ func get_input_velocity() -> float:
   
 #whenever the player reaches the death zone then it will just reset them to the position 
 #that's set earlier in this script
-func _on_Death_zone_body_entered(body: Node) -> void:
+func _on_Death_zone_body_entered(_body: Node) -> void:
   position = player1_start_position
 

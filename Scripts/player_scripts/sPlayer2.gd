@@ -78,5 +78,5 @@ func get_input_velocity() -> float:
 
 
 
-func _on_Death_zone_body_entered(body):
+func _on_Death_zone_body_entered(_body):
   position = player2_start_position
