@@ -1,5 +1,7 @@
 extends MarginContainer
 
+signal update_settings()
+
 const play_scene = preload("res://Levels/Level1.tscn")
 const controls_scene = preload("res://Scripts/Controls.tscn")
 const settings_scene = preload("res://Scenes/settingsmenu.tscn")
@@ -14,7 +16,10 @@ onready var exit_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBox
 var current_selector = 0
 
 func _ready():
+  $MainMenuNoisePlayer.play()
   set_current_selection(0)
+  emit_signal("update_settings")
+  
 
 func _process(_delta):
   if Input.is_action_just_pressed("ui_down") and current_selector < 4:

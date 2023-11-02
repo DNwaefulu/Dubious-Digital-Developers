@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/MainMenuFonts.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/Audio/button-124476.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/miha mōyo - neutrino.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -190,6 +191,18 @@ rect_pivot_offset = Vector2( -770, -337 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Exit"
+
+[node name="MainMenuNoisePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Music"
+__meta__ = {
+"_editor_description_": "Credit:
+
+neutrino by miha moyo
+Free Music Archive, CC By-ND
+
+"
+}
 
 [node name="SelectorNoisePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

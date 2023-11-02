@@ -14,13 +14,16 @@ func _ready():
   GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen_on)
   vsync_btn.pressed = Save.game_data.vsync_on
   brightness_slider.value = Save.game_data.brightness
+
+  # Update all volume sliders to the proper value
   master_slider.value = Save.game_data.master_vol
+  sfx_slider.value = Save.game_data.sfx_vol
+  music_slider.value = Save.game_data.music_vol
 
 
 func _on_Brightnesslevel_value_changed(value):
   GlobalSettings.update_brightness(value)
   pass
-
 
 func _on_Vsyncbtn_toggled(button_pressed):
   GlobalSettings.toggle_vsync(button_pressed)
@@ -33,7 +36,11 @@ func _on_Option_item_selected(index):
 
 
 func _on_Masterslider_value_changed(value):
-  GlobalSettings.update_master_vol(value)
+  GlobalSettings.update_master_vol(linear2db(value))
   pass
 
+func _on_SFXslider_value_changed(value):
+  GlobalSettings.update_sfx_vol(linear2db(value))
 
+func _on_Musicslider_value_changed(value):
+    GlobalSettings.update_music_vol(linear2db(value))
