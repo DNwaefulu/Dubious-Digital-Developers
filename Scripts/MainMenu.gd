@@ -17,7 +17,8 @@ var current_selector = 0
 func _ready():
   $MainMenuNoisePlayer.play()
   set_current_selection(0)
-  
+  $CenterContainer/AnimationPlayer.play("Mainmenu")
+    
 
 
 func _process(_delta):
