@@ -12,6 +12,8 @@
 [ext_resource path="res://Assets/Rocky Roads/Objects/ladder.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Rocky Roads/Objects/bounce pad.png" type="Texture" id=11]
 [ext_resource path="res://Assets/background.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Audio/button-124476.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Audio/miha mōyo - neutrino.mp3" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Mainmenu"
@@ -275,15 +277,15 @@ margin_right = 268.0
 margin_bottom = 213.0
 custom_constants/separation = 22
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="PlayContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_right = 172.0
 margin_bottom = 25.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayContainer"]
 margin_right = 172.0
 margin_bottom = 25.0
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayContainer/HBoxContainer"]
 margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
@@ -292,7 +294,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
 
-[node name="Play" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Play" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayContainer/HBoxContainer"]
 margin_left = 21.0
 margin_right = 172.0
 margin_bottom = 25.0
@@ -302,16 +304,16 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Play"
 
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="ControlsContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 47.0
 margin_right = 172.0
 margin_bottom = 72.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ControlsContainer"]
 margin_right = 172.0
 margin_bottom = 25.0
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ControlsContainer/HBoxContainer"]
 margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
@@ -320,7 +322,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
 
-[node name="Controls" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+[node name="Controls" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ControlsContainer/HBoxContainer"]
 margin_left = 21.0
 margin_right = 172.0
 margin_bottom = 25.0
@@ -330,17 +332,17 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Controls"
 
-[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="SettingsContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 94.0
 margin_right = 172.0
 margin_bottom = 119.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/SettingsContainer"]
 margin_left = 2.0
 margin_right = 170.0
 margin_bottom = 25.0
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/SettingsContainer/HBoxContainer"]
 margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
@@ -349,7 +351,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
 
-[node name="Settings" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+[node name="Settings" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/SettingsContainer/HBoxContainer"]
 margin_left = 21.0
 margin_right = 168.0
 margin_bottom = 25.0
@@ -358,16 +360,16 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Settings"
 
-[node name="CenterContainer5" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="CreditsContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 141.0
 margin_right = 172.0
 margin_bottom = 166.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer5"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CreditsContainer"]
 margin_right = 172.0
 margin_bottom = 25.0
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer5/HBoxContainer"]
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CreditsContainer/HBoxContainer"]
 margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
@@ -376,7 +378,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
 
-[node name="Credits" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer5/HBoxContainer"]
+[node name="Credits" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CreditsContainer/HBoxContainer"]
 margin_left = 21.0
 margin_right = 172.0
 margin_bottom = 25.0
@@ -386,16 +388,16 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Credits"
 
-[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="ExitContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 188.0
 margin_right = 172.0
 margin_bottom = 213.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer"]
 margin_right = 172.0
 margin_bottom = 25.0
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer/HBoxContainer"]
 margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
@@ -404,7 +406,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
 
-[node name="Exit" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
+[node name="Exit" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer/HBoxContainer"]
 margin_left = 21.0
 margin_right = 172.0
 margin_bottom = 25.0
@@ -413,3 +415,24 @@ rect_pivot_offset = Vector2( -770, -337 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Exit"
+
+[node name="MainMenuNoisePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Music"
+__meta__ = {
+"_editor_description_": "Credit:
+
+neutrino by miha moyo
+Free Music Archive, CC By-ND
+
+"
+}
+
+[node name="SelectorNoisePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+__meta__ = {
+"_editor_description_": "Sound Effect from:
+
+https://pixabay.com/sound-effects/search/menu/"
+}
