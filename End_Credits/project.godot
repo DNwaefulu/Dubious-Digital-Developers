@@ -14,6 +14,10 @@ config/name="End_Credits"
 run/main_scene="res://End_Credits.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=1024
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

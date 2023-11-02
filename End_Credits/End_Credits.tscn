@@ -10,22 +10,44 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
-margin_right = 1022.0
-margin_bottom = 602.0
+margin_right = 1024.0
+margin_bottom = 1620.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
-margin_right = 1025.0
-margin_bottom = 600.0
+margin_right = 1027.0
+margin_bottom = 1027.0
 color = Color( 0.0156863, 0, 0, 1 )
 
-[node name="Label" type="Label" parent="."]
-margin_right = 1022.0
-margin_bottom = 599.0
-text = "The End
+[node name="Timer" type="Timer" parent="Control"]
+
+[node name="Label" type="Label" parent="Control"]
+margin_right = 1027.0
+margin_bottom = 1027.0
+text = "The End"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Control"]
+margin_left = -2.0
+margin_top = 1275.0
+margin_right = 1023.0
+margin_bottom = 1593.0
+text = "Dubious Digital Developers
 
 Gavin George
 Siddharth Bhagvagar
 Alejandro Ojeda-Celis
 Deion Nwaefulu"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="Control"]
+margin_left = 4.0
+margin_top = 1526.0
+margin_right = 1029.0
+margin_bottom = 1844.0
+text = "Resources
+
+https://essssam.itch.io/rocky-roads"
 align = 1
 valign = 1
