@@ -17,7 +17,6 @@ var current_selector = 0
 func _ready():
   $MainMenuNoisePlayer.play()
   set_current_selection(0)
-  emit_signal("update_settings")
   
 
 

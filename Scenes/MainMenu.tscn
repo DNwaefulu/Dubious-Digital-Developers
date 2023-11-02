@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=2]
@@ -417,7 +417,7 @@ custom_fonts/font = SubResource( 1 )
 text = " Exit"
 
 [node name="MainMenuNoisePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 14 )
 bus = "Music"
 __meta__ = {
 "_editor_description_": "Credit:
@@ -429,7 +429,7 @@ Free Music Archive, CC By-ND
 }
 
 [node name="SelectorNoisePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 13 )
 bus = "SFX"
 __meta__ = {
 "_editor_description_": "Sound Effect from:

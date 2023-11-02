@@ -15,6 +15,7 @@ func _ready():
   GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen_on)
   vsync_btn.pressed = Save.game_data.vsync_on
   brightness_slider.value = Save.game_data.brightness
+  $SettingsStreamPlayer.play()
 
   # Update all volume sliders to the proper value
   master_slider.value = Save.game_data.master_vol
@@ -25,6 +26,7 @@ func _ready():
 
 func _process(_delta):
     if Input.is_action_just_pressed("ui_cancel"):
+# warning-ignore:return_value_discarded
         get_tree().change_scene("res://Scenes/MainMenu.tscn")
         queue_free()
 
@@ -43,12 +45,12 @@ func _on_Option_item_selected(index):
   pass
 
 func _on_TextureButton_pressed():
+    # warning-ignore:return_value_discarded
     get_tree().change_scene("res://Scenes/MainMenu.tscn")
     queue_free()
 
 func _on_Masterslider_value_changed(value):
   GlobalSettings.update_master_vol(linear2db(value))
-  pass
 
 func _on_SFXslider_value_changed(value):
   GlobalSettings.update_sfx_vol(linear2db(value))
