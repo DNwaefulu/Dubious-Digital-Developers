@@ -3,5 +3,5 @@
 [ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 36
+size = 33
 font_data = ExtResource( 1 )

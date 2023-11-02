@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const play_scene = preload("res://Levels/Level1.tscn")
+const play_scene = preload("res://LevelMaps/Level1Map.tscn")
 const controls_scene = preload("res://Scripts/Controls.tscn")
 const settings_scene = preload("res://Scenes/SettingsMenu.tscn")
 const credits_scene = preload("res://Scenes/End_Credits.tscn")
@@ -13,8 +13,12 @@ onready var exit_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBox
 
 var current_selector = 0
 
+
 func _ready():
-  set_current_selection(0)
+    set_current_selection(0)
+    $CenterContainer/AnimationPlayer.play("Mainmenu")
+    
+
 
 func _process(_delta):
   if Input.is_action_just_pressed("ui_down") and current_selector < 4:
@@ -59,3 +63,4 @@ func set_current_selection(_current_selection):
     credits_selector.text = ">"
   elif _current_selection == 4:
     exit_selector.text = ">"
+

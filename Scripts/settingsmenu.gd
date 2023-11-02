@@ -27,21 +27,19 @@ func _process(_delta):
 
 func _on_Brightnesslevel_value_changed(value):
   GlobalSettings.update_brightness(value)
-  pass
 
 
 func _on_Vsyncbtn_toggled(button_pressed):
   GlobalSettings.toggle_vsync(button_pressed)
-  pass
 
 
 func _on_Option_item_selected(index):
   GlobalSettings.toggle_fullscreen(true if index == 1 else false)
-  pass
 
 
 func _on_Masterslider_value_changed(value):
   GlobalSettings.update_master_vol(value)
+
 
 func _on_TextureButton_pressed():
     get_tree().change_scene("res://Scenes/MainMenu.tscn")

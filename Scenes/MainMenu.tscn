@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,15 @@
 [ext_resource path="res://Assets/Rocky Roads/Objects/ladder.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Rocky Roads/Objects/bounce pad.png" type="Texture" id=11]
 [ext_resource path="res://Assets/background.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Rocky Roads/Enemies/quicksand_8frames.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_desert.png" type="Texture" id=14]
+[ext_resource path="res://Assets/desert1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Rocky Roads/Enemies/cactus_spike.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Rocky Roads/mountains_b-cropped.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Rocky Roads/Enemies/bat.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Rocky Roads/Deco/lava.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_lava.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Rocky Roads/Objects/sign.png" type="Texture" id=21]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Mainmenu"
@@ -52,6 +61,78 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 3 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/AnimationPlayer/quicksand:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 4 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/AnimationPlayer/spike:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 635, 493 ), Vector2( 605, 493 ), Vector2( 575, 493 ), Vector2( 535, 493 ), Vector2( 505, 493 ), Vector2( 475, 493 ), Vector2( 435, 493 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/AnimationPlayer/lava:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CenterContainer/AnimationPlayer/bat:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 4, 5, 5, 7, 6, 5, 4, 5, 6, 7 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CenterContainer/AnimationPlayer/bat:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = false
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 747, 285 ), Vector2( 820, 280 ), Vector2( 888, 280 ), Vector2( 964, 278 ), Vector2( 1039, 280 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CenterContainer/AnimationPlayer/bat:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -103,6 +184,78 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/AnimationPlayer/quicksand:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/AnimationPlayer/spike:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 635, 493 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CenterContainer/AnimationPlayer/lava:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CenterContainer/AnimationPlayer/bat:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CenterContainer/AnimationPlayer/bat:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CenterContainer/AnimationPlayer/bat:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 747, 285 ) ]
 }
 
 [sub_resource type="TileSet" id=4]
@@ -169,6 +322,174 @@ tracks/3/keys = {
 7/shape_one_way_margin = 0.0
 7/shapes = [  ]
 7/z_index = 0
+8/name = "tileset_desert.png 8"
+8/texture = ExtResource( 14 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 16, 0, 96, 80 )
+8/tile_mode = 2
+8/autotile/icon_coordinate = Vector2( 0, 0 )
+8/autotile/tile_size = Vector2( 16, 16 )
+8/autotile/spacing = 0
+8/autotile/occluder_map = [  ]
+8/autotile/navpoly_map = [  ]
+8/autotile/priority_map = [  ]
+8/autotile/z_index_map = [  ]
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "tileset_desert.png 9"
+9/texture = ExtResource( 14 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 128, 16, 16, 16 )
+9/tile_mode = 2
+9/autotile/icon_coordinate = Vector2( 0, 0 )
+9/autotile/tile_size = Vector2( 16, 16 )
+9/autotile/spacing = 0
+9/autotile/occluder_map = [  ]
+9/autotile/navpoly_map = [  ]
+9/autotile/priority_map = [  ]
+9/autotile/z_index_map = [  ]
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "tileset_desert.png 10"
+10/texture = ExtResource( 14 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 128, 48, 48, 16 )
+10/tile_mode = 2
+10/autotile/icon_coordinate = Vector2( 0, 0 )
+10/autotile/tile_size = Vector2( 16, 16 )
+10/autotile/spacing = 0
+10/autotile/occluder_map = [  ]
+10/autotile/navpoly_map = [  ]
+10/autotile/priority_map = [  ]
+10/autotile/z_index_map = [  ]
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "tileset_lava.png 11"
+11/texture = ExtResource( 20 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 16, 16, 80, 64 )
+11/tile_mode = 2
+11/autotile/icon_coordinate = Vector2( 0, 0 )
+11/autotile/tile_size = Vector2( 16, 16 )
+11/autotile/spacing = 0
+11/autotile/occluder_map = [  ]
+11/autotile/navpoly_map = [  ]
+11/autotile/priority_map = [  ]
+11/autotile/z_index_map = [  ]
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "tileset_lava.png 12"
+12/texture = ExtResource( 20 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 96, 16, 32, 16 )
+12/tile_mode = 2
+12/autotile/icon_coordinate = Vector2( 0, 0 )
+12/autotile/tile_size = Vector2( 16, 16 )
+12/autotile/spacing = 0
+12/autotile/occluder_map = [  ]
+12/autotile/navpoly_map = [  ]
+12/autotile/priority_map = [  ]
+12/autotile/z_index_map = [  ]
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "tileset_lava.png 13"
+13/texture = ExtResource( 20 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 144, 16, 16, 16 )
+13/tile_mode = 2
+13/autotile/icon_coordinate = Vector2( 0, 0 )
+13/autotile/tile_size = Vector2( 16, 16 )
+13/autotile/spacing = 0
+13/autotile/occluder_map = [  ]
+13/autotile/navpoly_map = [  ]
+13/autotile/priority_map = [  ]
+13/autotile/z_index_map = [  ]
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "tileset_lava.png 14"
+14/texture = ExtResource( 20 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 176, 16, 48, 16 )
+14/tile_mode = 2
+14/autotile/icon_coordinate = Vector2( 0, 0 )
+14/autotile/tile_size = Vector2( 16, 16 )
+14/autotile/spacing = 0
+14/autotile/occluder_map = [  ]
+14/autotile/navpoly_map = [  ]
+14/autotile/priority_map = [  ]
+14/autotile/z_index_map = [  ]
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "tileset_lava.png 15"
+15/texture = ExtResource( 20 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 112, 48, 112, 48 )
+15/tile_mode = 2
+15/autotile/icon_coordinate = Vector2( 0, 0 )
+15/autotile/tile_size = Vector2( 16, 16 )
+15/autotile/spacing = 0
+15/autotile/occluder_map = [  ]
+15/autotile/navpoly_map = [  ]
+15/autotile/priority_map = [  ]
+15/autotile/z_index_map = [  ]
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -184,10 +505,20 @@ margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.0117647, 0.0117647, 0.0117647, 1 )
 
-[node name="Background" type="Sprite" parent="."]
+[node name="Background-forest" type="Sprite" parent="."]
 position = Vector2( 512.5, 299.5 )
 scale = Vector2( 4.01953, 4.20139 )
 texture = ExtResource( 12 )
+
+[node name="Background-desert" type="Sprite" parent="."]
+position = Vector2( 583, 252.75 )
+scale = Vector2( 0.240365, 0.334954 )
+texture = ExtResource( 15 )
+
+[node name="MountainsB-cropped" type="Sprite" parent="."]
+position = Vector2( 832, 307 )
+scale = Vector2( 3.56738, 4.83984 )
+texture = ExtResource( 17 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 1024.0
@@ -198,8 +529,22 @@ root_node = NodePath("../..")
 anims/Mainmenu = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
+[node name="bat" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+visible = false
+position = Vector2( 747, 285 )
+scale = Vector2( 1.5332, 1.52344 )
+texture = ExtResource( 18 )
+hframes = 4
+vframes = 2
+
+[node name="Sign" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 315, 479 )
+scale = Vector2( 3, 2.15625 )
+texture = ExtResource( 21 )
+
 [node name="SignArrow" type="Sprite" parent="CenterContainer/AnimationPlayer"]
-position = Vector2( 58, 513 )
+position = Vector2( 63, 509 )
+scale = Vector2( 1.625, 1.25 )
 texture = ExtResource( 9 )
 
 [node name="BouncePad" type="Sprite" parent="CenterContainer/AnimationPlayer"]
@@ -219,11 +564,23 @@ position = Vector2( 87, 469 )
 scale = Vector2( 2.625, 2.54167 )
 texture = ExtResource( 7 )
 
+[node name="lava" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 802.5, 552.5 )
+scale = Vector2( 4.7963, 1.97917 )
+texture = ExtResource( 19 )
+hframes = 7
+
+[node name="quicksand" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 484.5, 537.5 )
+scale = Vector2( 2.75, 1.46875 )
+texture = ExtResource( 13 )
+hframes = 7
+
 [node name="TileMap" type="TileMap" parent="CenterContainer/AnimationPlayer"]
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 1835020, 5, 65536, 1835021, 5, 65541, 1900555, 5, 65536, 1900556, 5, 131075, 1966090, 5, 65536, 1966091, 5, 65538, 1966092, 5, 131075, 2031625, 5, 1, 2031626, 5, 131075, 2031627, 5, 131075, 2031628, 5, 65539, 2097160, 5, 65536, 2097161, 5, 131073, 2097162, 5, 131076, 2097163, 5, 131074, 2097164, 5, 65539, 2162691, 5, 65536, 2162692, 5, 2, 2162693, 5, 2, 2162694, 5, 2, 2162695, 5, 2, 2162696, 5, 65538, 2162697, 5, 131075, 2162698, 5, 131075, 2162699, 5, 131076, 2162700, 5, 131073, 2162701, 5, 2, 2162702, 5, 3, 2162703, 5, 65541, 2228227, 5, 131072, 2228228, 5, 131074, 2228229, 5, 131076, 2228230, 5, 131073, 2228231, 5, 131075, 2228232, 5, 131073, 2228233, 5, 65539, 2228234, 5, 131075, 2228235, 5, 131073, 2228236, 5, 131076, 2228237, 5, 65539, 2228238, 5, 131075, 2228239, 5, 131077, 2293763, 5, 131072, 2293764, 5, 131074, 2293765, 5, 131073, 2293766, 5, 65539, 2293767, 5, 131073, 2293768, 5, 131076, 2293769, 5, 65539, 2293770, 5, 131075, 2293771, 5, 131073, 2293772, 5, 65539, 2293773, 5, 131075, 2293774, 5, 65539, 2293775, 5, 131077, 2359299, 5, 131072, 2359300, 5, 131076, 2359301, 5, 131075, 2359302, 5, 131075, 2359303, 5, 131076, 2359304, 5, 131075, 2359305, 5, 65539, 2359306, 5, 131076, 2359307, 5, 131076, 2359308, 5, 131076, 2359309, 5, 131075, 2359310, 5, 65539, 2359311, 5, 131077, 2424835, 5, 196608, 2424836, 5, 131074, 2424837, 5, 131074, 2424838, 5, 131074, 2424839, 5, 131074, 2424840, 5, 131074, 2424841, 5, 131074, 2424842, 5, 131074, 2424843, 5, 131074, 2424844, 5, 131074, 2424845, 5, 131074, 2424846, 5, 131074, 2424847, 5, 196613 )
+tile_data = PoolIntArray( 65535, 8, 0, 1638420, 10, 0, 1638421, 10, 0, 1638422, 10, 0, 1638423, 10, 0, 1638431, 8, 0, 1638446, 14, 0, 1638447, 14, 1, 1638448, 14, 2, 1703967, 8, 0, 1703991, 12, 0, 1703992, 12, 1, 1769503, 8, 0, 1835020, 5, 65536, 1835021, 5, 65541, 1835059, 12, 0, 1835060, 12, 1, 1900555, 5, 65536, 1900556, 5, 131075, 1966090, 5, 65536, 1966091, 5, 65538, 1966092, 5, 131075, 2031625, 5, 1, 2031626, 5, 131075, 2031627, 5, 131075, 2031628, 5, 65539, 2031650, 8, 3, 2031654, 8, 3, 2097159, 8, 2, 2097160, 5, 65536, 2097161, 5, 131073, 2097162, 5, 131076, 2097163, 5, 131074, 2097164, 5, 65539, 2097170, 8, 131072, 2097171, 8, 65538, 2097172, 8, 65538, 2097173, 8, 65538, 2097174, 8, 65538, 2097175, 8, 65538, 2097176, 8, 65538, 2097177, 8, 65538, 2097178, 8, 65538, 2097179, 8, 131077, 2097184, 8, 131072, 2097185, 8, 65538, 2097186, 8, 65538, 2097187, 8, 65539, 2097188, 8, 65538, 2097189, 8, 65538, 2097190, 8, 65539, 2097191, 8, 65539, 2097192, 8, 131077, 2097210, 11, 1, 2097211, 11, 2, 2097212, 13, 0, 2097213, 14, 1, 2097214, 13, 0, 2097215, 14, 1, 2162691, 5, 65536, 2162692, 5, 2, 2162693, 5, 2, 2162694, 5, 2, 2162695, 5, 2, 2162696, 5, 65538, 2162697, 5, 131075, 2162698, 5, 131075, 2162699, 5, 131076, 2162700, 5, 131073, 2162701, 5, 2, 2162702, 5, 3, 2162703, 5, 65541, 2162705, 8, 131072, 2162706, 8, 196611, 2162707, 8, 196609, 2162708, 8, 196609, 2162709, 8, 196610, 2162710, 8, 196610, 2162711, 8, 196609, 2162712, 8, 196610, 2162713, 8, 196611, 2162714, 8, 196611, 2162715, 8, 196613, 2162720, 8, 196608, 2162721, 8, 196610, 2162722, 8, 131075, 2162723, 8, 196610, 2162724, 8, 196610, 2162725, 8, 196611, 2162726, 8, 196609, 2162727, 8, 196610, 2162728, 8, 196613, 2162746, 11, 131072, 2228227, 5, 131072, 2228228, 5, 131074, 2228229, 5, 131076, 2228230, 5, 131073, 2228231, 5, 131075, 2228232, 5, 131073, 2228233, 5, 65539, 2228234, 5, 131075, 2228235, 5, 131073, 2228236, 5, 131076, 2228237, 5, 65539, 2228238, 5, 131075, 2228239, 5, 131077, 2228240, 8, 196608, 2228241, 8, 196610, 2228242, 8, 196611, 2228243, 8, 196609, 2228244, 8, 196611, 2228245, 8, 196611, 2228246, 8, 196611, 2228247, 8, 131075, 2228248, 8, 196611, 2228249, 8, 196611, 2228250, 8, 196611, 2228251, 8, 196610, 2228252, 8, 65538, 2228253, 8, 65538, 2228254, 8, 65539, 2228255, 8, 65539, 2228256, 8, 196611, 2228257, 8, 196611, 2228258, 8, 196610, 2228259, 8, 131075, 2228260, 8, 196610, 2228261, 8, 196611, 2228262, 8, 196610, 2228263, 8, 196611, 2228264, 8, 196613, 2228282, 11, 131072, 2228283, 11, 131073, 2228284, 11, 131075, 2228285, 11, 131075, 2228286, 11, 131073, 2293763, 5, 131072, 2293764, 5, 131074, 2293765, 5, 131073, 2293766, 5, 65539, 2293767, 5, 131073, 2293768, 5, 131076, 2293769, 5, 65539, 2293770, 5, 131075, 2293771, 5, 131073, 2293772, 5, 65539, 2293773, 5, 131075, 2293774, 5, 65539, 2293775, 5, 131077, 2293776, 8, 196608, 2293777, 8, 196611, 2293778, 8, 131074, 2293779, 8, 131075, 2293780, 8, 196609, 2293781, 8, 196611, 2293782, 8, 196611, 2293783, 8, 131074, 2293784, 8, 131075, 2293785, 8, 196611, 2293786, 8, 196611, 2293787, 8, 196609, 2293788, 8, 196611, 2293789, 8, 196610, 2293790, 8, 196609, 2293791, 8, 196611, 2293792, 8, 131075, 2293793, 8, 196611, 2293794, 8, 196611, 2293795, 8, 196611, 2293796, 8, 131075, 2293797, 8, 196611, 2293798, 8, 196611, 2293799, 8, 196611, 2293800, 8, 196613, 2293818, 11, 131072, 2293819, 11, 131075, 2293820, 11, 131073, 2293823, 11, 131073, 2359299, 5, 131072, 2359300, 5, 131076, 2359301, 5, 131075, 2359302, 5, 131075, 2359303, 5, 131076, 2359304, 5, 131075, 2359305, 5, 65539, 2359306, 5, 131076, 2359307, 5, 131076, 2359308, 5, 131076, 2359309, 5, 131075, 2359310, 5, 65539, 2359311, 5, 131077, 2359312, 8, 196608, 2359313, 8, 196611, 2359314, 8, 131075, 2359315, 8, 131074, 2359316, 8, 196611, 2359317, 8, 196611, 2359318, 8, 196610, 2359319, 8, 131075, 2359320, 8, 196611, 2359321, 8, 196611, 2359322, 8, 196611, 2359323, 8, 196610, 2359324, 8, 196611, 2359325, 8, 196610, 2359326, 8, 196611, 2359327, 8, 196610, 2359328, 8, 196611, 2359329, 8, 196610, 2359330, 8, 196609, 2359331, 8, 196609, 2359332, 8, 196611, 2359333, 8, 196611, 2359334, 8, 196609, 2359335, 8, 196610, 2359336, 8, 196613, 2359354, 11, 131072, 2359355, 11, 131073, 2359356, 11, 131075, 2359357, 11, 131075, 2359358, 11, 131073, 2424835, 5, 196608, 2424836, 5, 131074, 2424837, 5, 131074, 2424838, 5, 131074, 2424839, 5, 131074, 2424840, 5, 131074, 2424841, 5, 131074, 2424842, 5, 131074, 2424843, 5, 131074, 2424844, 5, 131074, 2424845, 5, 131074, 2424846, 5, 131074, 2424847, 5, 196613, 2424848, 8, 262144, 2424849, 8, 262148, 2424850, 8, 262148, 2424851, 8, 262148, 2424852, 8, 262148, 2424853, 8, 262147, 2424854, 8, 262147, 2424855, 8, 262147, 2424856, 8, 262146, 2424857, 8, 262147, 2424858, 8, 262146, 2424859, 8, 262146, 2424860, 8, 262146, 2424861, 8, 262146, 2424862, 8, 262145, 2424863, 8, 262146, 2424864, 8, 262146, 2424865, 8, 262147, 2424866, 8, 262147, 2424867, 8, 262146, 2424868, 8, 262146, 2424869, 8, 262146, 2424870, 8, 262147, 2424871, 8, 262147, 2424872, 8, 262149, 2424890, 11, 196608, 2424891, 11, 196611, 2424892, 11, 196610, 2424893, 11, 196610, 2424894, 11, 196609, 2424895, 11, 196612 )
 
 [node name="Ladder" type="Sprite" parent="CenterContainer/AnimationPlayer"]
 position = Vector2( 215, 479.875 )
@@ -246,32 +603,38 @@ scale = Vector2( 2.82813, 3.625 )
 texture = ExtResource( 4 )
 vframes = 3
 
+[node name="spike" type="Sprite" parent="CenterContainer/AnimationPlayer"]
+position = Vector2( 635, 493 )
+scale = Vector2( 3.625, 3.03125 )
+texture = ExtResource( 16 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 426.0
-margin_top = 126.0
-margin_right = 598.0
-margin_bottom = 474.0
+margin_left = 350.0
+margin_top = 127.0
+margin_right = 674.0
+margin_bottom = 472.0
 custom_constants/separation = 98
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_right = 172.0
-margin_bottom = 37.0
+margin_right = 324.0
+margin_bottom = 34.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
-margin_left = 71.0
-margin_right = 100.0
-margin_bottom = 37.0
+margin_right = 324.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0.0470588, 0.0470588, 0.0431373, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
-text = "?"
+text = "3, 2, 1 Chronicles"
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 135.0
-margin_right = 172.0
-margin_bottom = 348.0
+margin_top = 132.0
+margin_right = 324.0
+margin_bottom = 345.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
-margin_right = 172.0
+margin_left = 76.0
+margin_right = 248.0
 margin_bottom = 213.0
 custom_constants/separation = 22
 
@@ -288,6 +651,7 @@ margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
@@ -298,6 +662,7 @@ margin_right = 172.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 151, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Play"
@@ -316,6 +681,7 @@ margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
@@ -326,6 +692,7 @@ margin_right = 172.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 151, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Controls"
@@ -345,6 +712,7 @@ margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
@@ -354,6 +722,7 @@ margin_left = 21.0
 margin_right = 168.0
 margin_bottom = 25.0
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Settings"
@@ -372,6 +741,7 @@ margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
@@ -382,6 +752,8 @@ margin_right = 172.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 151, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Credits"
@@ -400,6 +772,7 @@ margin_right = 17.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 17, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = ">"
@@ -410,6 +783,7 @@ margin_right = 172.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 151, 0 )
 rect_pivot_offset = Vector2( -770, -337 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = " Exit"
