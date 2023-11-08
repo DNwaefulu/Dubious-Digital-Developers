@@ -64,9 +64,9 @@ func _process(delta):
 			label.rect_position.y -= speed * delta
 		
 			# Check if the Label is out of the screen
-			if label.rect_position.y < -get_viewport_rect().size.y / 2:
+			#if label.rect_position.y < -get_viewport_rect().size.y / 2:
 				# Reset the position for continuous scrolling
-				label.rect_position.y = get_viewport_rect().size.y / 2
+			#	label.rect_position.y = get_viewport_rect().size.y / 2
 			
 			# Scaling effect
 			if label.rect_scale.x < 1:
@@ -74,7 +74,17 @@ func _process(delta):
 				label.rect_scale.x = min(1, label.rect_scale.x + 0.02 * delta)
 				label.rect_scale.y = label.rect_scale.x  # Assuming you want to maintain aspect ratio
 				
-			
+	# Check if the last label has reached a certain point
+	if labels.size() > 0:
+		var last_label = labels[-1]  # Get the last label
+		var last_label_bottom = last_label.rect_position.y + last_label.rect_size.y
+		
+		# Adjust this value based on your desired trigger point
+		var trigger_point = -get_viewport_rect().size.y / 2
+
+		if last_label_bottom < trigger_point:
+			# Transition to a new scene or perform any other action
+			get_tree().change_scene("res://Credit_Button.tscn")
 	
 		
 
