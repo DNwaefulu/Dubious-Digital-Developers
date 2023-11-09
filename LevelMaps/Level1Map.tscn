@@ -468,7 +468,7 @@ points = PoolVector2Array( 0, 0.141983, 10.8233, 0, 10.8233, 16, 0, 15.9695 )
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( -873, -598 )
+position = Vector2( -874, -598 )
 scale = Vector2( 10.1133, 10.2639 )
 texture = ExtResource( 15 )
 centered = false
@@ -490,12 +490,15 @@ position = Vector2( 140, 20 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 13 )
 
+[node name="Heart2" type="Sprite" parent="Camera2D/HeartUI"]
+position = Vector2( 86, 20 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 13 )
+
 [node name="Heart1" type="Sprite" parent="Camera2D/HeartUI"]
 position = Vector2( 32, 20 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 13 )
-
-[node name="HeartUI" type="CanvasLayer" parent="Camera2D2"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 3, 3 )
