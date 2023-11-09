@@ -10,7 +10,7 @@ onready var credit = $Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+    $CreditsStreamPlayer.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +23,7 @@ func _process(delta):
         # Reset the position for continuous scrolling
         credit.rect_position.y = get_viewport_rect().size.y / 2
     if Input.is_action_just_pressed("ui_cancel"):
+        # warning-ignore:return_value_discarded
         get_tree().change_scene("res://Scenes/MainMenu.tscn")
         queue_free()
 
@@ -30,5 +31,6 @@ func _process(delta):
 
 
 func _on_TextureButton_pressed():
+    # warning-ignore:return_value_discarded
     get_tree().change_scene("res://Scenes/MainMenu.tscn")
     queue_free()

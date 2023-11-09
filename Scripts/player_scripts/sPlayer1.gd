@@ -41,7 +41,7 @@ onready var playerRaycast = $RayCast2D
 onready var anim = $AnimatedSprite
 
 func _physics_process(delta):
-    print(velocity.x)
+    #print(velocity.x)
     if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_idle")
     if climbing == false:

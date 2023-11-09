@@ -21,14 +21,27 @@ func update_brightness(value):
   
   
 func update_master_vol(vol):
-  AudioServer.set_bus_volume_db(0, vol)
-  Save.game_data.master_vol = vol
+  var bus_name = "Master"
+  var bus_index = AudioServer.get_bus_index(bus_name)
+  AudioServer.set_bus_volume_db(bus_index, vol)
+  # Revert db to linear to fit in the range of [0, 1]
+  Save.game_data.master_vol = db2linear(vol)
   Save.save_data()
   
   
 func update_music_vol(vol):
-  AudioServer.set_bus_volume_db(1, vol)
+  var bus_name = "Music"
+  var bus_index = AudioServer.get_bus_index(bus_name)
+  AudioServer.set_bus_volume_db(bus_index, vol)
+  # Revert db to linear to fit in the range of [0, 1]
+  Save.game_data.music_vol = db2linear(vol)
+  Save.save_data()
   
     
 func update_sfx_vol(vol):
-  AudioServer.set_bus_volume_db(2, vol)
+  var bus_name = "SFX"
+  var bus_index = AudioServer.get_bus_index(bus_name)
+  AudioServer.set_bus_volume_db(bus_index, vol)
+  # Revert db to linear to fit in the range of [0, 1]
+  Save.game_data.sfx_vol = db2linear(vol)
+  Save.save_data()

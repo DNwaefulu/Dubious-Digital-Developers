@@ -9,7 +9,7 @@ var velocity := Vector2.ZERO
 
 export var controller_index2 = 1
 
-var player2_start_position = Vector2(262,462)
+var player2_start_position = Vector2(40,50)
 
 export var jump_height : float
 export var jump_time_to_peak : float

@@ -1,8 +1,5 @@
 extends Node
 
-# Declare livecount
-var liveCount = 3
-
 # Get the Hearts
 onready var h1 = get_node("/root/Level1/Camera2D/HeartUI/Heart1")
 onready var h2 = get_node("/root/Level1/Camera2D/HeartUI/Heart2")

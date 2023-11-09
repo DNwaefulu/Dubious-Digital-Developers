@@ -1,33 +1,37 @@
 extends MarginContainer
 
-const play_scene = preload("res://LevelMaps/Level1Map.tscn")
+const play_scene = preload("res://Scenes/Levelselect.tscn")
 const controls_scene = preload("res://Scripts/Controls.tscn")
 const settings_scene = preload("res://Scenes/SettingsMenu.tscn")
 const credits_scene = preload("res://Scenes/End_Credits.tscn")
 
-onready var play_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
-onready var controls_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
-onready var settings_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Selector
-onready var credits_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer5/HBoxContainer/Selector
-onready var exit_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer/Selector
+onready var play_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayContainer/HBoxContainer/Selector
+onready var controls_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ControlsContainer/HBoxContainer/Selector
+onready var settings_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/SettingsContainer/HBoxContainer/Selector
+onready var credits_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CreditsContainer/HBoxContainer/Selector
+onready var exit_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer/HBoxContainer/Selector
 
 var current_selector = 0
 
 
 func _ready():
-    set_current_selection(0)
-    $CenterContainer/AnimationPlayer.play("Mainmenu")
-    
+  $MainMenuNoisePlayer.play()
+  $CenterContainer/AnimationPlayer.play("Mainmenu")
+  set_current_selection(0)
+  
 
 
 func _process(_delta):
   if Input.is_action_just_pressed("ui_down") and current_selector < 4:
     current_selector +=1
+    $SelectorNoisePlayer.play()
     set_current_selection(current_selector)
   elif Input.is_action_just_pressed("ui_up") and current_selector > 0:
     current_selector -=1
+    $SelectorNoisePlayer.play()
     set_current_selection(current_selector)
   elif Input.is_action_just_pressed("ui_accept"):
+    $SelectorNoisePlayer.play()
     handle_selection(current_selector)
 
 func handle_selection(_current_selector):

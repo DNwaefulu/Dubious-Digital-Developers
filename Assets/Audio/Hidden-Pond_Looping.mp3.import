@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hidden-Pond_Looping.mp3-94d9c67b1facdec66bf9794075e069ac.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Hidden-Pond_Looping.mp3"
+dest_files=[ "res://.import/Hidden-Pond_Looping.mp3-94d9c67b1facdec66bf9794075e069ac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
