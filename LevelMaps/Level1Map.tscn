@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Assets/Level1Assets/tileset_forest.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/background.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Audio/bgm/Grasslands Theme.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 16, 0, 16 )
@@ -500,6 +501,15 @@ position = Vector2( 32, 20 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 13 )
 
+[node name="GameOver" type="CanvasLayer" parent="Camera2D"]
+
+[node name="GameOver" parent="Camera2D/GameOver" instance=ExtResource( 17 )]
+visible = false
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 1026.0
+margin_bottom = 595.0
+
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 3, 3 )
 tile_set = SubResource( 2 )
@@ -582,6 +592,7 @@ volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
+[connection signal="GameOver" from="GameManager" to="Camera2D/GameOver/GameOver" method="_on_GameManager_GameOver"]
 [connection signal="LiveCount" from="GameManager" to="Camera2D/HeartManager" method="_on_GameManager_LiveCount"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]

@@ -1,6 +1,7 @@
 extends Node
 
 signal LiveCount(playerLives)
+signal GameOver()
 
 #this is where the players will spawn back after they die
 var player1_start_position = Vector2(44,480)
@@ -49,7 +50,7 @@ func _on_Goal_body_entered(body: Node) -> void:
 #game over screen right now
 func _on_Death_zone_body_entered(_body: Node) -> void:
   if playerLives <= 0:
-    get_tree().quit()
+    emit_signal("GameOver")
   playerLives-=1
   # Send a signal to the heart manager to update heart UI
   emit_signal("LiveCount", playerLives)
