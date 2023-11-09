@@ -1,5 +1,12 @@
 extends Node2D
 
+onready var Forestbody1 = $AnimationPlayer/forestselecter1
+onready var Forestbody2 = $AnimationPlayer/forestselecter2
+onready var Desertbody1 = $AnimationPlayer/desertselector1
+onready var Desertbody2 = $AnimationPlayer/desertselector2
+onready var Lavabody1 = $AnimationPlayer/lavaselector1
+onready var Lavabody2 = $AnimationPlayer/lavaselector2
+
 var body1enteredforest = 0
 var body1entereddesert = 0
 var body1enteredlava = 0
@@ -14,8 +21,15 @@ var body2desert = false
 var body1lava = false
 var body2lava = false
 
-
-
+func _ready():
+    Forestbody1.visible = false
+    Forestbody2.visible = false
+    Desertbody1.visible = false
+    Lavabody1.visible = false
+    Desertbody2.visible = false
+    Lavabody2.visible = false
+    $AnimationPlayer.play("levelselector")
+    
 func _on_Area2D_body_entered(body):
     if body.is_in_group("1"):
         if body1forest == false:
@@ -32,18 +46,27 @@ func _process(_delta):
         if body1forest == true:
             print("enter the level -1")
             body1enteredforest = 1
+            Forestbody1.visible = true
             body1entereddesert = 0
+            Desertbody1.visible = false
             body1enteredlava = 0
+            Lavabody1.visible = false
         if body1desert == true:
             print("enter the level -2")
             body1entereddesert = 1
+            Desertbody1.visible = true
             body1enteredlava = 0
+            Lavabody1.visible = false
             body1enteredforest = 0
+            Forestbody1.visible = false
         if body1lava == true:
             print("enter the level -3")
             body1enteredlava = 1
+            Lavabody1.visible = true
             body1enteredforest = 0
+            Forestbody1.visible = false
             body1entereddesert = 0
+            Desertbody1.visible = false
         if body1enteredforest+body2enteredforest == 2:
             if get_tree().change_scene("res://LevelMaps/Level1Map.tscn") != OK:
                 print("Error!")
@@ -60,18 +83,27 @@ func _process(_delta):
         if body2forest == true:
             print("enter the level -1")
             body2enteredforest = 1
+            Forestbody2.visible = true
             body2entereddesert = 0
+            Desertbody2.visible = false
             body2enteredlava = 0
+            Lavabody2.visible = false
         if body2desert == true:
             print("enter the level -2")
             body2entereddesert = 1
+            Desertbody2.visible = true
             body2enteredlava = 0
+            Lavabody2.visible = false
             body2enteredforest = 0
+            Forestbody2.visible = false
         if body2lava == true:
             print("enter the level -3")
             body2enteredlava = 1
+            Lavabody2.visible = true
             body2enteredforest = 0
+            Forestbody2.visible = false
             body2entereddesert = 0
+            Desertbody2.visible = false
         if body1enteredforest+body2enteredforest == 2:
             if get_tree().change_scene("res://LevelMaps/Level1Map.tscn") != OK:
                 print("Error!")
