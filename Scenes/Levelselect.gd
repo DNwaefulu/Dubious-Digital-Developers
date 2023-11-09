@@ -14,7 +14,8 @@ var body2desert = false
 var body1lava = false
 var body2lava = false
 
-
+func _ready():
+    $LevelSelect.play()
 
 func _on_Area2D_body_entered(body):
     if body.is_in_group("1"):
