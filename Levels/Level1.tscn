@@ -1,17 +1,19 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Players/Player1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/BlueGem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Gem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Ladder.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/trampoline.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/s_Camera.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Death_zone.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/full_heart.png" type="Texture" id=11]
+[ext_resource path="res://Assets/objects/full_heart.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/HeartManager.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=13]
+
 
 [node name="Level1" type="Node2D"]
 
@@ -66,7 +68,7 @@ smoothing_enabled = true
 script = ExtResource( 9 )
 
 [node name="HeartManager" type="Node2D" parent="Camera2D"]
-position = Vector2( -512, -305 )
+position = Vector2( -610, -369 )
 script = ExtResource( 12 )
 
 [node name="HeartUI" type="CanvasLayer" parent="Camera2D"]
@@ -86,7 +88,17 @@ position = Vector2( 130, 30 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 11 )
 
+[node name="pause" parent="Camera2D" instance=ExtResource( 13 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -83.0
+margin_top = -67.0
+margin_right = -83.0
+margin_bottom = -67.0
+
 [node name="GameManager" type="Node2D" parent="."]
+position = Vector2( -129, -25 )
 script = ExtResource( 5 )
 
 [node name="Death zone" parent="." instance=ExtResource( 10 )]

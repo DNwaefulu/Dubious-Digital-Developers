@@ -1,11 +1,9 @@
 extends MarginContainer
 
-signal update_settings()
-
-const play_scene = preload("res://Levels/Level1.tscn")
+const play_scene = preload("res://LevelMaps/Level1Map.tscn")
 const controls_scene = preload("res://Scripts/Controls.tscn")
-const settings_scene = preload("res://Scenes/settingsmenu.tscn")
-const credits_scene = preload("res://Names.tscn")
+const settings_scene = preload("res://Scenes/SettingsMenu.tscn")
+const credits_scene = preload("res://Scenes/End_Credits.tscn")
 
 onready var play_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayContainer/HBoxContainer/Selector
 onready var controls_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ControlsContainer/HBoxContainer/Selector
@@ -15,11 +13,13 @@ onready var exit_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBox
 
 var current_selector = 0
 
+
 func _ready():
   $MainMenuNoisePlayer.play()
+  $CenterContainer/AnimationPlayer.play("Mainmenu")
   set_current_selection(0)
-  emit_signal("update_settings")
   
+
 
 func _process(_delta):
   if Input.is_action_just_pressed("ui_down") and current_selector < 4:
@@ -42,9 +42,8 @@ func handle_selection(_current_selector):
     get_parent().add_child(controls_scene.instance())
     queue_free()
   elif _current_selector == 2:
-    var popup_instance = load("res://Scenes/settingsmenu.tscn").instance()
-    add_child(popup_instance)
-    popup_instance.popup_centered()
+    get_parent().add_child(settings_scene.instance())
+    queue_free()
   elif _current_selector == 3:
     get_parent().add_child(credits_scene.instance())
     queue_free()
@@ -68,3 +67,4 @@ func set_current_selection(_current_selection):
     credits_selector.text = ">"
   elif _current_selection == 4:
     exit_selector.text = ">"
+
