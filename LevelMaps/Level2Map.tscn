@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/Players/Player1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/HeartManager.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/HeartManager2.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Audio/More-8-Bit-Drama_Looping.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Scripts/s_Camera.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_desert.png" type="Texture" id=19]
@@ -119,9 +119,9 @@ texture = ExtResource( 22 )
 [node name="GameOver" parent="Camera2D/GameOver" instance=ExtResource( 5 )]
 visible = false
 margin_left = -28.0
-margin_top = 3.0
+margin_top = -9.0
 margin_right = 1055.0
-margin_bottom = 592.0
+margin_bottom = 613.0
 
 [node name="pause" parent="Camera2D" instance=ExtResource( 2 )]
 visible = false

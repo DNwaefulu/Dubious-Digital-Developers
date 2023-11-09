@@ -1,9 +1,9 @@
 extends Node
 
 # Get the Hearts
-onready var h1 = get_node("/root/Level1/Camera2D/HeartUI/Heart1")
-onready var h2 = get_node("/root/Level1/Camera2D/HeartUI/Heart2")
-onready var h3 = get_node("/root/Level1/Camera2D/HeartUI/Heart3")
+onready var h1 = get_node("/root/level2/Camera2D/HeartUI/Heart1")
+onready var h2 = get_node("/root/level2/Camera2D/HeartUI/Heart2")
+onready var h3 = get_node("/root/level2/Camera2D/HeartUI/Heart3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
