@@ -66,5 +66,3 @@ func _on_Death_zone_body_entered(_body: Node) -> void:
   # Update live counter
   #LiveCount.text = "Lives Left: " + str(playerLives)
 
-
-
