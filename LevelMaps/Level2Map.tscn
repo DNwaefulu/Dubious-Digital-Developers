@@ -93,12 +93,6 @@ scale = Vector2( 1.16094, 1.16296 )
 texture = ExtResource( 20 )
 centered = false
 
-[node name="pause" parent="." instance=ExtResource( 2 )]
-visible = false
-
-[node name="HeartManager" type="Node" parent="."]
-script = ExtResource( 10 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 smoothing_enabled = true
 script = ExtResource( 18 )
@@ -128,6 +122,12 @@ margin_left = -28.0
 margin_top = 3.0
 margin_right = 1055.0
 margin_bottom = 592.0
+
+[node name="pause" parent="Camera2D" instance=ExtResource( 2 )]
+visible = false
+
+[node name="HeartManager" type="Node" parent="Camera2D"]
+script = ExtResource( 10 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 3, 3 )
@@ -177,7 +177,7 @@ autoplay = true
 
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
 [connection signal="GameOver" from="GameManager" to="Camera2D/GameOver/GameOver" method="_on_GameManager_GameOver"]
-[connection signal="LiveCount" from="GameManager" to="HeartManager" method="_on_GameManager_LiveCount"]
+[connection signal="LiveCount" from="GameManager" to="Camera2D/HeartManager" method="_on_GameManager_LiveCount"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
 [connection signal="body_entered" from="Gems/Gem" to="GameManager" method="_on_Gem_body_entered"]
