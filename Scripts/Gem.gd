@@ -12,5 +12,4 @@ func _ready() -> void:
 
 
 func _on_Area2D_body_entered(_body: Node) -> void:
-
   queue_free()

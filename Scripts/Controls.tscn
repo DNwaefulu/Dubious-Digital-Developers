@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/MainMenuFonts.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/Controls.gd" type="Script" id=2]
+[ext_resource path="res://Assets/back-button-white.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Audio/stardust-danijel-zambo-main-version-03-13-1372.mp3" type="AudioStream" id=4]
 
 [node name="ColorRect" type="ColorRect"]
 anchor_right = 1.0
@@ -8,6 +11,16 @@ anchor_bottom = 1.0
 margin_left = 1.0
 margin_right = 1.0
 color = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
+
+[node name="Player1 Movement" type="Label" parent="."]
+margin_left = 72.0
+margin_top = 199.0
+margin_right = 340.0
+margin_bottom = 276.0
+custom_fonts/font = ExtResource( 1 )
+text = "Player 1:
+WASD - Move"
 
 [node name="Player1 Movement" type="Label" parent="."]
 margin_left = 72.0
@@ -34,3 +47,20 @@ margin_bottom = 273.0
 custom_fonts/font = ExtResource( 1 )
 text = "Player 2:
 Arrows - Move"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 4.0
+margin_top = -15.0
+margin_right = 132.0
+margin_bottom = 113.0
+texture_normal = ExtResource( 3 )
+
+[node name="ControlsStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": "Music from #Uppbeat (free for Creators!):
+https://uppbeat.io/t/danijel-zambo/stardust
+License code: R4TEAVWDGJCZ6AJU"
+}
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
