@@ -17,6 +17,8 @@ var globalGemCount = 0
 func _ready() -> void:
   pass # Replace with function body.
 
+#this is here just to make things simpler for sound effects sake, i'm sure there is a better way to 
+#do it but this is the easiest way for me
 
 #I don't know godot well enough to make a better version of this but if you come up with something let me know !
 #Each of these are called when a certain gem is collided with

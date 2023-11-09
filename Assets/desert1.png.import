@@ -2,24 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-<<<<<<<< HEAD:Assets/PlayerSprites/Player1.png.import
-path="res://.import/Player1.png-f108a68445d5395502ccfe741f7c827f.stex"
-========
 path="res://.import/desert1.png-6f6802433b9f088b2aa7286ebee6d63e.stex"
->>>>>>>> pre-main:Assets/desert1.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/PlayerSprites/Player1.png.import
-source_file="res://Assets/PlayerSprites/Player1.png"
-dest_files=[ "res://.import/Player1.png-f108a68445d5395502ccfe741f7c827f.stex" ]
-========
 source_file="res://Assets/desert1.png"
 dest_files=[ "res://.import/desert1.png-6f6802433b9f088b2aa7286ebee6d63e.stex" ]
->>>>>>>> pre-main:Assets/desert1.png.import
 
 [params]
 
@@ -40,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

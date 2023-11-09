@@ -41,7 +41,6 @@ onready var playerRaycast = $RayCast2D
 onready var anim = $AnimatedSprite
 
 func _physics_process(delta):
-    print(velocity.x)
     if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_idle")
     if climbing == false:
@@ -101,7 +100,6 @@ func _physics_process(delta):
         anim.play("a_p1_prepareThrow")
         for i in get_slide_count():
             var collision = get_slide_collision(i)
-            print(collision.collider.name)
             if collision.collider.name == "Player2":
                 anim.play("a_p1_throw")
 
@@ -113,6 +111,7 @@ func get_gravity() -> float:
 func jump():
     velocity.y = jump_velocity
     anim.play("a_jumping")
+    $JumpSound.play()
 
 
 #movement stuff, again, borrowed this code so it just works for the movement 
@@ -133,5 +132,6 @@ func get_input_velocity() -> float:
     return horizontal
 #whenever the player reaches the death zone then it will just reset them to the position 
 #that's set earlier in this script
-func _on_Death_zone_body_entered(_body: Node) -> void:
-  position = player1_start_position
+func _on_Death_zone_body_entered(body: Node) -> void:
+    if (body == self):
+        position = player1_start_position

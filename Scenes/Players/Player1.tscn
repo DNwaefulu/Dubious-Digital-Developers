@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/player_scripts/sPlayer1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerSprites/Player1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Audio/sfx/jump_01.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -211,3 +212,11 @@ collide_with_areas = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, 3 )
 shape = SubResource( 37 )
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -2.0
+
+[node name="forwardRaycast" type="RayCast2D" parent="."]
+
+[node name="backwardRaycast" type="RayCast2D" parent="."]
