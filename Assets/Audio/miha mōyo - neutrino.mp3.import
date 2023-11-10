@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/miha mōyo - neutrino.mp3-95781bd5924f43da4d71f486b4a0f8b3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/miha mōyo - neutrino.mp3"
+dest_files=[ "res://.import/miha mōyo - neutrino.mp3-95781bd5924f43da4d71f486b4a0f8b3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
