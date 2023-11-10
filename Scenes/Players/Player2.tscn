@@ -167,11 +167,11 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 15.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 16.5, 31 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 1 )
 jump_height = 100.0
 jump_time_to_peak = 0.5
@@ -186,14 +186,25 @@ animation = "a_p2_throw"
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 3 )
-shape = SubResource( 3 )
+position = Vector2( 3.5, 3 )
+shape = SubResource( 35 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 18, 0 )
 enabled = true
-collision_mask = 2
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -2.0
+
+[node name="forwardRaycast" type="RayCast2D" parent="."]
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 1.5299e-06, 35 )
+collision_mask = 2
+
+[node name="backwardRaycast" type="RayCast2D" parent="."]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( -1.39876e-06, 32 )
+collision_mask = 2

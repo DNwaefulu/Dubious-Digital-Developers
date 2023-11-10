@@ -40,6 +40,16 @@ onready var playerRaycast = $RayCast2D
 #getting a reference to the animation sprite
 onready var anim = $AnimatedSprite
 
+#testing forward raycast
+onready var forwardRaycast = $forwardRaycast
+onready var backRaycast = $backwardRaycast
+#okay so, since we don't have state machines, we have to put everything here
+#I have to make this boolean variable to see if the player is in the middle of throwing
+#if they are not throwing, then we will be doing the prepare throw animation
+#if we are throwing then we will wait until the animation is done, and then we will go back to the
+#prepare throw animation
+var throwing = false
+
 func _physics_process(delta):
     if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_idle")
@@ -94,15 +104,22 @@ func _physics_process(delta):
             if collision.collider.name == "Player2":
                 velocity.y = jump_velocity
                 
+    #okay so this is supposed to be the code for if the other player comes into contact
+    #with this player while they are trying to throw them, then it will play an animation 
+    #BUT ITS NOT WORKING HOW I WANT IT TO, 
+    #its kinda working so it'll do for now
     if playerRaycast.is_colliding() and Input.is_action_pressed("player_lending1") and is_on_floor():
         canMove = false
         velocity.x = 0
-        anim.play("a_p1_prepareThrow")
-        for i in get_slide_count():
-            var collision = get_slide_collision(i)
-            if collision.collider.name == "Player2":
+        if throwing == false:
+            anim.play("a_p1_prepareThrow")
+        if backRaycast.is_colliding():
+            print(backRaycast.get_collider())
+            if backRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player2"):
+                throwing = true
                 anim.play("a_p1_throw")
-
+                yield(anim,"animation_finished")
+                throwing = false
 #honestly i stole most of this code, this just works
 func get_gravity() -> float:
     return jump_gravity if velocity.y < 0.0 else fall_gravity

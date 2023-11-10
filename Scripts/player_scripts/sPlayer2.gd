@@ -34,6 +34,18 @@ onready var anim = $AnimatedSprite
 
 onready var collisionShape = $CollisionShape2D
 
+#these are the raycasts that are going to be used for throwing and stuffffffff
+#i could HONESTLY fix some code so its a lot cleaner 
+#now that i think about it but damn i just need this to work 
+onready var forwardRaycast = $forwardRaycast
+onready var backRaycast = $backwardRaycast
+#okay so, since we don't have state machines, we have to put everything here
+#I have to make this boolean variable to see if the player is in the middle of throwing
+#if they are not throwing, then we will be doing the prepare throw animation
+#if we are throwing then we will wait until the animation is done, and then we will go back to the
+#prepare throw animation
+var throwing = false
+
 func _physics_process(delta):
     if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_p2_idle")
@@ -82,9 +94,16 @@ func _physics_process(delta):
             print(collision.collider.name)
             if collision.collider.name == "Player1":
                 anim.play("a_p2_throw")
-        
-        
-
+    
+    #OKAY so this ccode is working,BUT since the characters are able to collide with one another
+    #they don't go nowhere :/
+    #so what i need to do is either
+    #A) make it to where if they get launched then they can't collide with each other for a second
+    #B) remmove their collision entirely 
+    #i'll try that and see how it plays
+    if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player1") and get_tree().get_root().get_node("Level1/Player1").get("throwing") == true:
+        move_and_slide( Vector2(100, jump_velocity * 2) )
+            
 func get_gravity() -> float:
     return jump_gravity if velocity.y < 0.0 else fall_gravity
 
