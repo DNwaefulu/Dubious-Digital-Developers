@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Gem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=2]
@@ -13,9 +13,14 @@
 [ext_resource path="res://Assets/Audio/More-8-Bit-Drama_Looping.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Scripts/GemCounter.gd" type="Script" id=12]
 [ext_resource path="res://Assets/objects/gem.png" type="Texture" id=13]
+[ext_resource path="res://Assets/pink/4.png" type="Texture" id=14]
+[ext_resource path="res://Assets/pink/5.png" type="Texture" id=15]
+[ext_resource path="res://Assets/pink/7.png" type="Texture" id=16]
+[ext_resource path="res://Assets/pink/6.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/s_Camera.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_desert.png" type="Texture" id=19]
 [ext_resource path="res://Assets/desert.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Audio/sfx/single-firework-79814.mp3" type="AudioStream" id=21]
 [ext_resource path="res://Assets/objects/full_heart.png" type="Texture" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -191,6 +196,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=12]
 resource_name = "spin"
 
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ) ],
+"loop": false,
+"name": "default",
+"speed": 4.0
+} ]
+
 [node name="level2" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -296,6 +309,21 @@ texture = ExtResource( 22 )
 [node name="Goal" parent="." instance=ExtResource( 8 )]
 position = Vector2( 492, 148 )
 
+[node name="Fireworks" type="Node2D" parent="Goal"]
+position = Vector2( 15, -31 )
+__meta__ = {
+"_editor_description_": "https://nyknck.itch.io/firework-pixel"
+}
+
+[node name="Explosionm" type="AnimatedSprite" parent="Goal/Fireworks"]
+visible = false
+position = Vector2( 108, -49 )
+frames = SubResource( 13 )
+
+[node name="FireworkPlayer" type="AudioStreamPlayer" parent="Goal/Fireworks"]
+stream = ExtResource( 21 )
+bus = "SFX"
+
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 9 )
 
@@ -323,11 +351,14 @@ script = ExtResource( 18 )
 stream = ExtResource( 11 )
 volume_db = -10.0
 autoplay = true
+bus = "Music"
 
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
+[connection signal="animation_finished" from="Goal/Fireworks/Explosionm" to="Goal" method="_on_Explosionm_animation_finished"]
 [connection signal="GameOver" from="GameManager" to="Camera2D/GameOver/GameOver" method="_on_GameManager_GameOver"]
 [connection signal="GemCount" from="GameManager" to="Camera2D/GemCounter" method="_on_GameManager_GemCount"]
+[connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]
 [connection signal="LiveCount" from="GameManager" to="Camera2D/HeartManager" method="_on_GameManager_LiveCount"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]

@@ -2,6 +2,7 @@ extends Node
 
 signal LiveCount(playerLives)
 signal GemCount(globalGemCount)
+signal LevelOver()
 signal GameOver()
 
 #this is where the players will spawn back after they die
@@ -46,7 +47,7 @@ func _on_Goal_body_entered(_body: Node) -> void:
   print(playerinGoal)
   if playerinGoal == 2:
     if globalGemCount == 3:
-        print("Go to Level Select")
+        emit_signal("LevelOver")
 
 func _on_Goal_body_exited(_body):
     playerinGoal -= 1
