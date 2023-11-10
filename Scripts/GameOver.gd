@@ -32,8 +32,9 @@ func handle_selection(_current_selector):
     self.hide()
     print("hide")
     # warning-ignore:return_value_discarded
-    print(get_tree().get_root())
-    get_tree().change_scene_to(level1)
+    print(get_tree().get_current_scene().get_name())
+    var currentlvl = load("res://LevelMaps/"+ str(get_tree().get_current_scene().get_name()) + "Map.tscn")
+    get_tree().change_scene_to(currentlvl)
   elif _current_selector == 1:
     # warning-ignore:return_value_discarded
     get_tree().change_scene_to(main_menu)
