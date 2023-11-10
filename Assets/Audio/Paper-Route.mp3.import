@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Paper-Route.mp3-5de234988dfb31a6ca5c24d7a2463234.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Paper-Route.mp3"
+dest_files=[ "res://.import/Paper-Route.mp3-5de234988dfb31a6ca5c24d7a2463234.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

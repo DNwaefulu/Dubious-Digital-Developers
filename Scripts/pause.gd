@@ -3,6 +3,7 @@ extends Control
 
 onready var Resume_selector = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer/Selector
 onready var quit_selector = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer3/Selector
+const main_menu = preload("res://Scenes/MainMenu.tscn")
 
 var current_pause_selector = 0
 #creates a var and set the value false using the function
@@ -37,7 +38,9 @@ func handle_selection(_current_selector):
     self.is_paused =  false
   elif _current_selector == 1:
     self.is_paused =  false
-    get_tree().quit()
+    #get_tree().quit()
+    # warning-ignore:return_value_discarded
+    get_tree().change_scene_to(main_menu)
 
 func set_current_selection(_current_selection):
   Resume_selector.text = ""

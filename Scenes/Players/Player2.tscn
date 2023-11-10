@@ -197,3 +197,4 @@ collision_mask = 2
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -2.0
+bus = "SFX"

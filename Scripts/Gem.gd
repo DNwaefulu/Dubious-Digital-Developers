@@ -15,6 +15,8 @@ func _ready() -> void:
 
 func _on_Area2D_body_entered(_body: Node) -> void:
     stream.play()
+    #$CollisionShape2D.disabled = true
+    print("disabled")
     $GemSprite.visible = false
     gemGetSprite.visible = true
     gemGetAnim.play("GemGet")
