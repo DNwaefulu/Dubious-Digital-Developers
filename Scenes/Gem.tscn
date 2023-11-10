@@ -5,6 +5,9 @@
 [ext_resource path="res://Assets/Audio/sfx/coin1.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Rocky Roads/FX/coin_collect.png" type="Texture" id=4]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.5, 12 )
+
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
@@ -40,9 +43,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "spin"
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 13.5, 12 )
-
 [sub_resource type="Animation" id=5]
 resource_name = "GemGet"
 tracks/0/type = "value"
@@ -76,6 +76,10 @@ tracks/0/keys = {
 [node name="Gem" type="Area2D"]
 script = ExtResource( 1 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
 [node name="GemSprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
@@ -86,9 +90,6 @@ reset_on_save = false
 anims/RESET = SubResource( 2 )
 anims/rotate = SubResource( 3 )
 anims/spin = SubResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
