@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Ladder.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/objects/ladder.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 205 )
@@ -14,8 +14,8 @@ position = Vector2( 615, 395 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 616.5, 395 )
-scale = Vector2( 0.453125, 6.40625 )
+position = Vector2( 614, 342 )
+scale = Vector2( 2, 8 )
 texture = ExtResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_Ladder_body_entered"]
