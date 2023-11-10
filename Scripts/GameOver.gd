@@ -4,7 +4,10 @@ onready var Resume_selector = $ColorRect/CenterContainer/VBoxContainer/HBoxConta
 onready var quit_selector = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer3/Selector
 
 var level1 = load("res://LevelMaps/Level1Map.tscn")
+var level2 = load("res://LevelMaps/Level2Map.tscn")
+var level3 = load("res://LevelMaps/Level3Map.tscn")
 const main_menu = preload("res://Scenes/MainMenu.tscn")
+
 
 var current_pause_selector = 0
 
@@ -29,6 +32,7 @@ func handle_selection(_current_selector):
     self.hide()
     print("hide")
     # warning-ignore:return_value_discarded
+    print(get_tree().get_root())
     get_tree().change_scene_to(level1)
   elif _current_selector == 1:
     # warning-ignore:return_value_discarded

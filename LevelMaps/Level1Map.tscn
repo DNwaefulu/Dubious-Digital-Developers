@@ -605,7 +605,7 @@ tile_data = PoolIntArray( 65558, 1, 0, 131074, 6, 0, 131077, 8, 0, 131080, 7, 0,
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 101, 46 )
 
-[node name="Player2" parent="." instance=ExtResource( 2 )]
+[node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 2 )]
 position = Vector2( 38, 46 )
 collision_mask = 3
 
