@@ -21,6 +21,7 @@ func _process(_delta):
 func handle_selection(_current_selector):
   if _current_selector == 0:
     self.hide()
+    print("hide")
     pass
   elif _current_selector == 1:
     pass

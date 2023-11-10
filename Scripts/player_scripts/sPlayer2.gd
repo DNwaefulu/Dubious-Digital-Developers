@@ -91,6 +91,7 @@ func get_gravity() -> float:
 func jump():
     velocity.y = jump_velocity
     anim.play("a_p2_jumping")
+    $JumpSound.play()
 
 func get_input_velocity() -> float:
     var horizontal := 0.0
@@ -110,5 +111,6 @@ func get_input_velocity() -> float:
 
 
 
-func _on_Death_zone_body_entered(_body):
-  position = player2_start_position
+func _on_Death_zone_body_entered(body: Node) -> void:
+    if (body == self):
+        position = player2_start_position

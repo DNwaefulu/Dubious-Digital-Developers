@@ -1,10 +1,7 @@
 extends Node
 
 signal LiveCount(playerLives)
-signal SFXPlayer(sfx)
 signal GameOver()
-
-const play_again = preload("res://Scenes/Game Over.tscn")
 
 #this is where the players will spawn back after they die
 var player1_start_position = Vector2(44,480)
@@ -21,6 +18,8 @@ var globalGemCount = 0
 func _ready() -> void:
   pass # Replace with function body.
 
+#this is here just to make things simpler for sound effects sake, i'm sure there is a better way to 
+#do it but this is the easiest way for me
 
 #I don't know godot well enough to make a better version of this but if you come up with something let me know !
 #Each of these are called when a certain gem is collided with
@@ -37,8 +36,6 @@ func _on_Gem2_body_entered(_body: Node) -> void:
   globalGemCount += 1
 
 func _on_Gem_body_entered(_body: Node) -> void:
-  #play gem sfx
-  emit_signal("SFXPlayer", "GemGet")
   globalGemCount += 1
 
 
@@ -58,11 +55,12 @@ func _on_Goal_body_entered(body: Node) -> void:
 func _on_Death_zone_body_entered(_body: Node) -> void:
   if playerLives <= 0:
     emit_signal("GameOver")
-    pass
   playerLives-=1
   # Send a signal to the heart manager to update heart UI
   emit_signal("LiveCount", playerLives)
   emit_signal("SFXPlayer", "LifeLost")
   # Update live counter
   #LiveCount.text = "Lives Left: " + str(playerLives)
+
+
 

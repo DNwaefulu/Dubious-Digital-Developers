@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/More-8-Bit-Drama_Looping.mp3-2fa64e1d24955410692797a8b9aee391.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/More-8-Bit-Drama_Looping.mp3"
+dest_files=[ "res://.import/More-8-Bit-Drama_Looping.mp3-2fa64e1d24955410692797a8b9aee391.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
