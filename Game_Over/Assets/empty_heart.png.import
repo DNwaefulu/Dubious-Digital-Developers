@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rock.png-28e7c577acd749e9a070bb17ac9b093c.stex"
+path="res://.import/empty_heart.png-e80183786a88520a50837852b234b16f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rocky Roads/Deco/rock.png"
-dest_files=[ "res://.import/rock.png-28e7c577acd749e9a070bb17ac9b093c.stex" ]
+source_file="res://Assets/empty_heart.png"
+dest_files=[ "res://.import/empty_heart.png-e80183786a88520a50837852b234b16f.stex" ]
 
 [params]
 

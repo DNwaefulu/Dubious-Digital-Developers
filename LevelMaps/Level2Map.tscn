@@ -176,6 +176,7 @@ volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
+[connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
 [connection signal="GameOver" from="GameManager" to="Camera2D/GameOver/GameOver" method="_on_GameManager_GameOver"]
 [connection signal="LiveCount" from="GameManager" to="Camera2D/HeartManager" method="_on_GameManager_LiveCount"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]

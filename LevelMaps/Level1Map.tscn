@@ -470,7 +470,7 @@ points = PoolVector2Array( 0, 0.141983, 10.8233, 0, 10.8233, 16, 0, 15.9695 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( -874, -598 )
-scale = Vector2( 10.1133, 10.2639 )
+scale = Vector2( 12.7383, 11.7569 )
 texture = ExtResource( 15 )
 centered = false
 
@@ -592,6 +592,7 @@ volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
+[connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
 [connection signal="GameOver" from="GameManager" to="Camera2D2/GameOver/GameOver" method="_on_GameManager_GameOver"]
 [connection signal="LiveCount" from="GameManager" to="Camera2D2/HeartManager" method="_on_GameManager_LiveCount"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]

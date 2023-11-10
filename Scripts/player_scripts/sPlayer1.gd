@@ -113,7 +113,10 @@ func jump():
     velocity.y = jump_velocity
     anim.play("a_jumping")
     $JumpSound.play()
+
+
 #movement stuff, again, borrowed this code so it just works for the movement 
+func get_input_velocity() -> float:
     var horizontal := 0.0
     
     if Input.get_action_strength(move_left):
