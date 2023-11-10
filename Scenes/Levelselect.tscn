@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Purple Portal Sprite Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Player1.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/Layer 5.png" type="Texture" id=10]
 [ext_resource path="res://Assets/back-button-white.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Audio/bgm/Paper-Route.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Rocky Roads/UI/buttons.png" type="Texture" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -828,36 +829,42 @@ anims/levelselector = SubResource( 18 )
 [node name="forestselecter1" type="Sprite" parent="AnimationPlayer"]
 position = Vector2( 174, 366 )
 scale = Vector2( 2.65625, 2.85938 )
+texture = ExtResource( 13 )
 hframes = 3
 vframes = 2
 
 [node name="forestselecter2" type="Sprite" parent="AnimationPlayer"]
 position = Vector2( 214, 367 )
 scale = Vector2( 2.65625, 2.85938 )
+texture = ExtResource( 13 )
 hframes = 3
 vframes = 2
 
 [node name="desertselector1" type="Sprite" parent="AnimationPlayer"]
 position = Vector2( 510, 367 )
 scale = Vector2( 2.65625, 2.85938 )
+texture = ExtResource( 13 )
 hframes = 3
 vframes = 2
 
 [node name="desertselector2" type="Sprite" parent="AnimationPlayer"]
 position = Vector2( 549, 366 )
 scale = Vector2( 2.65625, 2.85938 )
+texture = ExtResource( 13 )
 hframes = 3
 vframes = 2
 
 [node name="lavaselector1" type="Sprite" parent="AnimationPlayer"]
 position = Vector2( 842, 373 )
 scale = Vector2( 2.65625, 2.85938 )
+texture = ExtResource( 13 )
 hframes = 3
 vframes = 2
 
 [node name="lavaselector2" type="Sprite" parent="AnimationPlayer"]
 position = Vector2( 881, 372 )
 scale = Vector2( 2.65625, 2.85938 )
+texture = ExtResource( 13 )
 hframes = 3
 vframes = 2
 
