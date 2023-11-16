@@ -1,19 +1,20 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/player_scripts/sPlayer1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerSprites/Player1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Audio/sfx/jump_01.wav" type="AudioStream" id=3]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=37]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 400, 720, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=38]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 480, 720, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=39]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 560, 720, 80, 80 )
@@ -150,7 +151,7 @@ region = Rect2( 640, 0, 80, 80 )
 
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
 "loop": true,
 "name": "a_falling",
 "speed": 5.0
@@ -186,7 +187,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=37]
+[sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 17.5, 29 )
 
 [node name="Player1" type="KinematicBody2D" groups=["Climber"]]
@@ -210,4 +211,12 @@ collide_with_areas = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, 3 )
-shape = SubResource( 37 )
+shape = SubResource( 40 )
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -2.0
+
+[node name="forwardRaycast" type="RayCast2D" parent="."]
+
+[node name="backwardRaycast" type="RayCast2D" parent="."]

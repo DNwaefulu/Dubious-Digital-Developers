@@ -1,12 +1,13 @@
 extends Node
 
 signal LiveCount(playerLives)
+signal GameOver()
 
 #this is where the players will spawn back after they die
 var player1_start_position = Vector2(44,480)
 
 #this variable just keeps track of player lives 
-var playerLives = 3
+var playerLives = 4
 
 # actual text for lives
 #onready var LiveCount = get_node("/root/Level1/LiveCount")
@@ -17,6 +18,8 @@ var globalGemCount = 0
 func _ready() -> void:
   pass # Replace with function body.
 
+#this is here just to make things simpler for sound effects sake, i'm sure there is a better way to 
+#do it but this is the easiest way for me
 
 #I don't know godot well enough to make a better version of this but if you come up with something let me know !
 #Each of these are called when a certain gem is collided with
@@ -46,13 +49,25 @@ func _on_Goal_body_entered(body: Node) -> void:
 #have, and if it's less than or equal to 0 then it will just quit the game because we don't have a 
 #game over screen right now
 func _on_Death_zone_body_entered(_body: Node) -> void:
-  if playerLives <= 0:
-    get_tree().quit()
-  playerLives-=1
+    if playerLives <= 0:
+        emit_signal("GameOver")
+    playerLives-=1
+    print("test-heart-dead")
   # Send a signal to the heart manager to update heart UI
-  emit_signal("LiveCount", playerLives)
+    emit_signal("LiveCount", playerLives)
+    
   # Update live counter
   #LiveCount.text = "Lives Left: " + str(playerLives)
 
 
 
+
+
+func _on_quicksand_body_entered(body):
+    if playerLives <= 0:
+        emit_signal("GameOver")
+    
+    playerLives-=1
+    print("test-heart-dead")
+  # Send a signal to the heart manager to update heart UI
+    emit_signal("LiveCount", playerLives)

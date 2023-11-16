@@ -29,6 +29,7 @@ export var player_jump := "player_jump1"
 
 
 export var climbing = false
+export var platform = false
 
 #this variable will be used to see if the player can move
 #mainly used for when the player decides to help the other player get up a ledge 
@@ -86,7 +87,7 @@ func _physics_process(delta):
     #THIS WORKS OH MY GOD
     #okay so what this does basically is
     #if the player is holding down R2 and they are jumping in the air
-    #and Player 2 is also next to a ledge and holding down R2 then the player jumping will basically get another jump
+    #and Player 2 is also next to a ledgwe and holding down R2 then the player jumping will basically get another jump
     #because the other player is launching them
     #IT WORKS!!!
     if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false:
@@ -101,7 +102,6 @@ func _physics_process(delta):
         anim.play("a_p1_prepareThrow")
         for i in get_slide_count():
             var collision = get_slide_collision(i)
-            print(collision.collider.name)
             if collision.collider.name == "Player2":
                 anim.play("a_p1_throw")
 
@@ -113,6 +113,7 @@ func get_gravity() -> float:
 func jump():
     velocity.y = jump_velocity
     anim.play("a_jumping")
+    $JumpSound.play()
 
 
 #movement stuff, again, borrowed this code so it just works for the movement 
@@ -133,5 +134,14 @@ func get_input_velocity() -> float:
     return horizontal
 #whenever the player reaches the death zone then it will just reset them to the position 
 #that's set earlier in this script
-func _on_Death_zone_body_entered(_body: Node) -> void:
-  position = player1_start_position
+func _on_Death_zone_body_entered(body: Node) -> void:
+    if (body == self):
+        position = player1_start_position
+
+
+
+
+
+func _on_quicksand_body_entered(body):
+    if (body == self):
+        position = player1_start_position

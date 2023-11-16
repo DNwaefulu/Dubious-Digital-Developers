@@ -29,6 +29,7 @@ func _ready():
     Desertbody2.visible = false
     Lavabody2.visible = false
     $AnimationPlayer.play("levelselector")
+    $LevelSelect.play()
     
 func _on_Area2D_body_entered(body):
     if body.is_in_group("1"):

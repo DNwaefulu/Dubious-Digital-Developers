@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Players/Player1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/BlueGem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Ladder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/trampoline.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/s_Camera.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Death_zone.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/full_heart.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/HeartManager.gd" type="Script" id=12]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 44, 480 )
+
+[node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 2 )]
+position = Vector2( 262, 462 )
+
+[node name="LiveCount" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 413.0
+margin_right = 61.0
+margin_bottom = 427.0
+text = "Lives Left: 3"
+align = 2
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Goal" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 1065, 540 )
+
+[node name="platform" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 2, 554 )
+
+[node name="Platform" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 429, 440 )
+
+[node name="Gems" type="Node2D" parent="."]
+
+[node name="Gem1" parent="Gems" instance=ExtResource( 4 )]
+position = Vector2( 569, 413 )
+
+[node name="Gem2" parent="Gems" instance=ExtResource( 4 )]
+position = Vector2( 1278, 510 )
+
+[node name="BlueGem" parent="Gems" instance=ExtResource( 4 )]
+position = Vector2( 142, 520 )
+
+[node name="GameObjects" type="Node2D" parent="."]
+
+[node name="tramopline" parent="GameObjects" instance=ExtResource( 8 )]
+position = Vector2( 13, -58 )
+
+[node name="Ladder" parent="GameObjects" instance=ExtResource( 7 )]
+position = Vector2( -431, -46 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 305 )
+current = true
+smoothing_enabled = true
+script = ExtResource( 9 )
+
+[node name="HeartManager" type="Node2D" parent="Camera2D"]
+position = Vector2( -512, -305 )
+script = ExtResource( 12 )
+
+[node name="HeartUI" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Heart1" type="Sprite" parent="Camera2D/HeartUI"]
+position = Vector2( 27, 30 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 11 )
+
+[node name="Heart2" type="Sprite" parent="Camera2D/HeartUI"]
+position = Vector2( 78, 30 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 11 )
+
+[node name="Heart3" type="Sprite" parent="Camera2D/HeartUI"]
+position = Vector2( 130, 30 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 11 )
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Death zone" parent="." instance=ExtResource( 10 )]
+position = Vector2( -700, 936 )
+scale = Vector2( 3.65, 1 )
+
+[connection signal="LiveCount" from="GameManager" to="Camera2D/HeartManager" method="_on_GameManager_LiveCount"]
+[connection signal="area_entered" from="Death zone" to="Player1" method="_on_Death_zone_area_entered"]
+[connection signal="body_entered" from="Death zone" to="Player1" method="_on_Death_zone_body_entered"]
+[connection signal="body_entered" from="Death zone" to="Player2" method="_on_Death_zone_body_entered"]
+[connection signal="body_entered" from="Death zone" to="GameManager" method="_on_Death_zone_body_entered"]

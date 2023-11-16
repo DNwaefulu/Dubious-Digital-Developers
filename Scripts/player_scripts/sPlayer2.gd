@@ -22,10 +22,11 @@ export var player_jump := "player_jump2"
 onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
-
+export var platform = false
 #this variable will be used to see if the player can move
 #mainly used for when the player decides to help the other player get up a ledge 
 export var canMove = true
+
 
 #this will be used to tell the player sprite and the raycast to flip when the character moves
 onready var playerRaycast = $RayCast2D
@@ -91,6 +92,7 @@ func get_gravity() -> float:
 func jump():
     velocity.y = jump_velocity
     anim.play("a_p2_jumping")
+    $JumpSound.play()
 
 func get_input_velocity() -> float:
     var horizontal := 0.0
@@ -110,5 +112,11 @@ func get_input_velocity() -> float:
 
 
 
-func _on_Death_zone_body_entered(_body):
-  position = player2_start_position
+func _on_Death_zone_body_entered(body: Node) -> void:
+    if (body == self):
+        position = player2_start_position
+
+
+func _on_quicksand_body_entered(body):
+    if (body == self):
+        position = player2_start_position
