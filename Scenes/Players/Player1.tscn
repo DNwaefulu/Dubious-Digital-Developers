@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/player_scripts/sPlayer1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerSprites/Player1.png" type="Texture" id=2]
@@ -190,6 +190,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 17.5, 29 )
 
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 12, 11 )
+
 [node name="Player1" type="KinematicBody2D" groups=["Climber"]]
 collision_layer = 2
 script = ExtResource( 1 )
@@ -201,11 +204,11 @@ move_left = "player_left1"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
-animation = "a_p1_throw"
-frame = 5
+animation = "a_jumping"
+frame = 7
 playing = true
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="downRaycast" type="RayCast2D" parent="."]
 position = Vector2( 18, 0 )
 enabled = true
 collide_with_areas = true
@@ -229,3 +232,12 @@ rotation = 1.5708
 enabled = true
 cast_to = Vector2( -1.39876e-06, 32 )
 collision_mask = 2
+
+[node name="LendingArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LendingArea"]
+position = Vector2( 11, -24 )
+shape = SubResource( 38 )
+
+[connection signal="body_shape_entered" from="LendingArea" to="." method="_on_LendingArea_body_shape_entered"]

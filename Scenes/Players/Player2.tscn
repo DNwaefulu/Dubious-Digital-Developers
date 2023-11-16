@@ -189,7 +189,7 @@ frame = 2
 position = Vector2( 3.5, 3 )
 shape = SubResource( 35 )
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="downRaycast" type="RayCast2D" parent="."]
 position = Vector2( 18, 0 )
 enabled = true
 

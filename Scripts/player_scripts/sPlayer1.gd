@@ -35,7 +35,7 @@ export var climbing = false
 var canMove = true
 
 #this will be used to tell the player sprite and the raycast to flip when the character moves
-onready var playerRaycast = $RayCast2D
+onready var playerRaycast = $downRaycast
 
 #getting a reference to the animation sprite
 onready var anim = $AnimatedSprite
@@ -152,3 +152,9 @@ func get_input_velocity() -> float:
 func _on_Death_zone_body_entered(body: Node) -> void:
     if (body == self):
         position = player1_start_position
+
+
+func _on_LendingArea_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+    print(body,body_rid)
+    if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false:
+        velocity.y = jump_velocity

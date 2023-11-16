@@ -28,7 +28,7 @@ onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent
 export var canMove = true
 
 #this will be used to tell the player sprite and the raycast to flip when the character moves
-onready var playerRaycast = $RayCast2D
+onready var playerRaycast = $downRaycast
 
 onready var anim = $AnimatedSprite
 
