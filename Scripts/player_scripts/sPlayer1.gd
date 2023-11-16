@@ -27,6 +27,7 @@ export var move_left := "move_left"
 
 export var player_jump := "player_jump1"
 
+export var platform = false
 
 export var climbing = false
 

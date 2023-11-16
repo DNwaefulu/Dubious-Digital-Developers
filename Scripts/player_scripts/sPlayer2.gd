@@ -19,6 +19,10 @@ export var move_right := "move_right"
 export var move_left := "move_left"
 export var player_jump := "player_jump2"
 
+export var platform = false
+
+export var climbing = false
+
 onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
@@ -37,7 +41,14 @@ onready var collisionShape = $CollisionShape2D
 func _physics_process(delta):
     if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_p2_idle")
-    velocity.y += get_gravity() * delta
+    if climbing == false:
+        velocity.y += get_gravity() * delta
+    elif climbing == true:
+        velocity.y = 0
+        if Input.is_action_pressed("player_climb2"):
+            velocity.y = -climb_speed
+        elif Input.is_action_pressed("player_down2"):
+            velocity.y = climb_speed    
     velocity.x = get_input_velocity() * move_speed
     
     if Input.is_action_just_pressed(player_jump) and is_on_floor():

@@ -60,9 +60,12 @@ func _on_Goal_body_exited(body):
 #have, and if it's less than or equal to 0 then it will just quit the game because we don't have a 
 #game over screen right now
 func _on_Death_zone_body_entered(body: Node) -> void:
+  print("Entered")
   if body.is_in_group("Climber"):  
+    print("E2")
     if playerLives <= 0:
         emit_signal("GameOver")
     playerLives-=1
+    print(playerLives)
     # Send a signal to the heart manager to update heart UI
     emit_signal("LiveCount", playerLives)
