@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dangerous-Descent.mp3-a124e207c4cc92044435a7f7f78636e7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Dangerous-Descent.mp3"
+dest_files=[ "res://.import/Dangerous-Descent.mp3-a124e207c4cc92044435a7f7f78636e7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
