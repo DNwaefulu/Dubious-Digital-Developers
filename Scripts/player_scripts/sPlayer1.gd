@@ -52,6 +52,9 @@ onready var backRaycast = $backwardRaycast
 #prepare throw animation
 var throwing = false
 
+#variable to get reference to player 2
+onready var player2Ref = self.owner.get_node("Player2")
+
 func _physics_process(delta):
     if is_on_floor():
         thrown = false
@@ -111,13 +114,13 @@ func _physics_process(delta):
         if throwing == false:
             anim.play("a_p1_prepareThrow")
         if backRaycast.is_colliding():
-            if backRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player2"):
+            if backRaycast.get_collider() == player2Ref:
                 throwing = true
                 anim.play("a_p1_throw")
                 yield(anim,"animation_finished")
                 throwing = false
                 
-    if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player2") and get_tree().get_root().get_node("Level1/Player2").get("throwing") == true:
+    if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == player2Ref and player2Ref.get("throwing") == true:
         thrown = true
         velocity.y = jump_velocity * 1.25
         velocity.x = get_input_velocity() * 250
@@ -160,5 +163,5 @@ func _on_Death_zone_body_entered(body: Node) -> void:
 #since players can't collide with one another anymore, there is an 
 #area 2d that 
 func _on_LendingArea_body_entered(body):
-    if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false and body.name == "Player2":
+    if Input.is_action_pressed("player_lending1") and not is_on_floor() and player2Ref.get("canMove") == false and body.name == "Player2":
         velocity.y = jump_velocity

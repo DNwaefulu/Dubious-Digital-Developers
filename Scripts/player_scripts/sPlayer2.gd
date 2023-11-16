@@ -49,6 +49,9 @@ var throwing = false
 
 var thrown = false
 
+#variable for reference to player1
+onready var player1Ref = self.owner.get_node("Player1")
+
 func _physics_process(delta):
     if is_on_floor():
         thrown = false
@@ -93,7 +96,7 @@ func _physics_process(delta):
         if throwing == false:
             anim.play("a_p2_prepareThrow")
         if backRaycast.is_colliding():
-            if backRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player1"):
+            if backRaycast.get_collider() == player1Ref:
                 throwing = true
                 anim.play("a_p2_throw")
                 yield(anim,"animation_finished")
@@ -105,7 +108,7 @@ func _physics_process(delta):
     #A) make it to where if they get launched then they can't collide with each other for a second
     #B) remmove their collision entirely 
     #i'll try that and see how it plays
-    if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player1") and get_tree().get_root().get_node("Level1/Player1").get("throwing") == true:
+    if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == player1Ref and player1Ref.get("throwing") == true:
         thrown = true
         velocity.y = jump_velocity * 1.25
         velocity.x = get_input_velocity() * 250
@@ -139,5 +142,5 @@ func _on_Death_zone_body_entered(body: Node) -> void:
         position = player2_start_position
 
 func _on_LendingArea_body_entered(body):
-    if Input.is_action_pressed("player_lending2") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player1").get("canMove") == false and body.name == "Player1":
+    if Input.is_action_pressed("player_lending2") and not is_on_floor() and player1Ref.get("canMove") == false and body.name == "Player1":
         velocity.y = jump_velocity
