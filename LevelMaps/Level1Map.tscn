@@ -497,10 +497,10 @@ show_behind_parent = true
 position = Vector2( 620, 233 )
 
 [node name="Gem2" parent="Gems" instance=ExtResource( 6 )]
-position = Vector2( 171, 117 )
+position = Vector2( 328, 120 )
 
 [node name="Gem" parent="Gems" instance=ExtResource( 6 )]
-position = Vector2( 844, -158 )
+position = Vector2( 1080, 16 )
 
 [node name="Death zone" parent="." instance=ExtResource( 7 )]
 position = Vector2( -200, 646 )
