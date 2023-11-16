@@ -908,6 +908,11 @@ anims/RESET = SubResource( 10 )
 anims/rotate = SubResource( 11 )
 anims/spin = SubResource( 12 )
 
+[node name="pause" parent="Camera2D" instance=ExtResource( 2 )]
+visible = false
+margin_left = 0.00012207
+margin_right = 0.00012207
+
 [node name="GameOver" type="CanvasLayer" parent="Camera2D"]
 
 [node name="GameOver" parent="Camera2D/GameOver" instance=ExtResource( 5 )]
@@ -916,9 +921,6 @@ margin_left = -28.0
 margin_top = -9.0
 margin_right = 1055.0
 margin_bottom = 613.0
-
-[node name="pause" parent="Camera2D" instance=ExtResource( 2 )]
-visible = false
 
 [node name="HeartManager" type="Node" parent="Camera2D"]
 script = ExtResource( 10 )
