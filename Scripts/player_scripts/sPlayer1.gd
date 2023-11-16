@@ -37,6 +37,7 @@ var canMove = true
 #this will be used to tell the player sprite and the raycast to flip when the character moves
 onready var playerRaycast = $downRaycast
 
+onready var lendingArea = $LendingArea
 #getting a reference to the animation sprite
 onready var anim = $AnimatedSprite
 
@@ -87,10 +88,13 @@ func _physics_process(delta):
         #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
         #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
         #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
-    if velocity.x > 0:
-        playerRaycast.position.x =18
-    elif velocity.x < 0:
+    if Input.is_action_pressed("player_left1"):
         playerRaycast.position.x =-16
+        lendingArea.position.x = -20
+    if Input.is_action_pressed("player_right1"):
+        playerRaycast.position.x = 18
+        lendingArea.position.x = 20
+        
         
     #THIS WORKS OH MY GOD
     #okay so what this does basically is
@@ -156,5 +160,5 @@ func _on_Death_zone_body_entered(body: Node) -> void:
 
 func _on_LendingArea_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
     print(body,body_rid)
-    if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false:
+    if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false and body.name == "Player2":
         velocity.y = jump_velocity
