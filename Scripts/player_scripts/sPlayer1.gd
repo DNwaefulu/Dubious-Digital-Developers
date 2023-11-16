@@ -34,6 +34,7 @@ export var climbing = false
 #mainly used for when the player decides to help the other player get up a ledge 
 var canMove = true
 
+var thrown = false
 #this will be used to tell the player sprite and the raycast to flip when the character moves
 onready var playerRaycast = $downRaycast
 
@@ -52,6 +53,8 @@ onready var backRaycast = $backwardRaycast
 var throwing = false
 
 func _physics_process(delta):
+    if is_on_floor():
+        thrown = false
     if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_idle")
     if climbing == false:
@@ -62,15 +65,16 @@ func _physics_process(delta):
             velocity.y = -climb_speed
         elif Input.is_action_pressed("player_down1"):
             velocity.y = climb_speed
-    
-    if canMove == true:
+    if thrown == false:
         velocity.x = get_input_velocity() * move_speed
     
-
     if Input.is_action_just_pressed("player_jump1") and is_on_floor() and climbing == false and canMove == true:
         jump()
     
-    velocity = move_and_slide(velocity, Vector2.UP)
+    if canMove == true:
+        velocity = move_and_slide(velocity, Vector2.UP)
+
+    
     
     #if the player is on the ledge and they are holding down right trigger and they are on the floor 
     #then they can't move and we will call another function later which 
@@ -96,17 +100,6 @@ func _physics_process(delta):
         lendingArea.position.x = 20
         
         
-    #THIS WORKS OH MY GOD
-    #okay so what this does basically is
-    #if the player is holding down R2 and they are jumping in the air
-    #and Player 2 is also next to a ledge and holding down R2 then the player jumping will basically get another jump
-    #because the other player is launching them
-    #IT WORKS!!!
-    if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false:
-        for i in get_slide_count():
-            var collision = get_slide_collision(i)
-            if collision.collider.name == "Player2":
-                velocity.y = jump_velocity
                 
     #okay so this is supposed to be the code for if the other player comes into contact
     #with this player while they are trying to throw them, then it will play an animation 
@@ -118,17 +111,23 @@ func _physics_process(delta):
         if throwing == false:
             anim.play("a_p1_prepareThrow")
         if backRaycast.is_colliding():
-            print(backRaycast.get_collider())
             if backRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player2"):
                 throwing = true
                 anim.play("a_p1_throw")
                 yield(anim,"animation_finished")
                 throwing = false
+                
+    if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player2") and get_tree().get_root().get_node("Level1/Player2").get("throwing") == true:
+        thrown = true
+        velocity.y = jump_velocity * 1.25
+        velocity.x = get_input_velocity() * 250
+        
 #honestly i stole most of this code, this just works
 func get_gravity() -> float:
     return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 #jump function, pretty self explanatory i think
+#this plays the jumping sound when the player jumps
 func jump():
     velocity.y = jump_velocity
     anim.play("a_jumping")
@@ -157,6 +156,9 @@ func _on_Death_zone_body_entered(body: Node) -> void:
     if (body == self):
         position = player1_start_position
 
+#THIS IS HOW LENDING WORKS NOW
+#since players can't collide with one another anymore, there is an 
+#area 2d that 
 func _on_LendingArea_body_entered(body):
     if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false and body.name == "Player2":
         velocity.y = jump_velocity

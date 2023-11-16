@@ -47,11 +47,16 @@ onready var backRaycast = $backwardRaycast
 #prepare throw animation
 var throwing = false
 
+var thrown = false
+
 func _physics_process(delta):
+    if is_on_floor():
+        thrown = false
     if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_p2_idle")
     velocity.y += get_gravity() * delta
-    velocity.x = get_input_velocity() * move_speed
+    if thrown == false:
+        velocity.x = get_input_velocity() * move_speed
     
     if Input.is_action_just_pressed(player_jump) and is_on_floor():
         jump()
@@ -81,22 +86,18 @@ func _physics_process(delta):
     if Input.is_action_pressed("player_right2"):
         playerRaycast.position.x = 18
         lendingArea.position.x = 20
-        
-    if Input.is_action_pressed("player_lending2") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player1").get("canMove") == false:
-        for i in get_slide_count():
-            var collision = get_slide_collision(i)
-            if collision.collider.name == "Player1":
-                velocity.y = jump_velocity
     
     if playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
         canMove = false
         velocity.x = 0
-        anim.play("a_p2_prepareThrow")
-        for i in get_slide_count():
-            var collision = get_slide_collision(i)
-            print(collision.collider.name)
-            if collision.collider.name == "Player1":
+        if throwing == false:
+            anim.play("a_p2_prepareThrow")
+        if backRaycast.is_colliding():
+            if backRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player1"):
+                throwing = true
                 anim.play("a_p2_throw")
+                yield(anim,"animation_finished")
+                throwing = false
     
     #OKAY so this ccode is working,BUT since the characters are able to collide with one another
     #they don't go nowhere :/
@@ -105,7 +106,9 @@ func _physics_process(delta):
     #B) remmove their collision entirely 
     #i'll try that and see how it plays
     if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == get_tree().get_root().get_node("Level1/Player1") and get_tree().get_root().get_node("Level1/Player1").get("throwing") == true:
-        move_and_slide( Vector2(100, jump_velocity * 2) )
+        thrown = true
+        velocity.y = jump_velocity * 1.25
+        velocity.x = get_input_velocity() * 250
             
 func get_gravity() -> float:
     return jump_gravity if velocity.y < 0.0 else fall_gravity
