@@ -61,11 +61,9 @@ func _physics_process(delta):
         thrown = false
     if velocity.x < 1 and is_on_floor() and velocity.x > -1:
         anim.play("a_p2_idle")
-
-    velocity.y += get_gravity() * delta
+    #velocity.y += get_gravity() * delta
     if thrown == false:
         velocity.x = get_input_velocity() * move_speed
-
     if climbing == false:
         velocity.y += get_gravity() * delta
     elif climbing == true:
@@ -74,7 +72,6 @@ func _physics_process(delta):
             velocity.y = -climb_speed
         elif Input.is_action_pressed("player_down2"):
             velocity.y = climb_speed    
-    velocity.x = get_input_velocity() * move_speed
 
     
     if Input.is_action_just_pressed(player_jump) and is_on_floor():
