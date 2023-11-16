@@ -25,7 +25,7 @@ func update_master_vol(vol):
   var bus_index = AudioServer.get_bus_index(bus_name)
   AudioServer.set_bus_volume_db(bus_index, vol)
   # Revert db to linear to fit in the range of [0, 1]
-  Save.game_data.master_vol = db2linear(vol)
+  Save.game_data.master_vol = vol
   Save.save_data()
   
   
@@ -34,7 +34,7 @@ func update_music_vol(vol):
   var bus_index = AudioServer.get_bus_index(bus_name)
   AudioServer.set_bus_volume_db(bus_index, vol)
   # Revert db to linear to fit in the range of [0, 1]
-  Save.game_data.music_vol = db2linear(vol)
+  Save.game_data.music_vol = vol
   Save.save_data()
   
     
@@ -43,5 +43,5 @@ func update_sfx_vol(vol):
   var bus_index = AudioServer.get_bus_index(bus_name)
   AudioServer.set_bus_volume_db(bus_index, vol)
   # Revert db to linear to fit in the range of [0, 1]
-  Save.game_data.sfx_vol = db2linear(vol)
+  Save.game_data.sfx_vol = vol
   Save.save_data()
