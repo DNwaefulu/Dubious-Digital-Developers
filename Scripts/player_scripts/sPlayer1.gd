@@ -157,8 +157,6 @@ func _on_Death_zone_body_entered(body: Node) -> void:
     if (body == self):
         position = player1_start_position
 
-
-func _on_LendingArea_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-    print(body,body_rid)
+func _on_LendingArea_body_entered(body):
     if Input.is_action_pressed("player_lending1") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player2").get("canMove") == false and body.name == "Player2":
         velocity.y = jump_velocity

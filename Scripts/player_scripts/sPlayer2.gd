@@ -34,6 +34,7 @@ onready var anim = $AnimatedSprite
 
 onready var collisionShape = $CollisionShape2D
 
+onready var lendingArea = $LendingArea
 #these are the raycasts that are going to be used for throwing and stuffffffff
 #i could HONESTLY fix some code so its a lot cleaner 
 #now that i think about it but damn i just need this to work 
@@ -74,10 +75,12 @@ func _physics_process(delta):
         #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
         #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
         #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
-    if velocity.x > 0:
-        playerRaycast.position.x =18
-    elif velocity.x < 0:
+    if Input.is_action_pressed("player_left2"):
         playerRaycast.position.x =-16
+        lendingArea.position.x = -20
+    if Input.is_action_pressed("player_right2"):
+        playerRaycast.position.x = 18
+        lendingArea.position.x = 20
         
     if Input.is_action_pressed("player_lending2") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player1").get("canMove") == false:
         for i in get_slide_count():
@@ -128,8 +131,10 @@ func get_input_velocity() -> float:
     
     return horizontal
 
-
-
 func _on_Death_zone_body_entered(body: Node) -> void:
     if (body == self):
         position = player2_start_position
+
+func _on_LendingArea_body_entered(body):
+    if Input.is_action_pressed("player_lending2") and not is_on_floor() and get_tree().get_root().get_node("Level1/Player1").get("canMove") == false and body.name == "Player1":
+        velocity.y = jump_velocity
