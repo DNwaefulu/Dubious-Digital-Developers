@@ -45,9 +45,12 @@ func _on_Gem_body_entered(_body: Node) -> void:
 func _on_Goal_body_entered(body: Node) -> void:
   if body.is_in_group("Climber"):
     playerinGoal += 1
+  print("P")
   print(playerinGoal)
   if playerinGoal == 2:
+    print("TPIG")
     if globalGemCount == 3:
+        print("TGC")
         emit_signal("LevelOver")
 
 func _on_Goal_body_exited(body):

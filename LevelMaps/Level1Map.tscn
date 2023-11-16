@@ -726,9 +726,6 @@ anims/RESET = SubResource( 22 )
 anims/rotate = SubResource( 23 )
 anims/spin = SubResource( 24 )
 
-[node name="pause" parent="Camera2D2" instance=ExtResource( 14 )]
-visible = false
-
 [node name="HeartManager" type="Node" parent="Camera2D2"]
 script = ExtResource( 12 )
 
@@ -748,6 +745,9 @@ texture = ExtResource( 13 )
 position = Vector2( 32, 20 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 13 )
+
+[node name="pause" parent="Camera2D2/HeartManager/HeartUI" instance=ExtResource( 14 )]
+visible = false
 
 [node name="GameOver" type="CanvasLayer" parent="Camera2D2"]
 
