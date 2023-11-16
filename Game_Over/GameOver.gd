@@ -1,53 +1,63 @@
-extends MarginContainer
+extends Control
 
-signal update_settings()
+onready var Resume_selector = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer/Selector
+onready var quit_selector = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer3/Selector
 
-const play_again = preload("res://Levels/Level1.tscn")
-const settings_scene = preload("res://Scenes/settingsmenu.tscn")
+var current_pause_selector = 0
+var visibility_timer: Timer
+var target_node: Label
+var target_node1: HBoxContainer
 
-onready var playAgain_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayAgainContainer/HBoxContainer/Selector
-onready var return_selector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayAgainContainer2/HBoxContainer/Selector
-
-var current_selector = 0
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	set_current_selection(0)
-	emit_signal("update_settings")
+	visibility_timer = $Timer
+	visibility_timer.connect("timeout", self, "_on_visibility_timeout")
+
+## Assume you've set up the node you want to toggle visibility for
+#	target_node = $"ColorRect/CenterContainer/VBoxContainer/Game Over"
+#	target_node1 = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer
+#	target_node1 = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer3
+#
+#	# Set the initial visibility state
+#	target_node.visible = true
+#	target_node1.visible = true
+#
+#	# Set the timer duration (in seconds)
+#	visibility_timer.wait_time = 3  # Adjust as needed
+#	visibility_timer.start()
+	
+func _on_visibility_timeout():
+	# Toggle visibility when the timer times out
+	target_node.visible = !target_node.visible
+	target_node.visible = !target_node.visible
+	visibility_timer.start()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_down") and current_selector < 4:
-		current_selector +=1
-		$SelectorNoisePlayer.play()
-		set_current_selection(current_selector)
-	elif Input.is_action_just_pressed("ui_up") and current_selector > 0:
-		current_selector -=1
-		$SelectorNoisePlayer.play()
-		set_current_selection(current_selector)
+	if Input.is_action_just_pressed("ui_down") and current_pause_selector < 1:
+		current_pause_selector +=1
+		set_current_selection(current_pause_selector)
+	elif Input.is_action_just_pressed("ui_up") and current_pause_selector > 0:
+		current_pause_selector -=1
+		set_current_selection(current_pause_selector)
 	elif Input.is_action_just_pressed("ui_accept"):
-		$SelectorNoisePlayer.play()
-		handle_selection(current_selector)
+		handle_selection(current_pause_selector)
 
 func handle_selection(_current_selector):
 	if _current_selector == 0:
-		get_parent().add_child(play_again.instance())
-		queue_free()
+		self.hide()
+		print("hide")
+		pass
 	elif _current_selector == 1:
-		var popup_instance = load("res://Scenes/MainMenu.tscn").instance()
-		add_child(popup_instance)
-		popup_instance.popup_centered()
-
+		pass
 
 func set_current_selection(_current_selection):
-	playAgain_selector.text = ""
-	return_selector.text = ""
+	Resume_selector.text = ""
+	quit_selector.text = ""
 	if _current_selection == 0:
-		playAgain_selector.text = ">"
+		Resume_selector.text = ">"
 	elif _current_selection == 1:
-		return_selector.text = ">"
+		quit_selector.text = ">"
 
-
+func _on_GameManager_GameOver():
+	self.show()
+	get_tree().paused = true
