@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal GemCount()
+signal Death()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,5 +14,8 @@ func _ready():
 #    pass
 
 
-func _on_Gem_body_entered(body):
+func _on_Gem_body_entered(_body):
     emit_signal("GemCount")
+
+func _on_Death_zone_body_entered(_body):
+    emit_signal("Death")

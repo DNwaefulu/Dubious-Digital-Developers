@@ -47,7 +47,7 @@ func set_current_selection(_current_selection):
   elif _current_selection == 1:
     quit_selector.text = ">"
 
-func _on_GameManager_GameOver():
+func _on_HeartsUI_GameOver():
     self.show()
     isGameOver = true
     get_tree().paused = true

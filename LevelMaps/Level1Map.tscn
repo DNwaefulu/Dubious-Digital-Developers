@@ -593,5 +593,5 @@ autoplay = true
 [connection signal="body_entered" from="Gems/Gem" to="GUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Death zone" to="Player1" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="Player2" method="_on_Death_zone_body_entered"]
-[connection signal="body_entered" from="Death zone" to="GameManager" method="_on_Death_zone_body_entered"]
+[connection signal="body_entered" from="Death zone" to="GUI" method="_on_Death_zone_body_entered"]
 [connection signal="GemCount" from="GUI" to="Goal" method="_on_GUI_GemCount"]
