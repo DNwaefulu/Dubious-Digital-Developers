@@ -3,9 +3,8 @@ extends Control
 
 onready var Resume_selector = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer/Selector
 onready var quit_selector = $ColorRect/CenterContainer/VBoxContainer/HBoxContainer3/Selector
-const main_menu = preload("res://Scenes/MainMenu.tscn")
-
 var current_pause_selector = 0
+
 #creates a var and set the value false using the function
 var is_paused = false setget set_is_paused
 
@@ -21,26 +20,25 @@ func _unhandled_input(event):
         self.is_paused = !is_paused
 
 func _ready():
-  set_current_selection(0)
+    visible = false
+    set_current_selection(0)
 
 func _process(_delta):
-  if Input.is_action_just_pressed("ui_down") and current_pause_selector < 1:
-    current_pause_selector +=1
-    set_current_selection(current_pause_selector)
-  elif Input.is_action_just_pressed("ui_up") and current_pause_selector > 0:
-    current_pause_selector -=1
-    set_current_selection(current_pause_selector)
-  elif Input.is_action_just_pressed("ui_accept"):
-    handle_selection(current_pause_selector)
+    if Input.is_action_just_pressed("ui_down") and current_pause_selector < 1:
+        current_pause_selector +=1
+        set_current_selection(current_pause_selector)
+    elif Input.is_action_just_pressed("ui_up") and current_pause_selector > 0:
+        current_pause_selector -=1
+        set_current_selection(current_pause_selector)
+    elif Input.is_action_just_pressed("ui_accept"):
+        handle_selection(current_pause_selector)
 
 func handle_selection(_current_selector):
   if _current_selector == 0:
     self.is_paused =  false
   elif _current_selector == 1:
     self.is_paused =  false
-    #get_tree().quit()
-    # warning-ignore:return_value_discarded
-    get_tree().change_scene_to(main_menu)
+    get_tree().quit()
 
 func set_current_selection(_current_selection):
   Resume_selector.text = ""

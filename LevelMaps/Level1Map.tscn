@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Level1Assets/tileset_forest.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=2]
@@ -11,19 +11,9 @@
 [ext_resource path="res://Assets/Backgrounds/background_plains-Sheet1.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Backgrounds/background_plains-Sheet3.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Backgrounds/background_plains-Sheet2.png" type="Texture" id=11]
-[ext_resource path="res://Scripts/HeartManager.gd" type="Script" id=12]
-[ext_resource path="res://Assets/objects/full_heart.png" type="Texture" id=13]
-[ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/background.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Audio/bgm/Grasslands Theme.mp3" type="AudioStream" id=16]
-[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Assets/objects/gem.png" type="Texture" id=18]
-[ext_resource path="res://Scripts/GemCounter.gd" type="Script" id=19]
-[ext_resource path="res://Assets/pink/4.png" type="Texture" id=20]
-[ext_resource path="res://Assets/pink/5.png" type="Texture" id=21]
-[ext_resource path="res://Assets/pink/7.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Audio/sfx/single-firework-79814.mp3" type="AudioStream" id=23]
-[ext_resource path="res://Assets/pink/6.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 16, 0, 16 )
@@ -473,124 +463,11 @@ points = PoolVector2Array( 0, 0.141983, 10.8233, 0, 10.8233, 16, 0, 15.9695 )
 } ]
 21/z_index = 0
 
-[sub_resource type="SpriteFrames" id=25]
-animations = [ {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 22 ) ],
-"loop": false,
-"name": "default",
-"speed": 4.0
-} ]
-
-[sub_resource type="Animation" id=16]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=17]
-resource_name = "rotate"
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-
-[sub_resource type="Animation" id=18]
-resource_name = "spin"
-
-[sub_resource type="Animation" id=19]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=20]
-resource_name = "rotate"
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-
-[sub_resource type="Animation" id=21]
-resource_name = "spin"
-
-[sub_resource type="Animation" id=22]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=23]
-resource_name = "rotate"
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-
-[sub_resource type="Animation" id=24]
-resource_name = "spin"
-
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( -874, -598 )
-scale = Vector2( 12.7383, 11.7569 )
+position = Vector2( -873, -598 )
+scale = Vector2( 10.1133, 10.2639 )
 texture = ExtResource( 15 )
 centered = false
 
@@ -598,34 +475,17 @@ centered = false
 scale = Vector2( 3, 3 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
-collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 65558, 1, 0, 131074, 6, 0, 131077, 8, 0, 131080, 7, 0, 196608, 2, 0, 196609, 3, 0, 196611, 3, 0, 196612, 3, 0, 196614, 3, 0, 196616, 3, 0, 196618, 14, 0, 196623, 2, 0, 196624, 3, 0, 196626, 3, 0, 196628, 4, 0, 196629, 0, 0, 262154, 9, 0, 262155, 19, 0, 262156, 18, 0, 262157, 15, 0, 262158, 18, 0, 262159, 10, 0, 327690, 13, 0, 327691, 11, 0, 327695, 12, 0 )
+tile_data = PoolIntArray( 65558, 1, 0, 131074, 6, 0, 131077, 8, 0, 131080, 7, 0, 196608, 2, 0, 196609, 3, 0, 196611, 3, 0, 196612, 3, 0, 196614, 3, 0, 196616, 3, 0, 196618, 14, 0, 196623, 2, 0, 196624, 3, 0, 196626, 3, 0, 196628, 4, 0, 262154, 9, 0, 262155, 19, 0, 262156, 18, 0, 262157, 15, 0, 262158, 18, 0, 262159, 10, 0, 327690, 13, 0, 327691, 11, 0, 327695, 12, 0 )
 
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 101, 46 )
 
-[node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 2 )]
+[node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 38, 46 )
-collision_mask = 3
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1176, 88 )
-
-[node name="Fireworks" type="Node2D" parent="Goal"]
-position = Vector2( 15, -31 )
-__meta__ = {
-"_editor_description_": "https://nyknck.itch.io/firework-pixel"
-}
-
-[node name="Explosionm" type="AnimatedSprite" parent="Goal/Fireworks"]
-visible = false
-position = Vector2( 108, -49 )
-frames = SubResource( 25 )
-
-[node name="FireworkPlayer" type="AudioStreamPlayer" parent="Goal/Fireworks"]
-stream = ExtResource( 23 )
-bus = "SFX"
+position = Vector2( 1361, 87 )
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -633,17 +493,23 @@ script = ExtResource( 5 )
 [node name="Gems" type="Node" parent="."]
 
 [node name="Gem1" parent="Gems" instance=ExtResource( 6 )]
+show_behind_parent = true
 position = Vector2( 620, 233 )
 
 [node name="Gem2" parent="Gems" instance=ExtResource( 6 )]
-position = Vector2( 171, 117 )
+position = Vector2( 328, 120 )
 
 [node name="Gem" parent="Gems" instance=ExtResource( 6 )]
-position = Vector2( 844, -158 )
+position = Vector2( 1080, 16 )
 
 [node name="Death zone" parent="." instance=ExtResource( 7 )]
 position = Vector2( -200, 646 )
 scale = Vector2( 1.35323, 1.01059 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+script = ExtResource( 8 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
@@ -680,102 +546,14 @@ scale = Vector2( 0.528646, 0.562963 )
 texture = ExtResource( 10 )
 centered = false
 
-[node name="Camera2D2" type="Camera2D" parent="."]
-smoothing_enabled = true
-script = ExtResource( 8 )
-
-[node name="GemCounter" type="CanvasLayer" parent="Camera2D2"]
-script = ExtResource( 19 )
-
-[node name="GemSprite1" type="Sprite" parent="Camera2D2/GemCounter"]
-visible = false
-position = Vector2( 998, 20 )
-scale = Vector2( 3.5, 3.5 )
-texture = ExtResource( 18 )
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D2/GemCounter/GemSprite1"]
-reset_on_save = false
-anims/RESET = SubResource( 16 )
-anims/rotate = SubResource( 17 )
-anims/spin = SubResource( 18 )
-
-[node name="GemSprite3" type="Sprite" parent="Camera2D2/GemCounter"]
-visible = false
-position = Vector2( 897, 19 )
-scale = Vector2( 3.5, 3.5 )
-texture = ExtResource( 18 )
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D2/GemCounter/GemSprite3"]
-reset_on_save = false
-anims/RESET = SubResource( 19 )
-anims/rotate = SubResource( 20 )
-anims/spin = SubResource( 21 )
-
-[node name="GemSprite2" type="Sprite" parent="Camera2D2/GemCounter"]
-visible = false
-position = Vector2( 948, 19 )
-scale = Vector2( 3.5, 3.5 )
-texture = ExtResource( 18 )
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D2/GemCounter/GemSprite2"]
-reset_on_save = false
-anims/RESET = SubResource( 22 )
-anims/rotate = SubResource( 23 )
-anims/spin = SubResource( 24 )
-
-[node name="HeartManager" type="Node" parent="Camera2D2"]
-script = ExtResource( 12 )
-
-[node name="HeartUI" type="CanvasLayer" parent="Camera2D2/HeartManager"]
-
-[node name="Heart3" type="Sprite" parent="Camera2D2/HeartManager/HeartUI"]
-position = Vector2( 140, 20 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 13 )
-
-[node name="Heart2" type="Sprite" parent="Camera2D2/HeartManager/HeartUI"]
-position = Vector2( 86, 20 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 13 )
-
-[node name="Heart1" type="Sprite" parent="Camera2D2/HeartManager/HeartUI"]
-position = Vector2( 32, 20 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 13 )
-
-[node name="pause" parent="Camera2D2/HeartManager/HeartUI" instance=ExtResource( 14 )]
-visible = false
-
-[node name="GameOver" type="CanvasLayer" parent="Camera2D2"]
-
-[node name="GameOver" parent="Camera2D2/GameOver" instance=ExtResource( 17 )]
-visible = false
-margin_left = -28.0
-margin_top = -9.0
-margin_right = 1055.0
-margin_bottom = 614.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-smoothing_enabled = true
-script = ExtResource( 8 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 volume_db = -10.0
 autoplay = true
-bus = "Music"
+
+[node name="GUI" parent="." instance=ExtResource( 17 )]
 
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
-[connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
-[connection signal="animation_finished" from="Goal/Fireworks/Explosionm" to="Goal" method="_on_Explosionm_animation_finished"]
-[connection signal="GameOver" from="GameManager" to="Camera2D2/GameOver/GameOver" method="_on_GameManager_GameOver"]
-[connection signal="GemCount" from="GameManager" to="Camera2D2/GemCounter" method="_on_GameManager_GemCount"]
-[connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]
-[connection signal="LiveCount" from="GameManager" to="Camera2D2/HeartManager" method="_on_GameManager_LiveCount"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
 [connection signal="body_entered" from="Gems/Gem" to="GameManager" method="_on_Gem_body_entered"]
