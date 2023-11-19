@@ -31,6 +31,12 @@ func _ready():
     $AnimationPlayer.play("levelselector")
     $LevelSelect.play()
     
+    $"desert-level/desertarea/CollisionShape2D".disabled = true
+    $"lava-level/lavaarea/CollisionShape2D".disabled = true
+    _on_LevelComplete()
+    
+    print(currLevel)
+    
 func _on_Area2D_body_entered(body):
     if body.is_in_group("1"):
         if body1forest == false:
@@ -182,3 +188,15 @@ func _on_TextureButton_pressed():
     if get_tree().change_scene("res://Scenes/MainMenu.tscn") != OK:
         print("Error!")
     queue_free()
+    
+var currLevel = 1
+
+func _on_LevelComplete():
+    print("L")
+    print(LevelVariables.currLevel)
+    if LevelVariables.currLevel >= 2:
+        $"desert-level/desertarea/CollisionShape2D".disabled = false
+        $"desert-level".visible = true
+    if LevelVariables.currLevel >= 3:
+        $"lava-level/lavaarea/CollisionShape2D".disabled = false
+        $"lava-level".visible = true
