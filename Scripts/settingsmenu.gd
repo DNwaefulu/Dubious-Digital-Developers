@@ -29,10 +29,10 @@ func _ready():
   i = 1
 
 func _process(_delta):
-    if Input.is_action_just_pressed("ui_cancel"):
-        # warning-ignore:return_value_discarded
-        get_tree().change_scene("res://Scenes/MainMenu.tscn")
-        queue_free()
+	if Input.is_action_just_pressed("ui_cancel"):
+		# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://Scenes/MainMenu.tscn")
+		queue_free()
 
 func _on_Vsyncbtn_toggled(button_pressed):
   GlobalSettings.toggle_vsync(button_pressed)
@@ -44,21 +44,21 @@ func _on_Option_item_selected(index):
   pass
 
 func _on_TextureButton_pressed():
-    # warning-ignore:return_value_discarded
-    get_tree().change_scene("res://Scenes/MainMenu.tscn")
-    queue_free()
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	queue_free()
 
 func _on_Masterslider_value_changed(value):
-  if (i > 0):
-    print("CHANGED")
-    GlobalSettings.update_master_vol(value)
+	if (i > 0):
+		print("CHANGED")
+		GlobalSettings.update_master_vol(value)
 
 func _on_SFXslider_value_changed(value):
-  if !$SFXStreamPlayer.playing:
-    $SFXStreamPlayer.play()
-  if (i > 0):    
-    GlobalSettings.update_sfx_vol(value)
+	if !$SFXStreamPlayer.playing:
+		$SFXStreamPlayer.play()
+	if (i > 0):    
+		GlobalSettings.update_sfx_vol(value)
 
 func _on_Musicslider_value_changed(value):
-    if (i > 0):
-        GlobalSettings.update_music_vol(value)
+	if (i > 0):
+		GlobalSettings.update_music_vol(value)
