@@ -49,8 +49,9 @@ func _on_TextureButton_pressed():
     queue_free()
 
 func _on_Masterslider_value_changed(value):
+  if !$SFXStreamPlayer.playing:
+    $SFXStreamPlayer.play()
   if (i > 0):
-    print("CHANGED")
     GlobalSettings.update_master_vol(value)
 
 func _on_SFXslider_value_changed(value):
@@ -60,5 +61,7 @@ func _on_SFXslider_value_changed(value):
     GlobalSettings.update_sfx_vol(value)
 
 func _on_Musicslider_value_changed(value):
+    if !$SFXStreamPlayer.playing:
+        $SFXStreamPlayer.play()
     if (i > 0):
         GlobalSettings.update_music_vol(value)

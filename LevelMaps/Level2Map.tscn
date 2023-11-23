@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Scenes/Gem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=2]
@@ -13,10 +13,18 @@
 [ext_resource path="res://Assets/Audio/More-8-Bit-Drama_Looping.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Assets/Rocky Roads/Enemies/quicksand_8frames.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Ladder.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/pink/6.png" type="Texture" id=14]
+[ext_resource path="res://Assets/pink/7.png" type="Texture" id=15]
+[ext_resource path="res://Assets/pink/5.png" type="Texture" id=16]
+[ext_resource path="res://Assets/pink/4.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/s_Camera.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_desert.png" type="Texture" id=19]
 [ext_resource path="res://Assets/desert.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Audio/sfx/single-firework-79814.mp3" type="AudioStream" id=21]
 [ext_resource path="res://Assets/objects/full_heart.png" type="Texture" id=22]
+[ext_resource path="res://Scripts/GemCounter.gd" type="Script" id=23]
+[ext_resource path="res://Assets/objects/gem.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Level2Assests/QuickSand.tres" type="Texture" id=25]
 
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 89.5742, 33.1238 )
@@ -704,6 +712,189 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 28/shape_one_way_margin = 0.0
 28/shapes = [  ]
 28/z_index = 0
+29/name = "QuickSand.tres 29"
+29/texture = ExtResource( 25 )
+29/tex_offset = Vector2( 0, 0 )
+29/modulate = Color( 1, 1, 1, 1 )
+29/region = Rect2( 0, 0, 16, 16 )
+29/tile_mode = 0
+29/occluder_offset = Vector2( 0, 0 )
+29/navigation_offset = Vector2( 0, 0 )
+29/shape_offset = Vector2( 0, 0 )
+29/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+29/shape_one_way = false
+29/shape_one_way_margin = 0.0
+29/shapes = [  ]
+29/z_index = 0
+30/name = "QuickSand.tres 30"
+30/texture = ExtResource( 25 )
+30/tex_offset = Vector2( 0, 0 )
+30/modulate = Color( 1, 1, 1, 1 )
+30/region = Rect2( 0, 0, 32, 32 )
+30/tile_mode = 0
+30/occluder_offset = Vector2( 0, 0 )
+30/navigation_offset = Vector2( 0, 0 )
+30/shape_offset = Vector2( 0, 0 )
+30/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+30/shape_one_way = false
+30/shape_one_way_margin = 0.0
+30/shapes = [  ]
+30/z_index = 0
+31/name = "QuickSand.tres 31"
+31/texture = ExtResource( 25 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 16, 0, 16, 16 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, 0 )
+31/navigation_offset = Vector2( 0, 0 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape_one_way = false
+31/shape_one_way_margin = 0.0
+31/shapes = [  ]
+31/z_index = 0
+32/name = "QuickSand.tres 32"
+32/texture = ExtResource( 25 )
+32/tex_offset = Vector2( 0, 0 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 0, 16, 16, 16 )
+32/tile_mode = 0
+32/occluder_offset = Vector2( 0, 0 )
+32/navigation_offset = Vector2( 0, 0 )
+32/shape_offset = Vector2( 0, 0 )
+32/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+32/shape_one_way = false
+32/shape_one_way_margin = 0.0
+32/shapes = [  ]
+32/z_index = 0
+33/name = "QuickSand.tres 33"
+33/texture = ExtResource( 25 )
+33/tex_offset = Vector2( 0, 0 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 16, 16, 16, 16 )
+33/tile_mode = 0
+33/occluder_offset = Vector2( 0, 0 )
+33/navigation_offset = Vector2( 0, 0 )
+33/shape_offset = Vector2( 0, 0 )
+33/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+33/shape_one_way = false
+33/shape_one_way_margin = 0.0
+33/shapes = [  ]
+33/z_index = 0
+
+[sub_resource type="Animation" id=32]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "rotate"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "spin"
+
+[sub_resource type="Animation" id=35]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "rotate"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "spin"
+
+[sub_resource type="Animation" id=38]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "rotate"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "spin"
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "default",
+"speed": 4.0
+} ]
 
 [node name="level2" type="Node2D"]
 
@@ -735,7 +926,6 @@ position = Vector2( 578.038, 670.245 )
 scale = Vector2( 4.7989, 1.896 )
 texture = ExtResource( 12 )
 hframes = 7
-frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="quicksand"]
 position = Vector2( 576.501, 670.671 )
@@ -788,8 +978,47 @@ margin_top = -9.0
 margin_right = 1055.0
 margin_bottom = 613.0
 
-[node name="Goal" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2633, 53 )
+[node name="GemCounter" type="CanvasLayer" parent="Camera2D"]
+script = ExtResource( 23 )
+
+[node name="GemSprite1" type="Sprite" parent="Camera2D/GemCounter"]
+visible = false
+position = Vector2( 998, 20 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 24 )
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/GemCounter/GemSprite1"]
+reset_on_save = false
+anims/RESET = SubResource( 32 )
+anims/rotate = SubResource( 33 )
+anims/spin = SubResource( 34 )
+
+[node name="GemSprite3" type="Sprite" parent="Camera2D/GemCounter"]
+visible = false
+position = Vector2( 897, 19 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 24 )
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/GemCounter/GemSprite3"]
+reset_on_save = false
+anims/RESET = SubResource( 35 )
+anims/rotate = SubResource( 36 )
+anims/spin = SubResource( 37 )
+
+[node name="GemSprite2" type="Sprite" parent="Camera2D/GemCounter"]
+visible = false
+position = Vector2( 948, 19 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 24 )
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/GemCounter/GemSprite2"]
+reset_on_save = false
+anims/RESET = SubResource( 38 )
+anims/rotate = SubResource( 39 )
+anims/spin = SubResource( 40 )
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 9 )
@@ -822,11 +1051,30 @@ stream = ExtResource( 11 )
 volume_db = -10.0
 autoplay = true
 
+[node name="Goal" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2644, 51 )
+
+[node name="Fireworks" type="Node2D" parent="Goal"]
+position = Vector2( 15, -31 )
+__meta__ = {
+"_editor_description_": "https://nyknck.itch.io/firework-pixel"
+}
+
+[node name="Explosionm" type="AnimatedSprite" parent="Goal/Fireworks"]
+visible = false
+position = Vector2( 108, -49 )
+frames = SubResource( 31 )
+
+[node name="FireworkPlayer" type="AudioStreamPlayer" parent="Goal/Fireworks"]
+stream = ExtResource( 21 )
+bus = "SFX"
+
 [connection signal="body_entered" from="quicksand" to="Player1" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="quicksand" to="Player2" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="quicksand" to="GameManager" method="_on_Death_zone_body_entered"]
-[connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
 [connection signal="GameOver" from="GameManager" to="Camera2D/HeartManager/HeartUI/GameOver" method="_on_GameManager_GameOver"]
+[connection signal="GemCount" from="GameManager" to="Camera2D/GemCounter" method="_on_GameManager_GemCount"]
+[connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]
 [connection signal="LiveCount" from="GameManager" to="Camera2D/HeartManager" method="_on_GameManager_LiveCount"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
@@ -834,3 +1082,6 @@ autoplay = true
 [connection signal="body_entered" from="Death zone" to="Player1" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="Player2" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="GameManager" method="_on_Death_zone_body_entered"]
+[connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
+[connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
+[connection signal="animation_finished" from="Goal/Fireworks/Explosionm" to="Goal" method="_on_Explosionm_animation_finished"]
