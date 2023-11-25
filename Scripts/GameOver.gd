@@ -14,7 +14,8 @@ var current_pause_selector = 0
 var isGameOver = false
 
 func _ready():
-  set_current_selection(0)
+   self.hide() 
+   set_current_selection(0)
 
 func _process(_delta):
   if isGameOver:

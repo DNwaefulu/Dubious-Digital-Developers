@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/Dangerous-Descent.mp3" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Death_zone.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Gem.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/HeartManager.gd" type="Script" id=13]
 [ext_resource path="res://Scripts/GemCounter.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/s_Camera.gd" type="Script" id=19]
@@ -936,10 +937,12 @@ position = Vector2( 101, 46 )
 position = Vector2( 38, 46 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 smoothing_enabled = true
 script = ExtResource( 19 )
 
 [node name="GemCounter" type="CanvasLayer" parent="Camera2D"]
+visible = false
 script = ExtResource( 14 )
 
 [node name="GemSprite1" type="Sprite" parent="Camera2D/GemCounter"]
@@ -982,6 +985,7 @@ anims/rotate = SubResource( 11 )
 anims/spin = SubResource( 12 )
 
 [node name="GameOver" type="CanvasLayer" parent="Camera2D"]
+visible = false
 
 [node name="GameOver" parent="Camera2D/GameOver" instance=ExtResource( 10 )]
 visible = false
@@ -997,6 +1001,7 @@ visible = false
 script = ExtResource( 13 )
 
 [node name="HeartUI" type="CanvasLayer" parent="Camera2D/HeartManager"]
+visible = false
 
 [node name="Heart3" type="Sprite" parent="Camera2D/HeartManager/HeartUI"]
 position = Vector2( 140, 20 )
@@ -1065,6 +1070,8 @@ bus = "Music"
 [node name="LavaPit" type="CollisionShape2D" parent="LavaPit1Collision"]
 position = Vector2( 696, 195 )
 shape = SubResource( 39 )
+
+[node name="PlayerUI" parent="." instance=ExtResource( 12 )]
 
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
