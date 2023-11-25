@@ -590,13 +590,13 @@ scale = Vector2( 1, 1.5039 )
 texture = ExtResource( 10 )
 
 [node name="Divider-1" type="Sprite" parent="CenterContainer/AnimationPlayer"]
-position = Vector2( 304, 301 )
-scale = Vector2( 2.59185, 4.00667 )
+position = Vector2( 304.806, 299.75 )
+scale = Vector2( 2.60259, 4.02333 )
 texture = ExtResource( 5 )
 
 [node name="Divider-2" type="Sprite" parent="CenterContainer/AnimationPlayer"]
-position = Vector2( 712, 301 )
-scale = Vector2( 2.59185, 4.00667 )
+position = Vector2( 712.806, 299.75 )
+scale = Vector2( 2.60259, 4.02333 )
 texture = ExtResource( 5 )
 
 [node name="Cloud" type="Sprite" parent="CenterContainer/AnimationPlayer"]
