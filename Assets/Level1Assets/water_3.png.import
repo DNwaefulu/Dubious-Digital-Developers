@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water_a_8frames.png-1958e5e5f14a1fe2bcea1805f3b6dc7e.stex"
+path="res://.import/water_3.png-d30ebb8ae485b2b23c4886cadc3ecc32.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rocky Roads/Deco/water_a_8frames.png"
-dest_files=[ "res://.import/water_a_8frames.png-1958e5e5f14a1fe2bcea1805f3b6dc7e.stex" ]
+source_file="res://Assets/Level1Assets/water_3.png"
+dest_files=[ "res://.import/water_3.png-d30ebb8ae485b2b23c4886cadc3ecc32.stex" ]
 
 [params]
 

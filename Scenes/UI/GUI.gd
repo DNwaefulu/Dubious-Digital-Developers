@@ -17,5 +17,6 @@ func _ready():
 func _on_Gem_body_entered(_body):
     emit_signal("GemCount")
 
-func _on_Death_zone_body_entered(_body):
-    emit_signal("Death")
+func _on_Death_zone_body_entered(body):
+    if body.is_in_group("climber"):
+        emit_signal("Death")
