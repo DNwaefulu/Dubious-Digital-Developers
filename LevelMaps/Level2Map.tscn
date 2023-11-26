@@ -1,15 +1,12 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Scenes/Gem.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/movableplatform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Death_zone.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Players/Player1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/HeartManager.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Audio/More-8-Bit-Drama_Looping.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Assets/Rocky Roads/Enemies/quicksand_8frames.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Ladder.tscn" type="PackedScene" id=13]
@@ -21,10 +18,8 @@
 [ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_desert.png" type="Texture" id=19]
 [ext_resource path="res://Assets/desert.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Audio/sfx/single-firework-79814.mp3" type="AudioStream" id=21]
-[ext_resource path="res://Assets/objects/full_heart.png" type="Texture" id=22]
-[ext_resource path="res://Scripts/GemCounter.gd" type="Script" id=23]
-[ext_resource path="res://Assets/objects/gem.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Level2Assests/QuickSand.tres" type="Texture" id=25]
+[ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 89.5742, 33.1238 )
@@ -783,111 +778,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 33/shapes = [  ]
 33/z_index = 0
 
-[sub_resource type="Animation" id=32]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=33]
-resource_name = "rotate"
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-
-[sub_resource type="Animation" id=34]
-resource_name = "spin"
-
-[sub_resource type="Animation" id=35]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=36]
-resource_name = "rotate"
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-
-[sub_resource type="Animation" id=37]
-resource_name = "spin"
-
-[sub_resource type="Animation" id=38]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=39]
-resource_name = "rotate"
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-
-[sub_resource type="Animation" id=40]
-resource_name = "spin"
-
 [sub_resource type="SpriteFrames" id=31]
 animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ) ],
@@ -896,7 +786,7 @@ animations = [ {
 "speed": 4.0
 } ]
 
-[node name="level2" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( -916, -1110 )
@@ -912,7 +802,6 @@ position = Vector2( 101, 46 )
 
 [node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 6 )]
 position = Vector2( 38, 46 )
-collision_mask = 3
 
 [node name="quicksand" type="Area2D" parent="."]
 position = Vector2( 1319, -339 )
@@ -942,84 +831,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 65584, 5, 0, 65585, 11, 0, 65587, 5, 0, 65588, 11, 0, 196608, 0, 0, 196609, 10, 0, 196610, 10, 0, 196611, 10, 0, 196612, 10, 0, 196613, 10, 0, 196614, 10, 0, 196615, 10, 0, 196616, 11, 0, 196629, 24, 0, 196630, 24, 0, 196641, 25, 0, 196642, 25, 0, 196643, 25, 0, 196644, 24, 0, 196645, 24, 0, 196646, 23, 0, 196647, 24, 0, 196648, 23, 0, 196649, 24, 0, 196650, 25, 0, 196651, 25, 0, 196652, 25, 0, 196653, 25, 0, 196654, 25, 0, 327692, 23, 0, 327699, 23, 0, 458767, 23, 0, 458768, 23, 0, 524321, 27, 0, 524324, 28, 0, 589854, 0, 0, 589855, 1, 0, 589856, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 0, 589860, 1, 0, 589861, 10, 0, 589862, 10, 0, 589863, 11, 0, 589868, 5, 0, 589869, 10, 0, 589870, 10, 0, 589871, 10, 0, 589872, 10, 0, 589873, 10, 0, 589874, 10, 0, 589875, 1, 0, 589876, 1, 0, 589877, 11, 0, 655390, 9, 0, 655391, 14, 0, 655392, 6, 0, 655393, 8, 0, 655394, 14, 0, 655395, 7, 0, 655396, 8, 0, 655397, 14, 0, 655398, 14, 0, 655399, 16, 0, 655404, 9, 0, 655405, 14, 0, 655406, 6, 0, 655407, 6, 0, 655408, 14, 0, 655409, 6, 0, 655410, 14, 0, 655411, 14, 0, 655412, 14, 0, 655413, 16, 0, 720926, 9, 0, 720927, 6, 0, 720928, 6, 0, 720929, 14, 0, 720930, 7, 0, 720931, 8, 0, 720932, 6, 0, 720933, 6, 0, 720934, 6, 0, 720935, 6, 0, 720936, 8, 0, 720937, 8, 0, 720938, 2, 0, 720939, 2, 0, 720940, 6, 0, 720941, 6, 0, 720942, 6, 0, 720943, 6, 0, 720944, 6, 0, 720945, 14, 0, 720946, 6, 0, 720947, 14, 0, 720948, 14, 0, 720949, 16, 0, 786462, 9, 0, 786463, 6, 0, 786464, 8, 0, 786465, 7, 0, 786466, 8, 0, 786467, 6, 0, 786468, 14, 0, 786469, 6, 0, 786470, 14, 0, 786471, 6, 0, 786472, 14, 0, 786473, 6, 0, 786474, 6, 0, 786475, 14, 0, 786476, 6, 0, 786477, 14, 0, 786478, 6, 0, 786479, 6, 0, 786480, 14, 0, 786481, 6, 0, 786482, 14, 0, 786483, 8, 0, 786484, 8, 0, 786485, 16, 0, 851998, 22, 0, 851999, 19, 0, 852000, 19, 0, 852001, 19, 0, 852002, 19, 0, 852003, 19, 0, 852004, 19, 0, 852005, 20, 0, 852006, 21, 0, 852007, 21, 0, 852008, 21, 0, 852009, 21, 0, 852010, 21, 0, 852011, 21, 0, 852012, 21, 0, 852013, 21, 0, 852014, 21, 0, 852015, 20, 0, 852016, 21, 0, 852017, 20, 0, 852018, 21, 0, 852019, 18, 0, 852020, 18, 0, 852021, 17, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-smoothing_enabled = true
-script = ExtResource( 18 )
-
-[node name="GameOver" type="CanvasLayer" parent="Camera2D"]
-
-[node name="HeartManager" type="Node" parent="Camera2D"]
-script = ExtResource( 10 )
-
-[node name="HeartUI" type="CanvasLayer" parent="Camera2D/HeartManager"]
-
-[node name="Heart3" type="Sprite" parent="Camera2D/HeartManager/HeartUI"]
-position = Vector2( 140, 20 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 22 )
-
-[node name="Heart2" type="Sprite" parent="Camera2D/HeartManager/HeartUI"]
-position = Vector2( 86, 20 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 22 )
-
-[node name="Heart1" type="Sprite" parent="Camera2D/HeartManager/HeartUI"]
-position = Vector2( 32, 20 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 22 )
-
-[node name="pause" parent="Camera2D/HeartManager/HeartUI" instance=ExtResource( 2 )]
-visible = false
-
-[node name="GameOver" parent="Camera2D/HeartManager/HeartUI" instance=ExtResource( 5 )]
-visible = false
-margin_left = -28.0
-margin_top = -9.0
-margin_right = 1055.0
-margin_bottom = 613.0
-
-[node name="GemCounter" type="CanvasLayer" parent="Camera2D"]
-script = ExtResource( 23 )
-
-[node name="GemSprite1" type="Sprite" parent="Camera2D/GemCounter"]
-visible = false
-position = Vector2( 998, 20 )
-scale = Vector2( 3.5, 3.5 )
-texture = ExtResource( 24 )
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/GemCounter/GemSprite1"]
-reset_on_save = false
-anims/RESET = SubResource( 32 )
-anims/rotate = SubResource( 33 )
-anims/spin = SubResource( 34 )
-
-[node name="GemSprite3" type="Sprite" parent="Camera2D/GemCounter"]
-visible = false
-position = Vector2( 897, 19 )
-scale = Vector2( 3.5, 3.5 )
-texture = ExtResource( 24 )
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/GemCounter/GemSprite3"]
-reset_on_save = false
-anims/RESET = SubResource( 35 )
-anims/rotate = SubResource( 36 )
-anims/spin = SubResource( 37 )
-
-[node name="GemSprite2" type="Sprite" parent="Camera2D/GemCounter"]
-visible = false
-position = Vector2( 948, 19 )
-scale = Vector2( 3.5, 3.5 )
-texture = ExtResource( 24 )
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/GemCounter/GemSprite2"]
-reset_on_save = false
-anims/RESET = SubResource( 38 )
-anims/rotate = SubResource( 39 )
-anims/spin = SubResource( 40 )
-
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 9 )
 
@@ -1039,6 +850,7 @@ position = Vector2( 1022, 762 )
 scale = Vector2( 1.35323, 1.01059 )
 
 [node name="Camera2D2" type="Camera2D" parent="."]
+visible = false
 current = true
 smoothing_enabled = true
 script = ExtResource( 18 )
@@ -1069,13 +881,12 @@ frames = SubResource( 31 )
 stream = ExtResource( 21 )
 bus = "SFX"
 
+[node name="PlayerUI" parent="." instance=ExtResource( 26 )]
+
 [connection signal="body_entered" from="quicksand" to="Player1" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="quicksand" to="Player2" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="quicksand" to="GameManager" method="_on_Death_zone_body_entered"]
-[connection signal="GameOver" from="GameManager" to="Camera2D/HeartManager/HeartUI/GameOver" method="_on_GameManager_GameOver"]
-[connection signal="GemCount" from="GameManager" to="Camera2D/GemCounter" method="_on_GameManager_GemCount"]
 [connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]
-[connection signal="LiveCount" from="GameManager" to="Camera2D/HeartManager" method="_on_GameManager_LiveCount"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
 [connection signal="body_entered" from="Gems/Gem" to="GameManager" method="_on_Gem_body_entered"]
