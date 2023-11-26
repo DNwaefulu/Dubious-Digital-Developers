@@ -8,13 +8,13 @@ extends Control
 onready var heart3 = $Heart3
 onready var heart2 = $Heart2
 onready var heart1 = $Heart1
-onready var currentLives
+onready var currentLives = 3
 
 signal heartsDepleted
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-    currentLives = get_tree().get_current_scene().get_node("GameManager").get("playerLives")
+
+func _on_PlayerUI_Death():
+    currentLives -= 1
     if currentLives == 2:
         heart3.visible = false
     if currentLives == 1:

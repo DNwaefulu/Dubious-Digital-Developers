@@ -114,6 +114,7 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="GemSprite1" type="Sprite" parent="."]
+visible = false
 position = Vector2( 998, 20 )
 scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 1 )
@@ -126,6 +127,7 @@ anims/rotate = SubResource( 2 )
 anims/spin = SubResource( 3 )
 
 [node name="GemSprite3" type="Sprite" parent="."]
+visible = false
 position = Vector2( 897, 19 )
 scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 1 )
@@ -138,6 +140,7 @@ anims/rotate = SubResource( 5 )
 anims/spin = SubResource( 6 )
 
 [node name="GemSprite2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 948, 19 )
 scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 1 )

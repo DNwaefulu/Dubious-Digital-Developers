@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Level1Assets/tileset_forest.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=2]
@@ -11,9 +11,7 @@
 [ext_resource path="res://Assets/Backgrounds/background_plains-Sheet1.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Backgrounds/background_plains-Sheet3.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Backgrounds/background_plains-Sheet2.png" type="Texture" id=11]
-[ext_resource path="res://Assets/pink/5.png" type="Texture" id=12]
-[ext_resource path="res://Assets/pink/4.png" type="Texture" id=13]
-[ext_resource path="res://Assets/pink/7.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/UI/GUI.gd" type="Script" id=12]
 [ext_resource path="res://Assets/background.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Audio/bgm/Grasslands Theme.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Assets/pink/4.png" type="Texture" id=20]
@@ -585,7 +583,7 @@ autoplay = true
 bus = "Music"
 
 [node name="PlayerUI" parent="." instance=ExtResource( 25 )]
-visible = false
+script = ExtResource( 12 )
 
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_Goal_body_entered"]
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
@@ -593,12 +591,11 @@ visible = false
 [connection signal="animation_finished" from="Goal/Fireworks/Explosionm" to="Goal" method="_on_Explosionm_animation_finished"]
 [connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
-[connection signal="body_entered" from="Gems/Gem1" to="GUI" method="_on_Gem_body_entered"]
+[connection signal="body_entered" from="Gems/Gem1" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
-[connection signal="body_entered" from="Gems/Gem2" to="GUI" method="_on_Gem_body_entered"]
+[connection signal="body_entered" from="Gems/Gem2" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem" to="GameManager" method="_on_Gem_body_entered"]
-[connection signal="body_entered" from="Gems/Gem" to="GUI" method="_on_Gem_body_entered"]
+[connection signal="body_entered" from="Gems/Gem" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Death zone" to="Player1" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="Player2" method="_on_Death_zone_body_entered"]
-[connection signal="body_entered" from="Death zone" to="GUI" method="_on_Death_zone_body_entered"]
-[connection signal="GemCount" from="GUI" to="Goal" method="_on_GUI_GemCount"]
+[connection signal="body_entered" from="Death zone" to="PlayerUI" method="_on_Death_zone_body_entered"]
