@@ -479,7 +479,7 @@ animations = [ {
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( -874, -598 )
+position = Vector2( -669, -812 )
 scale = Vector2( 12.7383, 11.7569 )
 texture = ExtResource( 15 )
 centered = false
@@ -490,7 +490,7 @@ tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 2
 format = 1
-tile_data = PoolIntArray( 65558, 1, 0, 131074, 6, 0, 131077, 8, 0, 131080, 7, 0, 196608, 2, 0, 196609, 3, 0, 196611, 3, 0, 196612, 3, 0, 196614, 3, 0, 196616, 3, 0, 196618, 14, 0, 196623, 2, 0, 196624, 3, 0, 196626, 3, 0, 196628, 4, 0, 196629, 0, 0, 262154, 9, 0, 262155, 19, 0, 262156, 18, 0, 262157, 15, 0, 262158, 18, 0, 262159, 10, 0, 327690, 13, 0, 327691, 11, 0, 327695, 12, 0 )
+tile_data = PoolIntArray( -196606, 2, 0, -196605, 3, 0, -196603, 3, 0, -196601, 3, 0, -196599, 3, 0, -196597, 4, 0, -131058, 0, 0, -65515, 0, 0, 65565, 0, 0, 131074, 6, 0, 131077, 8, 0, 131080, 7, 0, 131089, 8, 0, 131097, 0, 0, 196608, 2, 0, 196609, 3, 0, 196611, 3, 0, 196612, 3, 0, 196614, 3, 0, 196616, 3, 0, 196618, 14, 0, 196623, 2, 0, 196624, 3, 0, 196626, 3, 0, 196628, 3, 0, 196630, 4, 0, 262154, 9, 0, 262155, 19, 0, 262156, 18, 0, 262157, 15, 0, 262158, 18, 0, 262159, 10, 0, 327690, 13, 0, 327691, 11, 0, 327695, 12, 0 )
 
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 101, 46 )
@@ -499,7 +499,8 @@ position = Vector2( 101, 46 )
 position = Vector2( 38, 46 )
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1176, 88 )
+position = Vector2( -71, -135 )
+scale = Vector2( -1, 1 )
 
 [node name="Fireworks" type="Node2D" parent="Goal"]
 position = Vector2( 15, -31 )
@@ -525,13 +526,13 @@ script = ExtResource( 5 )
 position = Vector2( 620, 233 )
 
 [node name="Gem2" parent="Gems" instance=ExtResource( 6 )]
-position = Vector2( 171, 117 )
+position = Vector2( 745, -123 )
 
 [node name="Gem" parent="Gems" instance=ExtResource( 6 )]
-position = Vector2( 844, -158 )
+position = Vector2( 9, -241 )
 
 [node name="Death zone" parent="." instance=ExtResource( 7 )]
-position = Vector2( -200, 646 )
+position = Vector2( 363, 649 )
 scale = Vector2( 1.35323, 1.01059 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -581,6 +582,7 @@ autoplay = true
 bus = "Music"
 
 [node name="PlayerUI" parent="." instance=ExtResource( 25 )]
+visible = false
 
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
