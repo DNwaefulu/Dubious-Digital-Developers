@@ -9,17 +9,10 @@ onready var heart3 = $Heart3
 onready var heart2 = $Heart2
 onready var heart1 = $Heart1
 onready var currentLives
+
+signal heartsDepleted
 #var is_paused = false setget set_is_paused
-var levelNumber
-onready var levelNode = get_tree().get_root().get_child(3)
 # Called when the node enters the scene tree for the first time.
-func _ready():
-    print(levelNode)
-#    for i in 3:
-#        if (get_tree().get_root().get_node("Level"+str(i+1)) == get_tree().get_root().get_child(3)):
-#            levelNumber = i
-#            break
-    pass # Replace with function body.
 #function is changing the is_pause by the boolean and pausing the game
 #func set_is_paused(value):
 #    print(value)
@@ -51,13 +44,14 @@ func _process(_delta):
 #        $EmptyHeart3.visible = true
     #currentLives = get_tree().get_root().get_node("Level"+str(levelNumber+1)+"/GameManager").get("playerLives")
     currentLives = get_tree().get_root().get_child(2).get_node("GameManager").get("playerLives")
-    print(currentLives)
     if currentLives == 2:
         heart3.visible = false
     if currentLives == 1:
         heart2.visible = false
     if currentLives == 0:
         heart1.visible = false
+    if currentLives < 0:
+        emit_signal("heartsDepleted")
 
 
 
