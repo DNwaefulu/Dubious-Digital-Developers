@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="End_Credits"
-run/main_scene="res://End_Credits_Updated.tscn"
+run/main_scene="res://End_Credits.tscn"
 config/icon="res://icon.png"
 "<<<<<<<HEAD[display]window/size/height"=1024
 
