@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/player_scripts/sPlayer1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerSprites/Player1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Audio/sfx/jump_01.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -171,14 +172,14 @@ animations = [ {
 "speed": 10.0
 }, {
 "frames": [ SubResource( 30 ) ],
-"loop": true,
+"loop": false,
 "name": "a_p1_prepareThrow",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": false,
 "name": "a_p1_throw",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
@@ -189,7 +190,11 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 17.5, 29 )
 
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 12, 11 )
+
 [node name="Player1" type="KinematicBody2D" groups=["Climber"]]
+collision_layer = 2
 script = ExtResource( 1 )
 jump_height = 100.0
 jump_time_to_peak = 0.5
@@ -199,15 +204,42 @@ move_left = "player_left1"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
-animation = "a_idle"
+animation = "a_jumping"
+frame = 7
 playing = true
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="downRaycast" type="RayCast2D" parent="."]
 position = Vector2( 18, 0 )
 enabled = true
-collision_mask = 2
 collide_with_areas = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, 3 )
 shape = SubResource( 37 )
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -2.0
+bus = "SFX"
+
+[node name="forwardRaycast" type="RayCast2D" parent="."]
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 1.5299e-06, 35 )
+collision_mask = 2
+
+[node name="backwardRaycast" type="RayCast2D" parent="."]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( -1.39876e-06, 32 )
+collision_mask = 2
+
+[node name="LendingArea" type="Area2D" parent="."]
+position = Vector2( 20, -37 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LendingArea"]
+shape = SubResource( 38 )
+
+[connection signal="body_entered" from="LendingArea" to="." method="_on_LendingArea_body_entered"]
