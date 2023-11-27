@@ -198,6 +198,7 @@ enabled = true
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -2.0
+bus = "SFX"
 
 [node name="forwardRaycast" type="RayCast2D" parent="."]
 rotation = -1.5708

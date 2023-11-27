@@ -876,6 +876,7 @@ vframes = 2
 
 [node name="LevelSelect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+bus = "Music"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_left = 234.0
