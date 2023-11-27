@@ -676,7 +676,6 @@ autoplay = true
 bus = "Music"
 
 [node name="PlayerUI" parent="." instance=ExtResource( 25 )]
-visible = false
 
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_Goal_body_entered"]
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
