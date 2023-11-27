@@ -14,3 +14,7 @@ func _on_TextureButton_pressed():
  #       if get_tree().change_scene("res://Scenes/MainMenu.tscn") != OK:
   #          print("Error!")
    #     queue_free()
+
+
+func _on_Gem_body_entered(body):
+    pass # Replace with function body.
