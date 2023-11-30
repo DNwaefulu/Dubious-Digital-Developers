@@ -14,8 +14,10 @@ script = ExtResource( 5 )
 [node name="GemCounter" parent="." instance=ExtResource( 4 )]
 
 [node name="GameOver" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="pause" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [connection signal="Death" from="." to="HeartsUI" method="_on_PlayerUI_Death"]
 [connection signal="GemCount" from="." to="GemCounter" method="_on_PlayerUI_GemCount"]
