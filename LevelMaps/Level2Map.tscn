@@ -1118,7 +1118,6 @@ shape = SubResource( 39 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bullet/Cactus"]
 frames = SubResource( 43 )
-frame = 3
 playing = true
 
 [node name="Bullet" type="Area2D" parent="Bullet"]
@@ -1140,7 +1139,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="quicksand2"]
 position = Vector2( 526.895, 670.671 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 28 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="quicksand2"]
