@@ -57,103 +57,111 @@ var thrown = false
 onready var player1Ref = self.owner.get_node("Player1")
 
 func _physics_process(delta):
-    if is_on_floor():
-        thrown = false
-    if velocity.x < 1 and is_on_floor() and velocity.x > -1:
-        anim.play("a_p2_idle")
-    #velocity.y += get_gravity() * delta
-    if thrown == false:
-        velocity.x = get_input_velocity() * move_speed
-    if climbing == false:
-        velocity.y += get_gravity() * delta
-    elif climbing == true:
-        velocity.y = 0
-        if Input.is_action_pressed("player_climb2"):
-            velocity.y = -climb_speed
-        elif Input.is_action_pressed("player_down2"):
-            velocity.y = climb_speed    
+	if is_on_floor():
+		thrown = false
+	if velocity.x < 1 and is_on_floor() and velocity.x > -1:
+		anim.play("a_p2_idle")
+	#velocity.y += get_gravity() * delta
+	if thrown == false:
+		velocity.x = get_input_velocity() * move_speed
+	if climbing == false:
+		velocity.y += get_gravity() * delta
+	elif climbing == true:
+		velocity.y = 0
+		if Input.is_action_pressed("player_climb2"):
+			velocity.y = -climb_speed
+		elif Input.is_action_pressed("player_down2"):
+			velocity.y = climb_speed    
 
-    
-    if Input.is_action_just_pressed(player_jump) and is_on_floor():
-        jump()
-    
-    if canMove == true:
-        velocity = move_and_slide(velocity, Vector2.UP)
-    
-    #if the player is on the ledge and they are holding down right trigger and they are on the floor 
-    #then they can't move and we will call another function later which 
-    #will allow the player jumping to them to grab on and launch themselves
-    if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
-        canMove = false
-        velocity.x = 0
-        anim.play("a_p2_lending")
-    else:
-        canMove = true
-        
-        #OKAY SO WE ARE HARD CODING VALUES HERE
-        #I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
-        #WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
-        #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
-        #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
-        #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
-    if Input.is_action_pressed("player_left2"):
-        playerRaycast.position.x =-16
-        lendingArea.position.x = -20
-    if Input.is_action_pressed("player_right2"):
-        playerRaycast.position.x = 18
-        lendingArea.position.x = 20
-    
-    if playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
-        canMove = false
-        velocity.x = 0
-        if throwing == false:
-            anim.play("a_p2_prepareThrow")
-        if backRaycast.is_colliding():
-            if backRaycast.get_collider() == player1Ref:
-                throwing = true
-                anim.play("a_p2_throw")
-                yield(anim,"animation_finished")
-                throwing = false
-    
-    #OKAY so this ccode is working,BUT since the characters are able to collide with one another
-    #they don't go nowhere :/
-    #so what i need to do is either
-    #A) make it to where if they get launched then they can't collide with each other for a second
-    #B) remmove their collision entirely 
-    #i'll try that and see how it plays
-    if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == player1Ref and player1Ref.get("throwing") == true:
-        thrown = true
-        velocity.y = jump_velocity * 1.25
-        velocity.x = get_input_velocity() * 250
-            
+	
+	if Input.is_action_just_pressed(player_jump) and is_on_floor():
+		jump()
+	
+	if canMove == true:
+		velocity = move_and_slide(velocity, Vector2.UP)
+	
+	#if the player is on the ledge and they are holding down right trigger and they are on the floor 
+	#then they can't move and we will call another function later which 
+	#will allow the player jumping to them to grab on and launch themselves
+	if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
+		canMove = false
+		velocity.x = 0
+		anim.play("a_p2_lending")
+	else:
+		canMove = true
+		
+		#OKAY SO WE ARE HARD CODING VALUES HERE
+		#I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
+		#WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
+		#AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
+		#SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
+		#WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
+	if Input.is_action_pressed("player_left2"):
+		playerRaycast.position.x =-16
+		lendingArea.position.x = -20
+	if Input.is_action_pressed("player_right2"):
+		playerRaycast.position.x = 18
+		lendingArea.position.x = 20
+	
+	if playerRaycast.is_colliding() and Input.is_action_pressed("player_lending2") and is_on_floor():
+		canMove = false
+		velocity.x = 0
+		if throwing == false:
+			anim.play("a_p2_prepareThrow")
+		if backRaycast.is_colliding():
+			if backRaycast.get_collider() == player1Ref:
+				throwing = true
+				anim.play("a_p2_throw")
+				yield(anim,"animation_finished")
+				throwing = false
+	
+	#OKAY so this ccode is working,BUT since the characters are able to collide with one another
+	#they don't go nowhere :/
+	#so what i need to do is either
+	#A) make it to where if they get launched then they can't collide with each other for a second
+	#B) remmove their collision entirely 
+	#i'll try that and see how it plays
+	if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == player1Ref and player1Ref.get("throwing") == true:
+		thrown = true
+		velocity.y = jump_velocity * 1.25
+		velocity.x = get_input_velocity() * 250
+			
 func get_gravity() -> float:
-    return jump_gravity if velocity.y < 0.0 else fall_gravity
+	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func jump():
-    velocity.y = jump_velocity
-    anim.play("a_p2_jumping")
-    $JumpSound.play()
+	velocity.y = jump_velocity
+	anim.play("a_p2_jumping")
+	$JumpSound.play()
 
 func get_input_velocity() -> float:
-    var horizontal := 0.0
-    
-    if Input.get_action_strength(move_left):
-        horizontal -= 1.0
-        anim.flip_h = true
-        if is_on_floor():
-            anim.play("a_p2_walking")
-    if Input.get_action_strength(move_right):
-        horizontal += 1.0
-        anim.flip_h = false
-        if is_on_floor():
-            anim.play("a_p2_walking")
-    
-    return horizontal
+	var horizontal := 0.0
+	
+	if Input.get_action_strength(move_left):
+		horizontal -= 1.0
+		anim.flip_h = true
+		if is_on_floor():
+			anim.play("a_p2_walking")
+	if Input.get_action_strength(move_right):
+		horizontal += 1.0
+		anim.flip_h = false
+		if is_on_floor():
+			anim.play("a_p2_walking")
+	
+	return horizontal
 
 func _on_Death_zone_body_entered(body: Node) -> void:
-    if (body == self):
-        position = player2_start_position
+	if (body == self):
+		position = player2_start_position
 
 func _on_LendingArea_body_entered(body):
-    if Input.is_action_pressed("player_lending2") and not is_on_floor() and player1Ref.get("canMove") == false and body.name == "Player1":
-        velocity.y = jump_velocity
+	if Input.is_action_pressed("player_lending2") and not is_on_floor() and player1Ref.get("canMove") == false and body.name == "Player1":
+		velocity.y = jump_velocity
+
+
+func _on_KinematicBody2D6_PlayerEntered(area):
+	pass # Replace with function body.
+
+
+func _on_KinematicBody2D6_PlayerExited(area):
+	pass # Replace with function body.

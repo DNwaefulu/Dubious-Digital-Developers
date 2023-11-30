@@ -43,19 +43,19 @@ func _on_Gem_body_entered(_body: Node) -> void:
 #Whenever the goalsbody is intersected with a KinematicBody2D (a player) then it will check if enough gems have been collected, 
 #if < 3 gems are collected then they won't move on, if they do then they will go to the next level
 func _on_Goal_body_entered(body: Node) -> void:
-  if body.is_in_group("Climber"):
-    playerinGoal += 1
-  print("P")
-  print(playerinGoal)
-  if playerinGoal == 2:
-    print("TPIG")
-    if globalGemCount == 3:
-        print("TGC")
-        emit_signal("LevelOver")
+	if body.is_in_group("Climber"):
+		playerinGoal += 1
+		print("P")
+		print(playerinGoal)
+	if playerinGoal == 2:
+		print("TPIG")
+	if globalGemCount == 3:
+		print("TGC")
+		emit_signal("LevelOver")
 
 func _on_Goal_body_exited(body):
-    if body.is_in_group("Climber"):
-        playerinGoal -= 1
+	if body.is_in_group("Climber"):
+		playerinGoal -= 1
 
 
 #This is what takes care of player death regarding lives
@@ -63,12 +63,12 @@ func _on_Goal_body_exited(body):
 #have, and if it's less than or equal to 0 then it will just quit the game because we don't have a 
 #game over screen right now
 func _on_Death_zone_body_entered(body: Node) -> void:
-  print("Entered")
-  if body.is_in_group("Climber"):  
-    print("E2")
-    if playerLives <= 0:
-        emit_signal("GameOver")
-    playerLives-=1
-    print(playerLives)
-    # Send a signal to the heart manager to update heart UI
-    emit_signal("LiveCount", playerLives)
+	print("Entered")
+	if body.is_in_group("Climber"):  
+		print("E2")
+	if playerLives <= 0:
+		emit_signal("GameOver")
+	playerLives-=1
+	print(playerLives)
+	# Send a signal to the heart manager to update heart UI
+	emit_signal("LiveCount", playerLives)

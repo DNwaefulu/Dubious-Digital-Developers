@@ -266,7 +266,6 @@ anims/RESET = SubResource( 2 )
 anims/platform = SubResource( 3 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-visible = false
 __meta__ = {
 "_edit_group_": true
 }
@@ -283,7 +282,6 @@ position = Vector2( 135.5, -33.5 )
 shape = SubResource( 1 )
 
 [node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
-visible = false
 position = Vector2( 24, 0 )
 __meta__ = {
 "_edit_group_": true
@@ -301,7 +299,6 @@ position = Vector2( 143.875, -21.375 )
 shape = SubResource( 1 )
 
 [node name="KinematicBody2D3" type="KinematicBody2D" parent="."]
-visible = false
 position = Vector2( 48, 0 )
 __meta__ = {
 "_edit_group_": true
@@ -319,7 +316,6 @@ position = Vector2( 143.875, -21.375 )
 shape = SubResource( 1 )
 
 [node name="KinematicBody2D4" type="KinematicBody2D" parent="."]
-visible = false
 position = Vector2( 72, 0 )
 __meta__ = {
 "_edit_group_": true
@@ -355,7 +351,6 @@ position = Vector2( 143.875, -21.375 )
 shape = SubResource( 1 )
 
 [node name="KinematicBody2D6" type="KinematicBody2D" parent="."]
-visible = false
 position = Vector2( 120, 0 )
 __meta__ = {
 "_edit_group_": true

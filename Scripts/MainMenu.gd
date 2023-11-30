@@ -38,49 +38,49 @@ func _ready():
 
 
 func _process(_delta):
-    if Input.is_action_just_pressed("ui_down") and current_selector < 4:
-        current_selector +=1
-        $SelectorNoisePlayer.play()
-        set_current_selection(current_selector)
-    elif Input.is_action_just_pressed("ui_up") and current_selector > 0:
-        current_selector -=1
-        $SelectorNoisePlayer.play()
-        set_current_selection(current_selector)
-    elif Input.is_action_just_pressed("ui_accept"):
-        $SelectorNoisePlayer.play()
-        handle_selection(current_selector)
+	if Input.is_action_just_pressed("ui_down") and current_selector < 4:
+		current_selector +=1
+		$SelectorNoisePlayer.play()
+		set_current_selection(current_selector)
+	elif Input.is_action_just_pressed("ui_up") and current_selector > 0:
+		current_selector -=1
+		$SelectorNoisePlayer.play()
+		set_current_selection(current_selector)
+	elif Input.is_action_just_pressed("ui_accept"):
+		$SelectorNoisePlayer.play()
+		handle_selection(current_selector)
 
 func handle_selection(_current_selector):
-    if _current_selector == 0:
-        get_parent().add_child(play_scene.instance())
-        queue_free()
-    elif _current_selector == 1:
-        get_parent().add_child(controls_scene.instance())
-        queue_free()
-    elif _current_selector == 2:
-        get_parent().add_child(settings_scene.instance())
-        queue_free()
-    elif _current_selector == 3:
-        get_parent().add_child(credits_scene.instance())
-        queue_free()
-    elif _current_selector == 4:
-        get_tree().quit()
+	if _current_selector == 0:
+		get_parent().add_child(play_scene.instance())
+		queue_free()
+	elif _current_selector == 1:
+		get_parent().add_child(controls_scene.instance())
+		queue_free()
+	elif _current_selector == 2:
+		get_parent().add_child(settings_scene.instance())
+		queue_free()
+	elif _current_selector == 3:
+		get_parent().add_child(credits_scene.instance())
+		queue_free()
+	elif _current_selector == 4:
+		get_tree().quit()
   
 
 func set_current_selection(_current_selection):
-    play_selector.text = ""
-    controls_selector.text = ""
-    settings_selector.text = ""
-    credits_selector.text = ""
-    exit_selector.text = ""
-    if _current_selection == 0:
-        play_selector.text = ">"
-    elif _current_selection == 1:
-        controls_selector.text = ">"
-    elif _current_selection == 2:
-        settings_selector.text = ">"
-    elif _current_selection == 3:
-        credits_selector.text = ">"
-    elif _current_selection == 4:
-        exit_selector.text = ">"
+	play_selector.text = ""
+	controls_selector.text = ""
+	settings_selector.text = ""
+	credits_selector.text = ""
+	exit_selector.text = ""
+	if _current_selection == 0:
+		play_selector.text = ">"
+	elif _current_selection == 1:
+		controls_selector.text = ">"
+	elif _current_selection == 2:
+		settings_selector.text = ">"
+	elif _current_selection == 3:
+		credits_selector.text = ">"
+	elif _current_selection == 4:
+		exit_selector.text = ">"
 
