@@ -21,3 +21,4 @@ script = ExtResource( 5 )
 [connection signal="GemCount" from="." to="GemCounter" method="_on_PlayerUI_GemCount"]
 [connection signal="heartsDepleted" from="HeartsUI" to="GameOver" method="_on_HeartsUI_heartsDepleted"]
 [connection signal="heartsDepleted" from="HeartsUI" to="pause" method="_on_HeartsUI_heartsDepleted"]
+[connection signal="GemsC" from="GemCounter" to="." method="_on_GemCounter_GemsC"]

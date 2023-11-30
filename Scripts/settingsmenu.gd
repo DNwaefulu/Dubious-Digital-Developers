@@ -57,9 +57,11 @@ func _on_Option_item_selected(index):
   GlobalSettings.toggle_fullscreen(true if index == 1 else false)
   pass
 
+
 func _on_TextureButton_pressed():
+    var Main_Menu = load("res://Scenes/MainMenu.tscn")
     # warning-ignore:return_value_discarded
-    get_tree().change_scene("res://Scenes/MainMenu.tscn")
+    get_tree().change_scene_to(Main_Menu)
     queue_free()
 
 func _on_Masterslider_value_changed(value):

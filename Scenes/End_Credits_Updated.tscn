@@ -80,3 +80,5 @@ valign = 1
 margin_right = 117.0
 margin_bottom = 109.0
 texture_normal = ExtResource( 3 )
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

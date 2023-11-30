@@ -45,6 +45,7 @@ func find_credit_labels(node):
     # Initialize and connect the timeout signal of the timer
     delay_timer = Timer.new()
     add_child(delay_timer)
+    # warning-ignore:return_value_discarded
     delay_timer.connect("timeout", self, "_on_timer_timeout")
     delay_timer.wait_time = 2  # Adjust the delay time in seconds
     delay_timer.start()
@@ -89,6 +90,7 @@ func _process(delta):
 
         if last_label_bottom < trigger_point:
             # Transition to a new scene or perform any other action
+            # warning-ignore:return_value_discarded
             get_tree().change_scene("res://Scenes/MainMenu.tscn")
             queue_free()
     
@@ -98,7 +100,7 @@ func _on_timer_timeout():
     # This function is called when the timer expires
     delay_timer.stop()  # Stop the timer to allow scrolling to begin
 
-onready var credit = $Label
+#onready var credit = $Label
 
 func _on_TextureButton_pressed():
     # warning-ignore:return_value_discarded
