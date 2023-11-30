@@ -5,6 +5,7 @@
 [ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scripts/settingsmenu.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Audio/stardust-danijel-zambo-main-version-03-13-1372.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/button-16.mp3" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -18,10 +19,6 @@ font_data = ExtResource( 3 )
 size = 17
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 17
-font_data = ExtResource( 3 )
-
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,11 +28,6 @@ script = ExtResource( 4 )
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
-
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
-texture_normal = ExtResource( 2 )
 
 [node name="Background4" type="Sprite" parent="."]
 position = Vector2( 512, 300.5 )
@@ -48,14 +40,14 @@ margin_bottom = 600.0
 
 [node name="Audiosettings" type="GridContainer" parent="CenterContainer"]
 margin_left = 376.0
-margin_top = 102.0
+margin_top = 134.0
 margin_right = 648.0
-margin_bottom = 497.0
+margin_bottom = 465.0
 columns = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Audiosettings"]
 margin_right = 272.0
-margin_bottom = 395.0
+margin_bottom = 331.0
 custom_constants/separation = 46
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
@@ -162,25 +154,6 @@ margin_left = 176.0
 margin_right = 252.0
 margin_bottom = 40.0
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
-margin_top = 377.0
-margin_right = 272.0
-margin_bottom = 395.0
-custom_constants/separation = 51
-
-[node name="Brightness" type="Label" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer6"]
-margin_right = 116.0
-margin_bottom = 18.0
-custom_constants/shadow_as_outline = 0
-custom_fonts/font = SubResource( 4 )
-text = "Brightness"
-
-[node name="Brightnesslevel" type="HSlider" parent="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer6"]
-margin_left = 167.0
-margin_right = 267.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 100, 0 )
-
 [node name="SettingsStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 bus = "Music"
@@ -190,10 +163,21 @@ https://uppbeat.io/t/danijel-zambo/stardust
 License code: R4TEAVWDGJCZ6AJU"
 }
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[node name="SFXStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "SFX"
+__meta__ = {
+"_editor_description_": "taken from https://www.soundjay.com/button-sounds-2.html"
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture_normal = ExtResource( 2 )
+
 [connection signal="value_changed" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer/Masterslider" to="." method="_on_Masterslider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer2/SFXslider" to="." method="_on_SFXslider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer3/Musicslider" to="." method="_on_Musicslider_value_changed"]
 [connection signal="item_selected" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer4/Option" to="." method="_on_Option_item_selected"]
 [connection signal="toggled" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer5/Vsyncbtn" to="." method="_on_Vsyncbtn_toggled"]
-[connection signal="value_changed" from="CenterContainer/Audiosettings/VBoxContainer/HBoxContainer6/Brightnesslevel" to="." method="_on_Brightnesslevel_value_changed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/umph-47201.mp3-11b0c723125fb773d08857e9e84bb994.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/umph-47201.mp3"
+dest_files=[ "res://.import/umph-47201.mp3-11b0c723125fb773d08857e9e84bb994.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

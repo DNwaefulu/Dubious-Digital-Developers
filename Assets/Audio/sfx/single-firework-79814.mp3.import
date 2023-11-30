@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/single-firework-79814.mp3-89d681be4fd9fbd063c1b3eab7894f89.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/sfx/single-firework-79814.mp3"
+dest_files=[ "res://.import/single-firework-79814.mp3-89d681be4fd9fbd063c1b3eab7894f89.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,18 +1,55 @@
 extends Area2D
 
+const LevelSelect = preload("res://Scenes/Levelselect.tscn")
+const Congrats = preload("res://Scenes/Congrats_Screen.tscn")
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
 
+var playerinGoal = 0
+var gemCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     pass # Replace with function body.
 
+# Play firework after level ends
+func _on_GameManager_LevelOver():
+    $Fireworks/Explosionm.show()
+    $Fireworks/Explosionm.play("default")
+    $Fireworks/FireworkPlayer.play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+# Firework done -> back to level select
+func _on_Explosionm_animation_finished():
+    
+    # warning-ignore:return_value_discarded
+    var LevelID = get_parent().to_string()[5].to_int()
+    if (LevelVariables.currLevel + 1) < LevelID:
+        LevelVariables.currLevel = LevelID + 1
+        
+    print("LEVELIUD:")
+    print(LevelID)
+        
+    if LevelID == 3:
+        get_tree().change_scene_to(Congrats)
+    else:
+        # warning-ignore:return_value_discarded
+        get_tree().change_scene_to(LevelSelect)
 
 
+func _on_Goal_body_entered(body):
+    if body.is_in_group("Climber"):
+        playerinGoal += 1
+        print(playerinGoal)
+    if playerinGoal == 2:
+        if gemCount == 3:
+            $Fireworks/Explosionm.show()
+            $Fireworks/Explosionm.play("default")
+            $Fireworks/FireworkPlayer.play()
+
+
+func _on_GUI_GemCount():
+    gemCount += 1
+
+
+func _on_Goal_body_exited(body):
+    if body.is_in_group("Climber"):
+        playerinGoal -= 1

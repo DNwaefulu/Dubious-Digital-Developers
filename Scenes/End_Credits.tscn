@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://End_Credits.gd" type="Script" id=1]
+[ext_resource path="res://End_Credits_Updated.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/back-button-white.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Audio/Hidden-Pond_Looping.mp3" type="AudioStream" id=4]
