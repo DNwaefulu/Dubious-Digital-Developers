@@ -15,6 +15,3 @@ func _on_TextureButton_pressed():
   #          print("Error!")
    #     queue_free()
 
-
-func _on_Gem_body_entered(body):
-    pass # Replace with function body.

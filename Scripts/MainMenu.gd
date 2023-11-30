@@ -33,7 +33,8 @@ func _ready():
   bus_index = AudioServer.get_bus_index(bus_name)
   AudioServer.set_bus_volume_db(bus_index, dbvol)
 
-  set_current_selection(0)
+  current_selector = LevelVariables.currSelector
+  set_current_selection(LevelVariables.currSelector)
   
 
 
@@ -52,18 +53,22 @@ func _process(_delta):
 
 func handle_selection(_current_selector):
     if _current_selector == 0:
+        LevelVariables.currSelector = 0
         # warning-ignore:return_value_discarded
         get_tree().change_scene_to(play_scene)
         queue_free()
     elif _current_selector == 1:
+        LevelVariables.currSelector = 1
         # warning-ignore:return_value_discarded
         get_tree().change_scene_to(controls_scene)
         queue_free()
     elif _current_selector == 2:
+        LevelVariables.currSelector = 2
         # warning-ignore:return_value_discarded
         get_tree().change_scene_to(settings_scene)
         queue_free()
     elif _current_selector == 3:
+        LevelVariables.currSelector = 3
         # warning-ignore:return_value_discarded
         get_tree().change_scene_to(credits_scene)
         queue_free()

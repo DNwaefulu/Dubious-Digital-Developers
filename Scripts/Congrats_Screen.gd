@@ -1,6 +1,6 @@
 extends Node2D
 
-const Credits = preload("res://Scenes/End_Credits.tscn")
+const Credits = preload("res://Scenes/End_Credits_Updated.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
    if Input.is_action_just_pressed("ui_cancel"):
         # warning-ignore:return_value_discarded
         get_tree().change_scene_to(Credits)
@@ -20,4 +20,5 @@ func _process(delta):
 
 
 func _on_Leave_Button_pressed():
+    # warning-ignore:return_value_discarded
     get_tree().change_scene_to(Credits)

@@ -31,6 +31,7 @@ func _on_Explosionm_animation_finished():
     if LevelID == 3:
         get_tree().change_scene_to(Congrats)
     else:
+        # warning-ignore:return_value_discarded
         get_tree().change_scene_to(LevelSelect)
 
 
