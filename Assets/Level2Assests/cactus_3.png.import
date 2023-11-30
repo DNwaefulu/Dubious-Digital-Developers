@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cactus_spike.png-1c7ef4b0be78328c77daee6ad039f72f.stex"
+path="res://.import/cactus_3.png-e6802e900e9e4d0c5936b13413192c29.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rocky Roads/Enemies/cactus_spike.png"
-dest_files=[ "res://.import/cactus_spike.png-1c7ef4b0be78328c77daee6ad039f72f.stex" ]
+source_file="res://Assets/Level2Assests/cactus_3.png"
+dest_files=[ "res://.import/cactus_3.png-e6802e900e9e4d0c5936b13413192c29.stex" ]
 
 [params]
 
