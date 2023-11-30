@@ -575,8 +575,7 @@ custom_fonts/font = SubResource( 2 )
 text = "WASD - Move
 W-Climbup
 S- Climbdown
-control-lending/Throw
-control-Throwing"
+control-lending/Throw"
 
 [node name="Player2 Movement" type="Label" parent="."]
 margin_left = 748.0
