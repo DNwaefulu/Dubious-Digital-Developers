@@ -67,8 +67,12 @@ func _physics_process(delta):
         velocity.y = 0
         if Input.is_action_pressed("player_climb1"):
             velocity.y = -climb_speed
+            anim.play("a_climbing")
         elif Input.is_action_pressed("player_down1"):
             velocity.y = climb_speed
+            anim.play("a_climbing")
+        if (velocity.y == 0):
+            anim.play("a_climbingPause")
     if thrown == false:
         velocity.x = get_input_velocity() * move_speed
     
