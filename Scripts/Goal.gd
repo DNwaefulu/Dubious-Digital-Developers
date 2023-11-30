@@ -22,7 +22,7 @@ func _on_Explosionm_animation_finished():
     
     # warning-ignore:return_value_discarded
     var LevelID = get_parent().to_string()[5].to_int()
-    if (LevelVariables.currLevel + 1) < LevelID:
+    if (LevelVariables.currLevel) == LevelID:
         LevelVariables.currLevel = LevelID + 1
         
     print("LEVELIUD:")
