@@ -858,6 +858,7 @@ bus = "Music"
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
 [connection signal="animation_finished" from="Goal/Fireworks/Explosionm" to="Goal" method="_on_Explosionm_animation_finished"]
+[connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem1" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
