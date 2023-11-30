@@ -981,7 +981,7 @@ position = Vector2( 101, 46 )
 position = Vector2( 38, 46 )
 
 [node name="Goal" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1480, 111 )
+position = Vector2( 814, 148 )
 
 [node name="Fireworks" type="Node2D" parent="Goal"]
 position = Vector2( 15, -31 )
@@ -1001,13 +1001,13 @@ bus = "SFX"
 [node name="Gems" type="Node" parent="."]
 
 [node name="Gem1" parent="Gems" instance=ExtResource( 11 )]
-position = Vector2( 1619, 583 )
+position = Vector2( 442, 77 )
 
 [node name="Gem2" parent="Gems" instance=ExtResource( 11 )]
-position = Vector2( 1479, -13 )
+position = Vector2( 246, -13 )
 
 [node name="Gem" parent="Gems" instance=ExtResource( 11 )]
-position = Vector2( 2279, -393 )
+position = Vector2( 560, 30 )
 
 [node name="Death zone" parent="." instance=ExtResource( 9 )]
 position = Vector2( 806, 627 )
@@ -1045,7 +1045,7 @@ bus = "Music"
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem1" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="." method="_on_Gem_body_entered"]
-[connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
+[connection signal="body_entered" from="Gems/Gem2" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem" to="." method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Death zone" to="GameManager" method="_on_Death_zone_body_entered"]
@@ -1053,3 +1053,4 @@ bus = "Music"
 [connection signal="body_entered" from="LavaPit1Collision" to="GameManager" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="LavaPit1Collision" to="PlayerUI" method="_on_Death_zone_body_entered"]
 [connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]
+[connection signal="GemC" from="PlayerUI" to="GameManager" method="_on_PlayerUI_GemC"]

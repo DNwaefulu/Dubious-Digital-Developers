@@ -6,6 +6,9 @@ onready var thirdGemAnim = $GemSprite3/AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 var globalGemCount = 0
 var levelNumber
+
+signal GemsC()
+
 func _ready():
     firstGemAnim.play("rotate")
     secondGemAnim.play("rotate")
@@ -20,3 +23,4 @@ func _on_PlayerUI_GemCount():
         $GemSprite2.show()
     if globalGemCount == 3:
         $GemSprite3.show()
+        emit_signal("GemsC")

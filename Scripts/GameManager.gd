@@ -72,3 +72,7 @@ func _on_Death_zone_body_entered(body: Node) -> void:
     print(playerLives)
     # Send a signal to the heart manager to update heart UI
     emit_signal("LiveCount", playerLives)
+
+
+func _on_PlayerUI_GemC():
+    globalGemCount = 3
