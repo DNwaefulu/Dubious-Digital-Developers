@@ -33,6 +33,9 @@ func _ready():
   bus_index = AudioServer.get_bus_index(bus_name)
   AudioServer.set_bus_volume_db(bus_index, dbvol)
 
+  GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen_on)
+  GlobalSettings.toggle_vsync(Save.game_data.vsync_on)
+
   current_selector = LevelVariables.currSelector
   set_current_selection(LevelVariables.currSelector)
   
