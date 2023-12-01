@@ -1118,6 +1118,7 @@ shape = SubResource( 39 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bullet/Cactus"]
 frames = SubResource( 43 )
+frame = 4
 playing = true
 
 [node name="Bullet" type="Area2D" parent="Bullet"]
@@ -1302,6 +1303,7 @@ shape = SubResource( 36 )
 [connection signal="body_entered" from="Death zone" to="GameManager" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="PlayerUI" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
 [connection signal="animation_finished" from="Goal/Fireworks/Explosionm" to="Goal" method="_on_Explosionm_animation_finished"]
 [connection signal="body_entered" from="Button" to="MP" method="_on_Button_body_entered"]
