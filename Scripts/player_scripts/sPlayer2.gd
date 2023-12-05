@@ -161,3 +161,7 @@ func _on_Death_zone_body_entered(body: Node) -> void:
 func _on_LendingArea_body_entered(body):
     if Input.is_action_pressed("player_lending2") and not is_on_floor() and player1Ref.get("canMove") == false and body.name == "Player1":
         velocity.y = jump_velocity
+
+
+func _on_tramopline_body_entered(body: Node) -> void:
+    anim.play("a_p2_jumping")
