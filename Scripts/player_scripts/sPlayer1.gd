@@ -67,8 +67,12 @@ func _physics_process(delta):
         velocity.y = 0
         if Input.is_action_pressed("player_climb1"):
             velocity.y = -climb_speed
+            anim.play("a_climbing")
         elif Input.is_action_pressed("player_down1"):
             velocity.y = climb_speed
+            anim.play("a_climbing")
+        if (velocity.y == 0):
+            anim.play("a_climbingPause")
     if thrown == false:
         velocity.x = get_input_velocity() * move_speed
     
@@ -158,7 +162,7 @@ func get_input_velocity() -> float:
 #that's set earlier in this script
 func _on_Death_zone_body_entered(body: Node) -> void:
     if (body == self):
-        position = player1_start_position
+        position = Checkpoint.last_position_first
 
 #THIS IS HOW LENDING WORKS NOW
 #since players can't collide with one another anymore, there is an 
