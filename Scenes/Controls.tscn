@@ -617,6 +617,7 @@ texture_normal = ExtResource( 2 )
 
 [node name="ControlsStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+bus = "Music"
 __meta__ = {
 "_editor_description_": "Music from #Uppbeat (free for Creators!):
 https://uppbeat.io/t/danijel-zambo/stardust
