@@ -42,18 +42,21 @@ func _on_Goal_body_entered(body):
     if body.is_in_group("Climber"):
         playerinGoal += 1
         print(playerinGoal)
+        print("G")
+        print(gemCount)
     if playerinGoal == 2:
         if gemCount == 3:
+            print("H")
             emit_signal("PlayerMovement")
             $Fireworks/Explosionm.show()
             $Fireworks/Explosionm.play("default")
             $Fireworks/FireworkPlayer.play()
 
 
-func _on_GUI_GemCount():
-    gemCount += 1
-
-
 func _on_Goal_body_exited(body):
     if body.is_in_group("Climber"):
         playerinGoal -= 1
+
+
+func _on_PlayerUI_GemCount():
+    gemCount += 1

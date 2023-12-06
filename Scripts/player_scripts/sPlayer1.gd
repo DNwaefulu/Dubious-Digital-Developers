@@ -52,85 +52,88 @@ onready var backRaycast = $backwardRaycast
 #if we are throwing then we will wait until the animation is done, and then we will go back to the
 #prepare throw animation
 var throwing = false
+onready var levelNotOver = true
 
 #variable to get reference to player 2
 onready var player2Ref = self.owner.get_node("Player2")
 
 func _physics_process(delta):
-    if is_on_floor():
-        thrown = false
-    if velocity.x < 1 and is_on_floor() and velocity.x > -1:
-        anim.play("a_idle")
-    if climbing == false:
-        velocity.y += get_gravity() * delta
-    elif climbing == true:
-        velocity.y = 0
-        if Input.is_action_pressed("player_climb1"):
-            velocity.y = -climb_speed
-            anim.play("a_climbing")
-        elif Input.is_action_pressed("player_down1"):
-            velocity.y = climb_speed
-            anim.play("a_climbing")
-        if (velocity.y == 0):
-            anim.play("a_climbingPause")
-    if thrown == false:
-        velocity.x = get_input_velocity() * move_speed
     
-    if Input.is_action_just_pressed("player_jump1") and is_on_floor() and climbing == false and canMove == true:
-        jump()
-    
-    if canMove == true:
-        velocity = move_and_slide(velocity, Vector2.UP)
+    if levelNotOver:
+        if is_on_floor():
+            thrown = false
+        if velocity.x < 1 and is_on_floor() and velocity.x > -1:
+            anim.play("a_idle")
+        if climbing == false:
+            velocity.y += get_gravity() * delta
+        elif climbing == true:
+            velocity.y = 0
+            if Input.is_action_pressed("player_climb1"):
+                velocity.y = -climb_speed
+                anim.play("a_climbing")
+            elif Input.is_action_pressed("player_down1"):
+                velocity.y = climb_speed
+                anim.play("a_climbing")
+            if (velocity.y == 0):
+                anim.play("a_climbingPause")
+        if thrown == false:
+            velocity.x = get_input_velocity() * move_speed
+        
+        if Input.is_action_just_pressed("player_jump1") and is_on_floor() and climbing == false and canMove == true:
+            jump()
+        
+        if canMove == true:
+            velocity = move_and_slide(velocity, Vector2.UP)
 
-    
-    
-    #if the player is on the ledge and they are holding down right trigger and they are on the floor 
-    #then they can't move and we will call another function later which 
-    #will allow the player jumping to them to grab on and launch themselves
-    if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending1") and is_on_floor():
-        canMove = false
-        velocity.x = 0
-        anim.play("a_lending")
-    else:
-        canMove = true
-        
-        #OKAY SO WE ARE HARD CODING VALUES HERE
-        #I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
-        #WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
-        #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
-        #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
-        #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
-    if Input.is_action_pressed("player_left1"):
-        playerRaycast.position.x =-16
-        lendingArea.position.x = -20
-    if Input.is_action_pressed("player_right1"):
-        playerRaycast.position.x = 18
-        lendingArea.position.x = 20
         
         
-                
-    #okay so this is supposed to be the code for if the other player comes into contact
-    #with this player while they are trying to throw them, then it will play an animation 
-    #BUT ITS NOT WORKING HOW I WANT IT TO, 
-    #its kinda working so it'll do for now
-    if playerRaycast.is_colliding() and Input.is_action_pressed("player_lending1") and is_on_floor():
-        canMove = false
-        velocity.x = 0
-        if throwing == false:
-            anim.play("a_p1_prepareThrow")
-        if backRaycast.is_colliding():
-            if backRaycast.get_collider() == player2Ref:
-                throwing = true
-                anim.play("a_p1_throw")
-                yield(anim,"animation_finished")
-                throwing = false
-                
-    if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == player2Ref and player2Ref.get("throwing") == true:
-        thrown = true
-        velocity.y = jump_velocity * 1.25
-        velocity.x = get_input_velocity() * 250
+        #if the player is on the ledge and they are holding down right trigger and they are on the floor 
+        #then they can't move and we will call another function later which 
+        #will allow the player jumping to them to grab on and launch themselves
+        if not playerRaycast.is_colliding() and Input.is_action_pressed("player_lending1") and is_on_floor():
+            canMove = false
+            velocity.x = 0
+            anim.play("a_lending")
+        else:
+            canMove = true
+            
+            #OKAY SO WE ARE HARD CODING VALUES HERE
+            #I COULDN'T FIGURE OUT ANOTHER WAY TO SOLVE THIS 
+            #WHATS HAPPENING IS THE PLAYERS RAYCAST IS NOT FLIPPING 
+            #AND WHEN I TRY TO IMPLEMENT A POSITION2D IT DOESNT WORK
+            #SO INSTEAD OF FLIPPING RELATIVE TO OTHER SHIT
+            #WE ARE JUST HARD CODING WHERE THE THE RAYCAST SHOULD BE DEPENDING ON IF THE PLAYER LAST MOVED LEFT OR RIGHT
+        if Input.is_action_pressed("player_left1"):
+            playerRaycast.position.x =-16
+            lendingArea.position.x = -20
+        if Input.is_action_pressed("player_right1"):
+            playerRaycast.position.x = 18
+            lendingArea.position.x = 20
+            
+            
+                    
+        #okay so this is supposed to be the code for if the other player comes into contact
+        #with this player while they are trying to throw them, then it will play an animation 
+        #BUT ITS NOT WORKING HOW I WANT IT TO, 
+        #its kinda working so it'll do for now
+        if playerRaycast.is_colliding() and Input.is_action_pressed("player_lending1") and is_on_floor():
+            canMove = false
+            velocity.x = 0
+            if throwing == false:
+                anim.play("a_p1_prepareThrow")
+            if backRaycast.is_colliding():
+                if backRaycast.get_collider() == player2Ref:
+                    throwing = true
+                    anim.play("a_p1_throw")
+                    yield(anim,"animation_finished")
+                    throwing = false
+                    
+        if forwardRaycast.is_colliding() and forwardRaycast.get_collider() == player2Ref and player2Ref.get("throwing") == true:
+            thrown = true
+            velocity.y = jump_velocity * 1.25
+            velocity.x = get_input_velocity() * 250
         
-#honestly i stole most of this code, this just works
+#honestly i used most of this code, this just works
 func get_gravity() -> float:
     return jump_gravity if velocity.y < 0.0 else fall_gravity
 
@@ -170,3 +173,8 @@ func _on_Death_zone_body_entered(body: Node) -> void:
 func _on_LendingArea_body_entered(body):
     if Input.is_action_pressed("player_lending1") and not is_on_floor() and player2Ref.get("canMove") == false and body.name == "Player2":
         velocity.y = jump_velocity
+
+
+func _on_Goal_PlayerMovement():
+    set_physics_process(false)
+    anim.play("a_idle")

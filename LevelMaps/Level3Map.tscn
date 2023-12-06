@@ -1040,9 +1040,10 @@ scale = Vector2( 3, 3 )
 
 [node name="PlayerUI" parent="." instance=ExtResource( 8 )]
 
-[connection signal="PlayerMovement" from="Goal" to="." method="_on_Goal_PlayerMovement"]
-[connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
-[connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
+[connection signal="PlayerMovement" from="Goal" to="Player1" method="_on_Goal_PlayerMovement"]
+[connection signal="PlayerMovement" from="Goal" to="Player2" method="_on_Goal_PlayerMovement"]
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_Goal_body_entered"]
+[connection signal="body_exited" from="Goal" to="Goal" method="_on_Goal_body_exited"]
 [connection signal="animation_finished" from="Goal/Fireworks/Explosionm" to="Goal" method="_on_Explosionm_animation_finished"]
 [connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
@@ -1059,3 +1060,4 @@ scale = Vector2( 3, 3 )
 [connection signal="body_entered" from="LavaPit1Collision" to="Player1" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="LavaPit1Collision" to="Player2" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="LavaPit1Collision" to="GameManager" method="_on_Death_zone_body_entered"]
+[connection signal="GemCount" from="PlayerUI" to="Goal" method="_on_PlayerUI_GemCount"]
