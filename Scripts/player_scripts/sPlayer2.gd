@@ -165,6 +165,7 @@ func _on_LendingArea_body_entered(body):
 
 func _on_Goal_PlayerMovement():
     set_physics_process(false)
-    anim.play("a_idle")
+    anim.play("a_p2_idle")
+    
 func _on_tramopline_body_entered(body: Node) -> void:
     anim.play("a_p2_jumping")
