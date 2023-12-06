@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Purple Portal Sprite Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Player1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Levelselect.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Levelselect.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_snow.png" type="Texture" id=5]
 [ext_resource path="res://Assets/pixopedia.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Layer 1.png" type="Texture" id=7]
