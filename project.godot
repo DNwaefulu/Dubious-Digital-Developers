@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Multiplayer-Platformer"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://LevelMaps/Level3Map.tscn"
 boot_splash/image="res://splash/DDD.png"
 config/icon="res://icon.png"
 

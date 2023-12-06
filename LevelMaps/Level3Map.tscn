@@ -1040,6 +1040,7 @@ scale = Vector2( 3, 3 )
 
 [node name="PlayerUI" parent="." instance=ExtResource( 8 )]
 
+[connection signal="PlayerMovement" from="Goal" to="." method="_on_Goal_PlayerMovement"]
 [connection signal="body_entered" from="Goal" to="GameManager" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="GameManager" method="_on_Goal_body_exited"]
 [connection signal="animation_finished" from="Goal/Fireworks/Explosionm" to="Goal" method="_on_Explosionm_animation_finished"]

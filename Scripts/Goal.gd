@@ -7,6 +7,8 @@ const Congrats = preload("res://Scenes/Congrats_Screen.tscn")
 var playerinGoal = 0
 var gemCount = 0
 
+signal PlayerMovement
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     pass # Replace with function body.
@@ -27,6 +29,7 @@ func _on_Explosionm_animation_finished():
         
     print("LEVELIUD:")
     print(LevelID)
+    
         
     if LevelID == 3:
         get_tree().change_scene_to(Congrats)
@@ -41,6 +44,7 @@ func _on_Goal_body_entered(body):
         print(playerinGoal)
     if playerinGoal == 2:
         if gemCount == 3:
+            emit_signal("PlayerMovement")
             $Fireworks/Explosionm.show()
             $Fireworks/Explosionm.play("default")
             $Fireworks/FireworkPlayer.play()
