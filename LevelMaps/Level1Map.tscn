@@ -817,6 +817,7 @@ stream = ExtResource( 23 )
 bus = "SFX"
 
 [node name="ToLeave" type="Label" parent="Goal"]
+visible = false
 margin_left = 292.0
 margin_top = -274.0
 margin_right = 771.0
