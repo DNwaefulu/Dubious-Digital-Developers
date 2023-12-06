@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/tilemap.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/movableplatform.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 31, 2 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "platform"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -100 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 147, 21.5 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Platform" type="AnimationPlayer" parent="."]
+root_node = NodePath("../KinematicBody2D")
+anims/RESET = SubResource( 3 )
+anims/platform = SubResource( 2 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 31, 2 )
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 22.5, -23 )
+scale = Vector2( 2.76471, 2.33333 )
+texture = ExtResource( 1 )
+hframes = 17
+vframes = 7
+
+[node name="Sprite2" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 69.5, -23 )
+scale = Vector2( 2.76471, 2.33333 )
+texture = ExtResource( 1 )
+hframes = 17
+vframes = 7
+
+[node name="Sprite4" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 169, -22.5 )
+scale = Vector2( 2.82353, 2.27778 )
+texture = ExtResource( 1 )
+hframes = 17
+vframes = 7
+
+[node name="Sprite3" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 119, -22.5 )
+scale = Vector2( 2.82353, 2.27778 )
+texture = ExtResource( 1 )
+hframes = 17
+vframes = 7
+
+[node name="Sprite5" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 219, -22 )
+scale = Vector2( 2.82353, 2.33333 )
+texture = ExtResource( 1 )
+hframes = 17
+vframes = 7
+
+[node name="Sprite6" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 268, -22 )
+scale = Vector2( 2.70588, 2.33333 )
+texture = ExtResource( 1 )
+hframes = 17
+vframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 145, -24.5 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )
