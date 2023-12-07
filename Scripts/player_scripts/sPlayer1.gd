@@ -165,7 +165,7 @@ func get_input_velocity() -> float:
 #that's set earlier in this script
 func _on_Death_zone_body_entered(body: Node) -> void:
     if (body == self):
-        position = player1_start_position
+        position = Checkpoint.last_position_first
 
 #THIS IS HOW LENDING WORKS NOW
 #since players can't collide with one another anymore, there is an 

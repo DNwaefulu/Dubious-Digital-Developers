@@ -44,6 +44,8 @@ func handle_selection(_current_selector):
     get_tree().paused = false
   elif _current_selector == 1:
     # warning-ignore:return_value_discarded
+    Checkpoint.last_position_first = Checkpoint.Start1
+    Checkpoint.last_position_second = Checkpoint.Start2
     get_tree().change_scene_to(main_menu)
     get_tree().paused = false
 
