@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/Dangerous-Descent.mp3" type="AudioStream" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://Scripts/Fireball_Movement/Fireball2.gd" type="Script" id=36]
 [ext_resource path="res://Assets/Level3 Assests/Platform8.gd" type="Script" id=37]
 [ext_resource path="res://Assets/Level3 Assests/Platform9.gd" type="Script" id=38]
+[ext_resource path="res://Scenes/Checkpointflag.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Assets/Level3 Assests/Platform10.gd" type="Script" id=40]
 
 [sub_resource type="RectangleShape2D" id=54]
@@ -2072,6 +2073,9 @@ position = Vector2( 3997, 1658 )
 
 [node name="tramopline3" parent="." instance=ExtResource( 16 )]
 position = Vector2( 4523, 685 )
+
+[node name="Area2D" parent="." instance=ExtResource( 39 )]
+position = Vector2( 1660, -10 )
 
 [connection signal="body_entered" from="Fireballs/Fireball" to="PlayerUI" method="_on_Fireball_body_entered"]
 [connection signal="body_entered" from="Fireballs/Fireball2" to="PlayerUI" method="_on_Fireball_body_entered"]

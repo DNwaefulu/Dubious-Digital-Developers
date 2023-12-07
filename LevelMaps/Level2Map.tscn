@@ -1006,7 +1006,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=39]
-extents = Vector2( 10, 10.8333 )
+extents = Vector2( 8.66669, 10.8333 )
 
 [sub_resource type="SpriteFrames" id=43]
 animations = [ {
@@ -1167,7 +1167,7 @@ anims/shoot = SubResource( 41 )
 position = Vector2( 9.66656, -6.16666 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet/Cactus"]
-position = Vector2( -0.333252, 4.5 )
+position = Vector2( -1.66656, 4.5 )
 shape = SubResource( 39 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bullet/Cactus"]
