@@ -8,7 +8,7 @@ extends KinematicBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayer.play("Platform 3")
+    $AnimationPlayer.play("Platform 3")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/Dangerous-Descent.mp3" type="AudioStream" id=2]
@@ -38,7 +38,6 @@
 [ext_resource path="res://Scripts/Fireball_Movement/Fireball2.gd" type="Script" id=36]
 [ext_resource path="res://Assets/Level3 Assests/Platform8.gd" type="Script" id=37]
 [ext_resource path="res://Assets/Level3 Assests/Platform9.gd" type="Script" id=38]
-[ext_resource path="res://Scripts/trampoline3.gd" type="Script" id=39]
 [ext_resource path="res://Assets/Level3 Assests/Platform10.gd" type="Script" id=40]
 
 [sub_resource type="RectangleShape2D" id=54]
@@ -1685,7 +1684,7 @@ position = Vector2( 2190, -632 )
 [node name="Moving_Platforms" type="Node" parent="."]
 
 [node name="Platform1" type="KinematicBody2D" parent="Moving_Platforms"]
-position = Vector2( 1295, 763 )
+position = Vector2( 1526, 990 )
 scale = Vector2( 2.5, 2.5 )
 script = ExtResource( 18 )
 __meta__ = {
@@ -2004,7 +2003,7 @@ position = Vector2( 3674, 1592 )
 position = Vector2( 2212, -768 )
 
 [node name="Death zone" parent="." instance=ExtResource( 9 )]
-position = Vector2( -89.9999, 1344 )
+position = Vector2( 790, 1353 )
 scale = Vector2( 1.369, 1.018 )
 
 [node name="LavaPit1Collision" type="Area2D" parent="."]
@@ -2066,14 +2065,13 @@ anims/RESET = SubResource( 52 )
 "anims/Stone platform" = SubResource( 53 )
 
 [node name="tramopline" parent="." instance=ExtResource( 16 )]
-position = Vector2( 643, -572 )
+position = Vector2( 989, 32 )
 
 [node name="tramopline2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 3654, 1061 )
+position = Vector2( 3997, 1658 )
 
 [node name="tramopline3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 3639, -427 )
-script = ExtResource( 39 )
+position = Vector2( 4523, 685 )
 
 [connection signal="body_entered" from="Fireballs/Fireball" to="PlayerUI" method="_on_Fireball_body_entered"]
 [connection signal="body_entered" from="Fireballs/Fireball2" to="PlayerUI" method="_on_Fireball_body_entered"]
@@ -2102,8 +2100,8 @@ script = ExtResource( 39 )
 [connection signal="body_entered" from="Death zone" to="Player2" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="GameManager" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone" to="PlayerUI" method="_on_Death_zone_body_entered"]
-[connection signal="body_entered" from="LavaPit1Collision" to="Player1" method="_on_LavaPit1Collision_body_entered"]
-[connection signal="body_entered" from="LavaPit1Collision" to="Player2" method="_on_LavaPit1Collision_body_entered"]
+[connection signal="body_entered" from="LavaPit1Collision" to="Player1" method="_on_Death_zone_body_entered"]
+[connection signal="body_entered" from="LavaPit1Collision" to="Player2" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="LavaPit1Collision" to="GameManager" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="LavaPit1Collision" to="PlayerUI" method="_on_Death_zone_body_entered"]
 [connection signal="LevelOver" from="GameManager" to="Goal" method="_on_GameManager_LevelOver"]

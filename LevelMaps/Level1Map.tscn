@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Assets/Rocky Roads/Tilesets/tileset_forest.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Player2.tscn" type="PackedScene" id=2]
@@ -18,7 +18,7 @@
 [ext_resource path="res://Assets/Audio/bgm/Grasslands Theme.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Assets/Level1Assets/water.tres" type="Texture" id=17]
 [ext_resource path="res://Scenes/Sign1.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Objects/trampoline.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/trampoline.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Assets/pink/4.png" type="Texture" id=20]
 [ext_resource path="res://Assets/pink/5.png" type="Texture" id=21]
 [ext_resource path="res://Assets/pink/7.png" type="Texture" id=22]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Assets/yellow/7.png" type="Texture" id=29]
 [ext_resource path="res://Assets/yellow/5.png" type="Texture" id=30]
 [ext_resource path="res://Assets/yellow/6.png" type="Texture" id=31]
+[ext_resource path="res://Scripts/trampoline.gd" type="Script" id=32]
 
 [sub_resource type="TileSet" id=39]
 0/name = "log_wall.png 0"
@@ -895,12 +896,15 @@ bus = "Music"
 
 [node name="tramopline" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1521, 34 )
+script = ExtResource( 32 )
 
 [node name="tramopline2" parent="." instance=ExtResource( 19 )]
 position = Vector2( -606, 37 )
+script = ExtResource( 32 )
 
 [node name="tramopline3" parent="." instance=ExtResource( 19 )]
 position = Vector2( 2042, 36 )
+script = ExtResource( 32 )
 
 [connection signal="GemC" from="." to="Goal" method="_on_Level1_GemC"]
 [connection signal="PlayerMovement" from="Goal" to="Player1" method="_on_Goal_PlayerMovement"]

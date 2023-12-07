@@ -11,17 +11,17 @@ onready var gemGetSprite = $gemGet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	anim.play("rotate")
+    anim.play("rotate")
 
 
 func _on_Area2D_body_entered(_body: Node) -> void:
-	$CollisionShape2D.queue_free()
-	stream.play()
-	#$CollisionShape2D.disabled = true
-	print("disabled")
-	$GemSprite.visible = false
-	gemGetSprite.visible = true
-	gemGetAnim.play("GemGet")
-	yield(gemGetAnim,"animation_finished")
-	queue_free()
-	
+    $CollisionShape2D.queue_free()
+    stream.play()
+    #$CollisionShape2D.disabled = true
+    print("disabled")
+    $GemSprite.visible = false
+    gemGetSprite.visible = true
+    gemGetAnim.play("GemGet")
+    yield(gemGetAnim,"animation_finished")
+    queue_free()
+    
