@@ -9,7 +9,7 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$FireballSprite/AnimationPlayer.play("Fireball")
-	$AnimationPlayer2.play("Fireball2")
+	#$AnimationPlayer2.play("Fireball2")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=106 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/Dangerous-Descent.mp3" type="AudioStream" id=2]
@@ -38,82 +38,6 @@
 [ext_resource path="res://Scripts/Fireball_Movement/Fireball2.gd" type="Script" id=36]
 [ext_resource path="res://Assets/Level3 Assests/Platform8.gd" type="Script" id=37]
 [ext_resource path="res://Assets/Level3 Assests/Platform9.gd" type="Script" id=38]
-
-[sub_resource type="Animation" id=101]
-resource_name = "Fireball1"
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1275, -692 ), Vector2( 1275, -427 ), Vector2( 1275, -692 ) ]
-}
-
-[sub_resource type="Animation" id=98]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1275, -692 ) ]
-}
-
-[sub_resource type="Animation" id=99]
-resource_name = "Fireball2"
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1362, -427 ), Vector2( 1362, -692 ), Vector2( 1362, -427 ) ]
-}
-
-[sub_resource type="Animation" id=100]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1275, -652 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../Fireball2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1362, -492 ) ]
-}
 
 [sub_resource type="RectangleShape2D" id=54]
 extents = Vector2( 40, 19.75 )
@@ -264,10 +188,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 5, 5.9, 10 ),
+"times": PoolRealArray( 0, 1, 5, 6, 10 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1689, -522 ), Vector2( 1689, -522 ), Vector2( 1689, -717 ), Vector2( 1689, -717 ), Vector2( 1689, -522 ) ]
+"values": [ Vector2( 1689, -717 ), Vector2( 1689, -717 ), Vector2( 1689, -522 ), Vector2( 1689, -522 ), Vector2( 1689, -717 ) ]
 }
 
 [sub_resource type="Animation" id=75]
@@ -299,7 +223,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 5, 6, 10 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1193, -491 ), Vector2( 1193, -491 ), Vector2( 1540, -487 ), Vector2( 1540, -487 ), Vector2( 1193, -491 ) ]
+"values": [ Vector2( 1060, -487 ), Vector2( 1060, -487 ), Vector2( 1540, -487 ), Vector2( 1540, -487 ), Vector2( 1060, -487 ) ]
 }
 
 [sub_resource type="Animation" id=90]
@@ -1683,20 +1607,12 @@ centered = false
 [node name="Fireballs" type="Node" parent="."]
 
 [node name="Fireball" parent="Fireballs" instance=ExtResource( 31 )]
-position = Vector2( 1275, -692 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fireballs/Fireball"]
-anims/Fireball1 = SubResource( 101 )
-anims/RESET = SubResource( 98 )
+position = Vector2( 1214, -756 )
 
 [node name="Fireball2" parent="Fireballs" instance=ExtResource( 31 )]
-position = Vector2( 1362, -492 )
+position = Vector2( 1289, -760 )
 scale = Vector2( 1.04977, 1 )
 script = ExtResource( 36 )
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Fireballs/Fireball2"]
-anims/Fireball2 = SubResource( 99 )
-anims/RESET = SubResource( 100 )
 
 [node name="Fireball3" parent="Fireballs" instance=ExtResource( 31 )]
 position = Vector2( 1498, -1008 )
@@ -1993,10 +1909,10 @@ one_way_collision = true
 [node name="Timer1" type="Timer" parent="TileMap"]
 
 [node name="Player1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 67, 66 )
+position = Vector2( 54, 81 )
 
 [node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 6 )]
-position = Vector2( 230, 78 )
+position = Vector2( 151, 80 )
 
 [node name="Goal" parent="." instance=ExtResource( 7 )]
 position = Vector2( 4449, -148 )
