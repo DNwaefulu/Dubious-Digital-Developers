@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="Multiplayer-Platformer"
 run/main_scene="res://Scenes/MainMenu.tscn"
+boot_splash/image="res://splash/DDD.png"
 config/icon="res://icon.png"
 
 [autoload]
