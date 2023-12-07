@@ -1172,7 +1172,6 @@ shape = SubResource( 39 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bullet/Cactus"]
 frames = SubResource( 43 )
-frame = 3
 playing = true
 
 [node name="Bullet" type="Area2D" parent="Bullet"]
@@ -1603,7 +1602,7 @@ margin_bottom = -240.0
 rect_min_size = Vector2( -100, 0 )
 rect_scale = Vector2( -1, 1 )
 custom_fonts/font = ExtResource( 37 )
-text = "Press 'Interact' to leave"
+text = "Press Interact to leave"
 
 [connection signal="GemC" from="." to="Goal" method="_on_Level1_GemC"]
 [connection signal="body_entered" from="Ladder2" to="Ladder2" method="_on_Ladder_body_entered"]

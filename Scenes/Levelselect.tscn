@@ -886,11 +886,11 @@ margin_bottom = 115.0
 
 [node name="Press Enter" type="Label" parent="CenterContainer"]
 margin_top = 3.0
-margin_right = 563.0
+margin_right = 623.0
 margin_bottom = 37.0
 custom_colors/font_color = Color( 0.0745098, 0.0823529, 0.623529, 1 )
 custom_fonts/font = ExtResource( 14 )
-text = "Press Enter to select a Level"
+text = "Press Interact to select a Level"
 
 [connection signal="body_entered" from="forest-level/Level1" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="forest-level/Level1" to="." method="_on_Area2D_body_exited"]

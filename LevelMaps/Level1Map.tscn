@@ -826,7 +826,7 @@ margin_bottom = -240.0
 rect_min_size = Vector2( -100, 0 )
 rect_scale = Vector2( -1, 1 )
 custom_fonts/font = ExtResource( 27 )
-text = "Press 'Interact' to leave"
+text = "Press Interact to leave"
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 5 )
