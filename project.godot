@@ -22,7 +22,6 @@ _global_script_class_icons={
 
 config/name="Multiplayer-Platformer"
 run/main_scene="res://Scenes/MainMenu.tscn"
-boot_splash/image="res://splash/DDD.png"
 config/icon="res://icon.png"
 
 [autoload]
@@ -31,6 +30,10 @@ Checkpoint="*res://Scripts/Checkpoint.gd"
 GlobalSettings="*res://Scripts/GlobalSettings.gd"
 LevelVariables="*res://Scripts/LevelVariables.gd"
 Save="*res://Scripts/Save.gd"
+
+[display]
+
+window/stretch/mode="2d"
 
 [gui]
 
