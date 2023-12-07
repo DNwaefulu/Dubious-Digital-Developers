@@ -91,3 +91,7 @@ func _on_Explosionm2_animation_finished():
     F2.speed_scale = rng.randf_range(0.4, 1)
     #F2.position = Vector2(rng.randf_range(-86, 86), rng.randf_range(-111, -186))
     rng.randomize() 
+
+
+func _on_PlayerUI_GemC():
+    gemCount = 3

@@ -1172,7 +1172,6 @@ shape = SubResource( 39 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bullet/Cactus"]
 frames = SubResource( 43 )
-frame = 2
 playing = true
 
 [node name="Bullet" type="Area2D" parent="Bullet"]
@@ -1435,7 +1434,7 @@ script = ExtResource( 9 )
 position = Vector2( 3924, -480 )
 
 [node name="Gem2" parent="Gems" instance=ExtResource( 1 )]
-position = Vector2( 2123, 124 )
+position = Vector2( 5526, -95 )
 
 [node name="Gem" parent="Gems" instance=ExtResource( 1 )]
 position = Vector2( 2925, 44 )
@@ -1679,6 +1678,7 @@ text = "Press 'Interact' to leave"
 [connection signal="body_entered" from="Death zone2" to="Player2" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone2" to="GameManager" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="Death zone2" to="PlayerUI" method="_on_Death_zone_body_entered"]
+[connection signal="GemC" from="PlayerUI" to="Goal" method="_on_PlayerUI_GemC"]
 [connection signal="body_entered" from="Button" to="MP" method="_on_Button_body_entered"]
 [connection signal="PlayerMovement" from="Goal" to="Player1" method="_on_Goal_PlayerMovement"]
 [connection signal="PlayerMovement" from="Goal" to="Player2" method="_on_Goal_PlayerMovement"]
