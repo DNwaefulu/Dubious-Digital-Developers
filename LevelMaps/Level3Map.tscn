@@ -2045,7 +2045,7 @@ script = ExtResource( 46 )
 position = Vector2( 3997, 1658 )
 
 [node name="tramopline3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 4523, 685 )
+position = Vector2( 4006, 177 )
 
 [node name="CP" parent="." instance=ExtResource( 39 )]
 position = Vector2( 1675, -10 )
@@ -2115,6 +2115,8 @@ text = "Press Interact to leave"
 [connection signal="body_entered" from="LavaPit1Collision" to="GameManager" method="_on_Death_zone_body_entered"]
 [connection signal="body_entered" from="LavaPit1Collision" to="PlayerUI" method="_on_Death_zone_body_entered"]
 [connection signal="GemCount" from="PlayerUI" to="LavaTile" method="_on_PlayerUI_GemCount"]
+[connection signal="PlayerMovement" from="Goal" to="Player1" method="_on_Goal_PlayerMovement"]
+[connection signal="PlayerMovement" from="Goal" to="Player2" method="_on_Goal_PlayerMovement"]
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="Goal" method="_on_Goal_body_exited"]
 [connection signal="animation_finished" from="Goal/Fireworks/Explosionm2" to="Goal" method="_on_Explosionm2_animation_finished"]

@@ -100,7 +100,7 @@ func _on_timer_timeout():
     # This function is called when the timer expires
     delay_timer.stop()  # Stop the timer to allow scrolling to begin
 
-onready var credit = $Label
+#onready var credit = $Label
 
 func _on_TextureButton_pressed():
     # warning-ignore:return_value_discarded
