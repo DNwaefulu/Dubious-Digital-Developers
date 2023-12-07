@@ -27,11 +27,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GlobalSettings="*res://Scripts/GlobalSettings.gd"
-Save="*res://Scripts/Save.gd"
-LevelVariables="*res://Scripts/LevelVariables.gd"
 Checkpoint="*res://Scripts/Checkpoint.gd"
-window/stretch/aspect="keep"
+GlobalSettings="*res://Scripts/GlobalSettings.gd"
+LevelVariables="*res://Scripts/LevelVariables.gd"
+Save="*res://Scripts/Save.gd"
 
 [gui]
 
