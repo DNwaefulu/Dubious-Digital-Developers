@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/Dangerous-Descent.mp3" type="AudioStream" id=2]
@@ -46,6 +46,8 @@
 [ext_resource path="res://Assets/yellow/6.png" type="Texture" id=44]
 [ext_resource path="res://Assets/yellow/4.png" type="Texture" id=45]
 [ext_resource path="res://Scripts/trampoline.gd" type="Script" id=46]
+[ext_resource path="res://Assets/Rocky Roads/Backgrounds/desert_b2.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Rocky Roads/Backgrounds/mountains_b2.png" type="Texture" id=48]
 
 [sub_resource type="RectangleShape2D" id=54]
 extents = Vector2( 40, 19.75 )
@@ -1613,7 +1615,16 @@ __meta__ = {
 motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 1408, 984.064 )
 
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/Level 3 Background"]
+position = Vector2( -2661, -1763 )
+scale = Vector2( 32.8477, 27.75 )
+texture = ExtResource( 47 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 128 )
+
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Level 3 Background"]
+visible = false
 position = Vector2( -1, -633 )
 scale = Vector2( 15, 17 )
 texture = ExtResource( 4 )
@@ -1624,9 +1635,17 @@ motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 1408, 984.064 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Volcano Mountains"]
+visible = false
 position = Vector2( -1, -632 )
 scale = Vector2( 5.5, 7.688 )
 texture = ExtResource( 8 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/Volcano Mountains"]
+visible = false
+position = Vector2( -1, -632 )
+scale = Vector2( 5.5, 7.688 )
+texture = ExtResource( 48 )
 centered = false
 
 [node name="Fireballs" type="Node" parent="."]
@@ -2043,6 +2062,7 @@ script = ExtResource( 46 )
 
 [node name="tramopline2" parent="." instance=ExtResource( 16 )]
 position = Vector2( 3997, 1658 )
+script = ExtResource( 46 )
 
 [node name="tramopline3" parent="." instance=ExtResource( 16 )]
 position = Vector2( 4006, 177 )
@@ -2102,8 +2122,8 @@ text = "Press Interact to leave"
 [connection signal="timeout" from="TileMap/Timer1" to="TileMap/KinematicBody2D" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Gems/Gem1" to="GameManager" method="_on_Gem1_body_entered"]
 [connection signal="body_entered" from="Gems/Gem1" to="PlayerUI" method="_on_Gem_body_entered"]
-[connection signal="body_entered" from="Gems/Gem2" to="." method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem2" to="GameManager" method="_on_Gem2_body_entered"]
+[connection signal="body_entered" from="Gems/Gem2" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem" to="." method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Gems/Gem" to="PlayerUI" method="_on_Gem_body_entered"]
 [connection signal="body_entered" from="Death zone" to="Player1" method="_on_Death_zone_body_entered"]
