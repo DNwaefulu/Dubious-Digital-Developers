@@ -42,6 +42,8 @@ func handle_selection(_current_selector):
   elif _current_selector == 1:
     self.is_paused =  false
     # warning-ignore:return_value_discarded
+    Checkpoint.last_position_first = Checkpoint.Start1
+    Checkpoint.last_position_second = Checkpoint.Start2
     get_tree().change_scene_to(main_menu)
 
 func set_current_selection(_current_selection):

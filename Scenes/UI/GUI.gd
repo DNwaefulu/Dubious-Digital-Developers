@@ -17,7 +17,6 @@ func _on_Gem_body_entered(_body):
 
 func _on_Death_zone_body_entered(body):
     if body.is_in_group("Climber"):
-        print("death signal")
         emit_signal("Death")
 
 

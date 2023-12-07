@@ -735,12 +735,6 @@ position = Vector2( 3.51561, 12.8141 )
 scale = Vector2( 1.00146, 1.01173 )
 texture = ExtResource( 10 )
 
-[node name="Player1" parent="." groups=["1"] instance=ExtResource( 2 )]
-position = Vector2( 79, 463 )
-
-[node name="Player2" parent="." groups=["2"] instance=ExtResource( 3 )]
-position = Vector2( 25, 460 )
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
@@ -820,6 +814,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lava-level/lavaarea"]
 position = Vector2( 5.96347, 4.39108 )
 shape = SubResource( 16 )
+
+[node name="Player1" parent="." groups=["1"] instance=ExtResource( 2 )]
+position = Vector2( 79, 463 )
+
+[node name="Player2" parent="." groups=["2"] instance=ExtResource( 3 )]
+position = Vector2( 25, 460 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 3.0

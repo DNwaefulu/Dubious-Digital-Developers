@@ -1,6 +1,6 @@
 extends Node2D
 
-
+signal GemC
 
 
 func _on_TextureButton_pressed():
@@ -8,10 +8,19 @@ func _on_TextureButton_pressed():
         print("Error!")
     queue_free()
 
-#func _process(_delta):
-#    if Input.is_action_just_pressed("ui_cancel"):
-    # warning-ignore:return_value_discarded
- #       if get_tree().change_scene("res://Scenes/MainMenu.tscn") != OK:
-  #          print("Error!")
-   #     queue_free()
+func _process(_delta):
+    if Input.is_action_just_pressed("Debug"):
+        print("DEBUG")
+        var P1 = $Player1
+        var P2 = $Player2
+        P1.position = Vector2(4500, -200)
+        P2.position = Vector2(4500, -200)
+        print("emitC")
+        emit_signal("GemC")
 
+
+
+func _on_Gem_body_entered(_body):
+    pass # Replace with function body.
+    
+    

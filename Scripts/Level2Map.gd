@@ -1,7 +1,19 @@
 extends Node2D
 
-func _enter_tree():
-    if Checkpoint.last_position_first:
-        $Player1.global_position = Checkpoint.last_position_first
-    elif Checkpoint.last_position_second:
-        $Player2.global_position = Checkpoint.last_position_second
+signal GemC
+
+#func _process(_delta):
+    #if Input.is_action_just_pressed("ui_cancel"):
+    # warning-ignore:return_value_discarded
+        #if get_tree().change_scene("res://Scenes/MainMenu.tscn") != OK:
+            #print("Error!")
+        #queue_free()
+
+func _process(_delta):
+    if Input.is_action_just_pressed("Debug"):
+        print("DEBUG")
+        var P1 = $Player1
+        var P2 = $Player2
+        P1.position = Vector2(5900, -100)
+        P2.position = Vector2(5900, -100)
+        emit_signal("GemC")

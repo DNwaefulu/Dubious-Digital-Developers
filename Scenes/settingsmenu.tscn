@@ -74,7 +74,7 @@ margin_right = 270.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
 max_value = 1.0
-step = 0.001
+step = 0.01
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
 margin_top = 75.0
@@ -95,7 +95,7 @@ margin_right = 271.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
 max_value = 1.0
-step = 0.001
+step = 0.01
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
 margin_top = 150.0
@@ -116,7 +116,7 @@ margin_right = 272.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
 max_value = 1.0
-step = 0.001
+step = 0.01
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/Audiosettings/VBoxContainer"]
 margin_top = 225.0

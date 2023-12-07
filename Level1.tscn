@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Players/Player1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Ladder.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/trampoline.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/trampoline.tscn" type="PackedScene" id=8]
 [ext_resource path="res://DP.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
