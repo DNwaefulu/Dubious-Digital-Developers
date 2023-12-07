@@ -1685,7 +1685,7 @@ position = Vector2( 2190, -632 )
 [node name="Moving_Platforms" type="Node" parent="."]
 
 [node name="Platform1" type="KinematicBody2D" parent="Moving_Platforms"]
-position = Vector2( 1295, 763 )
+position = Vector2( 1526, 990 )
 scale = Vector2( 2.5, 2.5 )
 script = ExtResource( 18 )
 __meta__ = {
