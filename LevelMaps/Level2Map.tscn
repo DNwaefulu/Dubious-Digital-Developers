@@ -1172,7 +1172,7 @@ shape = SubResource( 39 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bullet/Cactus"]
 frames = SubResource( 43 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Bullet" type="Area2D" parent="Bullet"]

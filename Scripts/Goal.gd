@@ -74,6 +74,7 @@ func _on_PlayerUI_GemCount():
 
 func _on_Level1_GemC():
     gemCount = 3
+    print("GC")
 
 
 func _on_Explosionm_animation_finished():
