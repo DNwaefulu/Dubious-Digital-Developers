@@ -1058,7 +1058,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=36]
-extents = Vector2( 147, 21.5 )
+extents = Vector2( 171.5, 21.5 )
 
 [sub_resource type="SpriteFrames" id=47]
 animations = [ {
@@ -1172,6 +1172,7 @@ shape = SubResource( 39 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bullet/Cactus"]
 frames = SubResource( 43 )
+frame = 4
 playing = true
 
 [node name="Bullet" type="Area2D" parent="Bullet"]
@@ -1534,21 +1535,28 @@ hframes = 17
 vframes = 7
 
 [node name="Sprite5" type="Sprite" parent="MP/KinematicBody2D"]
-position = Vector2( 219, -22 )
+position = Vector2( 219, -23 )
 scale = Vector2( 2.82353, 2.33333 )
 texture = ExtResource( 3 )
 hframes = 17
 vframes = 7
 
 [node name="Sprite6" type="Sprite" parent="MP/KinematicBody2D"]
-position = Vector2( 268, -22 )
+position = Vector2( 268, -23 )
 scale = Vector2( 2.70588, 2.33333 )
 texture = ExtResource( 3 )
 hframes = 17
 vframes = 7
 
+[node name="Sprite7" type="Sprite" parent="MP/KinematicBody2D"]
+position = Vector2( 316.5, -23 )
+scale = Vector2( 2.76471, 2.33333 )
+texture = ExtResource( 3 )
+hframes = 17
+vframes = 7
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MP/KinematicBody2D"]
-position = Vector2( 145, -24.5 )
+position = Vector2( 169.5, -24.5 )
 shape = SubResource( 36 )
 
 [node name="tramopline" parent="." instance=ExtResource( 34 )]

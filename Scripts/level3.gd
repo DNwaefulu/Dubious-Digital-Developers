@@ -7,6 +7,12 @@ func _on_TextureButton_pressed():
     if get_tree().change_scene("res://Scenes/MainMenu.tscn") != OK:
         print("Error!")
     queue_free()
+    
+#func _enter_tree():
+ #   if Checkpoint.last_position_first:
+  #      $Player1.global_position = Checkpoint.last_position_first
+   # if Checkpoint.last_position_first:
+    #    $Player1.global_position = Checkpoint.last_position_first   
 
 func _process(_delta):
     if Input.is_action_just_pressed("Debug"):

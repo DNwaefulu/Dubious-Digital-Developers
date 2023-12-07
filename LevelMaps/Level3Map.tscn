@@ -1958,10 +1958,10 @@ one_way_collision = true
 
 [node name="Timer1" type="Timer" parent="TileMap"]
 
-[node name="Player1" parent="." instance=ExtResource( 5 )]
+[node name="Player1" parent="." groups=["1"] instance=ExtResource( 5 )]
 position = Vector2( 53, 84 )
 
-[node name="Player2" parent="." groups=["Climber"] instance=ExtResource( 6 )]
+[node name="Player2" parent="." groups=["2", "Climber"] instance=ExtResource( 6 )]
 position = Vector2( 126, 82 )
 
 [node name="Gems" type="Node" parent="."]
@@ -2048,7 +2048,7 @@ position = Vector2( 3997, 1658 )
 position = Vector2( 4523, 685 )
 
 [node name="CP" parent="." instance=ExtResource( 39 )]
-position = Vector2( 1660, -10 )
+position = Vector2( 1675, -10 )
 
 [node name="Goal" parent="." instance=ExtResource( 7 )]
 position = Vector2( 4608, -148 )
