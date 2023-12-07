@@ -9,6 +9,8 @@ var gemCount = 0
 var rng1 = RandomNumberGenerator.new()
 var rng = RandomNumberGenerator.new()
 
+var isGoal = false
+
 signal PlayerMovement
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +18,7 @@ func _ready() -> void:
     pass # Replace with function body.
     
 func _process(_delta):
-    if Input.is_action_pressed("ui_accept"):
+    if Input.is_action_pressed("ui_accept") and isGoal:
         # warning-ignore:return_value_discarded
         var LevelID = get_parent().to_string()[5].to_int()
         if (LevelVariables.currLevel) == LevelID:
@@ -56,6 +58,8 @@ func _on_Goal_body_entered(body):
             
             $Fireworks/Explosionm2.show()
             $Fireworks/Explosionm2.play("default")
+            
+            isGoal = true
             
 
 
