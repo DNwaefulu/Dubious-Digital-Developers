@@ -30,10 +30,7 @@ config/icon="res://icon.png"
 GlobalSettings="*res://Scripts/GlobalSettings.gd"
 Save="*res://Scripts/Save.gd"
 LevelVariables="*res://Scripts/LevelVariables.gd"
-
-[display]
-
-window/stretch/mode="viewport"
+Checkpoint="*res://Scripts/Checkpoint.gd"
 window/stretch/aspect="keep"
 
 [gui]

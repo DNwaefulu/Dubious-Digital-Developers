@@ -39,6 +39,8 @@ func handle_selection(_current_selector):
     # warning-ignore:return_value_discarded
     var currentlvl = load("res://LevelMaps/"+ str(get_tree().get_current_scene().get_name()) + "Map.tscn")
     get_tree().change_scene_to(currentlvl)
+    Checkpoint.last_position_first = Vector2(80,50)
+    Checkpoint.last_position_second = Vector2(40,50)
     get_tree().paused = false
   elif _current_selector == 1:
     # warning-ignore:return_value_discarded
