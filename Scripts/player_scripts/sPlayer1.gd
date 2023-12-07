@@ -67,8 +67,12 @@ func _physics_process(delta):
 		velocity.y = 0
 		if Input.is_action_pressed("player_climb1"):
 			velocity.y = -climb_speed
+			anim.play("a_climbing")
 		elif Input.is_action_pressed("player_down1"):
 			velocity.y = climb_speed
+			anim.play("a_climbing")
+		if (velocity.y == 0):
+			anim.play("a_climbingPause")
 	if thrown == false:
 		velocity.x = get_input_velocity() * move_speed
 	
@@ -166,11 +170,3 @@ func _on_Death_zone_body_entered(body: Node) -> void:
 func _on_LendingArea_body_entered(body):
 	if Input.is_action_pressed("player_lending1") and not is_on_floor() and player2Ref.get("canMove") == false and body.name == "Player2":
 		velocity.y = jump_velocity
-
-
-func _on_KinematicBody2D6_PlayerEntered(area):
-	pass # Replace with function body.
-
-
-func _on_KinematicBody2D6_PlayerExited(area):
-	pass # Replace with function body.

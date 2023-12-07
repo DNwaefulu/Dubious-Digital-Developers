@@ -6,7 +6,6 @@
 extents = Vector2( 28, 11 )
 
 [sub_resource type="StreamTexture" id=2]
-flags = 4
 load_path = "res://.import/bounce pad.png-59c6c1b22dfc7f77faab4cbdf67f1dee.stex"
 
 [node name="tramopline" type="Area2D"]

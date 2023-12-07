@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Rocky Roads/Enemies/fireball.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Fireball_Movement/Fireball.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.5, 23 )
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 13.5
+height = 21.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "Fireball"
@@ -16,18 +18,34 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Fireball_Sprite"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
 }
 
 [node name="Fireball" type="Area2D"]
 position = Vector2( -2, -4 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.5, -2 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="FireballSprite" type="Sprite" parent="."]
 rotation = -4.72984
@@ -37,3 +55,4 @@ hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FireballSprite"]
 anims/Fireball = SubResource( 2 )
+anims/Fireball_Sprite = SubResource( 3 )
