@@ -33,6 +33,11 @@ LevelVariables="*res://Scripts/LevelVariables.gd"
 Checkpoint="*res://Scripts/Checkpoint.gd"
 window/stretch/aspect="keep"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

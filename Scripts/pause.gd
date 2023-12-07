@@ -41,6 +41,8 @@ func handle_selection(_current_selector):
     self.is_paused =  false
   elif _current_selector == 1:
     self.is_paused =  false
+    Checkpoint.last_position_first = Vector2(80,50)
+    Checkpoint.last_position_second = Vector2(40,50)
     # warning-ignore:return_value_discarded
     get_tree().change_scene_to(main_menu)
 
