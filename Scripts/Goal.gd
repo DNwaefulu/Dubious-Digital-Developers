@@ -15,7 +15,7 @@ signal PlayerMovement
 func _ready() -> void:
     pass # Replace with function body.
     
-func _process(delta):
+func _process(_delta):
     if Input.is_action_pressed("ui_accept"):
         # warning-ignore:return_value_discarded
         var LevelID = get_parent().to_string()[5].to_int()
@@ -69,7 +69,7 @@ func _on_PlayerUI_GemCount():
 
 
 func _on_Level1_GemC():
-    gemCount = 2
+    gemCount = 3
 
 
 func _on_Explosionm_animation_finished():
